@@ -233,20 +233,6 @@ public class BaseModelORM {
 
         total.append(this.selectQueryString);
 
-//        for (Field f : getClass().getDeclaredFields())
-//        {
-//            try {
-//                if (f.getName().compareTo("tableNme") != 0 && f.getName() != "tableName"){
-//
-//                    fields.add(f.getName());  //On étbalit les valeurs des chmaps comme des strings
-//
-//                }
-//            }
-//            catch (Exception e){
-//                System.out.println(e);
-//            }
-//        }
-
         total.append(String.join(",", fields));
         total.append(" FROM ");
         total.append(this.getTableName());

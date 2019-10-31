@@ -147,24 +147,6 @@ public class Database {
                 {
                     BaseModelORM _newObject = (BaseModelORM) Class.forName(_object.getClass().getName()).newInstance();
                     resultat.add(_newObject.populate(rs, fields));
-
-//                    Users item = new Users();
-//                    Integer id = rs.getInt("id");
-//                    String name = rs.getString("name");
-//                    String firstname = rs.getString("firstName");
-//                    String email = rs.getString("email");
-//                    item.setId(id);
-//                    item.setName(name);
-//                    item.setFirstName(firstname);
-//                    item.setEmail(email);
-
-                    //Déclaration de la variable impératiement ici pour permettre de récup les données, a voir pour faire cela dans un tableau
-//                    item[0] = id;
-//                    item[1] = name;
-//                    item[2] = firstname;
-//                    item[3] = email;
-
-//                    resultat.add(item);
                 }
 
                 System.out.println("[DB] Statement ran.");
@@ -178,9 +160,7 @@ public class Database {
 
             System.out.println("[DB] Existing Select");
         }
-
         return resultat;
-
     }
 
     public static void remove(BaseModelORM _object, Integer id){
@@ -284,44 +264,5 @@ public class Database {
 
         return resultat;
     }
-
-//    public static BaseModelORM selectId(BaseModelORM _object){
-//        System.out.println("[DB] Entering SELECT");
-//
-//        connect();
-//
-//        if (db != null) {
-//            System.out.println("[DB] Got connection , Preparing statement");
-//
-//            PreparedStatement _selectQuery = _object.getSelectIdQuery(db);
-//
-//            try
-//            {
-//
-//                ResultSet rs = _selectQuery.executeQuery();
-//
-//                while (rs.next()){
-//                    System.out.println(
-//                            rs.getString("name")
-//                                    + " " + rs.getString("firstName")
-//                                    + " " + rs.getString("email")
-//                    );
-//                }
-//
-//                System.out.println("[DB] Statement ran.");
-//
-//            } catch (Exception e) {
-//
-//                e.printStackTrace();
-//            }
-//
-////            close();
-//
-//            System.out.println("[DB] Existing Select Id");
-//        }
-//
-//        return _object;
-//    }
-
 
 }
