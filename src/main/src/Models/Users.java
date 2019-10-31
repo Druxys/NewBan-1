@@ -1,5 +1,6 @@
 package Models;
 
+
 public class Users extends BaseModelORM{
 
     private Integer id;

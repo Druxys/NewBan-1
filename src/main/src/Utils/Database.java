@@ -3,6 +3,8 @@ package Utils;
 import Models.BaseModelORM;
 import Models.Users;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -124,18 +126,18 @@ public class Database {
 
     }
 
-    public static List<Users> select(BaseModelORM _object){
+    public static List select(BaseModelORM _object, ArrayList<String> fields){
 
         System.out.println("[DB] Entering SELECT");
 
         connect();
 
-        List<Users> resultat = new ArrayList<>();
+        List resultat = new ArrayList<>();
 
         if (db != null) {
             System.out.println("[DB] Got connection , Preparing statement");
 
-            PreparedStatement _selectQuery = _object.getSelectQuery(db);
+            PreparedStatement _selectQuery = _object.getSelectQuery(db, fields);
 
             try {
 
@@ -143,15 +145,18 @@ public class Database {
 
                 while (rs.next())
                 {
-                    Users item = new Users();
-                    Integer id = rs.getInt("id");
-                    String name = rs.getString("name");
-                    String firstname = rs.getString("firstName");
-                    String email = rs.getString("email");
-                    item.setId(id);
-                    item.setName(name);
-                    item.setFirstName(firstname);
-                    item.setEmail(email);
+                    BaseModelORM _newObject = (BaseModelORM) Class.forName(_object.getClass().getName()).newInstance();
+                    resultat.add(_newObject.populate(rs, fields));
+
+//                    Users item = new Users();
+//                    Integer id = rs.getInt("id");
+//                    String name = rs.getString("name");
+//                    String firstname = rs.getString("firstName");
+//                    String email = rs.getString("email");
+//                    item.setId(id);
+//                    item.setName(name);
+//                    item.setFirstName(firstname);
+//                    item.setEmail(email);
 
                     //Déclaration de la variable impératiement ici pour permettre de récup les données, a voir pour faire cela dans un tableau
 //                    item[0] = id;
@@ -159,7 +164,7 @@ public class Database {
 //                    item[2] = firstname;
 //                    item[3] = email;
 
-                    resultat.add(item);
+//                    resultat.add(item);
                 }
 
                 System.out.println("[DB] Statement ran.");
