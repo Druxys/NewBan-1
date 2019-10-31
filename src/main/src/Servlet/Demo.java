@@ -2,6 +2,7 @@ package Servlet;
 
 import Models.Users;
 import Utils.Database;
+import Utils.Messages;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,6 +24,8 @@ public class Demo extends HttpServlet {
         Users myuser = new Users();
         List var = Database.select(myuser);
         System.out.println(var);
+
+        Messages.sendMessage("test", "allo", "alexandrefy@wanadoo.fr", "theluffy@hotmail.fr");
 
         request.setAttribute("res", var);
 
