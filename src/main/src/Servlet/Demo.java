@@ -2,6 +2,7 @@ package Servlet;
 
 import Models.Users;
 import Utils.Database;
+import Utils.Filtre;
 import Utils.Messages;
 
 import javax.servlet.ServletException;
@@ -23,11 +24,14 @@ public class Demo extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         Users myuser = new Users();
-        ArrayList<String> fields = new ArrayList<String>();
-        fields.add("id");
-        fields.add("name");
-        fields.add("firstName");
-        fields.add("email");
+        ArrayList fields = new ArrayList();
+        Filtre.add(fields,"=", "email", "michel@exemple.com");
+        Filtre.add(fields,"<", "name", "michel");
+        System.out.println(fields);
+//        fields.add("name");
+//        fields.add("id");
+//        fields.add("firstName");
+//        fields.add("email");
         List var = Database.select(myuser, fields);
         System.out.println(var);
 

@@ -260,8 +260,6 @@ public class Database {
 
             System.out.println("[DB] Existing Select Id");
         }
-
-
         return resultat;
     }
 
