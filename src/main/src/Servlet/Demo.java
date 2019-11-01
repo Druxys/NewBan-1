@@ -25,8 +25,10 @@ public class Demo extends HttpServlet {
 
         Users myuser = new Users();
         ArrayList fields = new ArrayList();
-        Filtre.add(fields,"=", "email", "michel@exemple.com");
-        Filtre.add(fields,"<", "name", "michel");
+
+
+        fields.add( Filtre.add( "<", "name", "michel")) ;
+
         System.out.println(fields);
 //        fields.add("name");
 //        fields.add("id");
