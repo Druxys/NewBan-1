@@ -48,8 +48,10 @@ public class LoginServlet extends HttpServlet {
                 //Comparaison et validation si tout est bon
                 if (BCrypt.checkpw(request.getParameter("password"), password)) {
                     Cookie cookie = new Cookie("prenom", users1.getName());
+                    Cookie cookie1 = new Cookie("id", users1.getFirstName());
                     cookie.setMaxAge(60);
                     response.addCookie(cookie);
+                    response.addCookie(cookie1);
 
                     response.sendRedirect(request.getContextPath() + "/");
                 }

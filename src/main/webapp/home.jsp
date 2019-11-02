@@ -14,14 +14,22 @@
             if (cookie.getName().equals("prenom")) {
                 request.setAttribute("prenom", cookie.getValue());
             }
+            if (cookie.getName().equals("id")){
+                request.setAttribute("id", cookie.getValue());
+            }
         }
     }
 %>
-<%String prenom = "";%>
+<%
+    String prenom = "";
+    String id = "";
+%>
 <div>
-<% if (request.getAttribute("prenom") != null) {
-    prenom = (String) request.getAttribute("prenom"); %>
-    <p>Mon Cher <%=prenom%></p>
+<% if (request.getAttribute("prenom") != null && request.getAttribute("id") != null) {
+    prenom = (String) request.getAttribute("prenom");
+    id = (String) request.getAttribute("id");
+%>
+    <p>Mon Cher <%=id%> <%=prenom%></p>
 <%
 }%>
 </div>
