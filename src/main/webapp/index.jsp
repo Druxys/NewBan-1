@@ -31,10 +31,10 @@
             for (Users users : app) { %>
     <tbody>
     <tr>
-        <th scope= "col"><%=users.getId() %></th>
         <th scope= "col"><%=users.getName() %></th>
         <th scope= "col"><%=users.getFirstName() %></th>
         <th scope= "col"><%=users.getEmail() %></th>
+        <th scope= "col"><%=users.getId() %></th>
     </tr>
     </tbody>
     <%
