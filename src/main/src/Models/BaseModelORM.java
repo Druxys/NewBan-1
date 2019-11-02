@@ -6,6 +6,8 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 //Définissions de notre classe
 public class BaseModelORM {
@@ -238,7 +240,6 @@ public class BaseModelORM {
         total.append(this.getTableName());
 
 
-        System.out.println(total.toString());
         return total.toString();
 
     }
@@ -248,6 +249,63 @@ public class BaseModelORM {
         String selectQueryString = this.getSelectQueryString(fields);
         PreparedStatement statement = null;
 
+
+        try{
+            statement = dbConnection.prepareStatement(selectQueryString, Statement.RETURN_GENERATED_KEYS);
+
+            for (Field f : getClass().getDeclaredFields())
+            {
+                try
+                {
+                    if (f.getName().compareTo("id") != 0)
+                    {
+
+                        String fieldName = ucFirst(f.getName());
+                        String targetMethod = "get" + fieldName; // On établit la méthode de la requete et du coup get avec les champs retournés
+
+                        Method classMethod = getClass().getMethod(targetMethod);
+
+                        classMethod.invoke(this);
+
+                    }
+                }
+                catch (Exception e)
+                {
+                    System.out.println(e);
+                }
+            }
+        }
+        catch (SQLException e){
+
+            System.out.println(e);
+
+        }
+
+        return statement;
+    }
+
+    public PreparedStatement getSelectQuery(Connection dbConnection, ArrayList<String> fields, ArrayList filters){
+
+        String selectQueryString = this.getSelectQueryString(fields);
+        PreparedStatement statement = null;
+
+        if (filters.size() == 0){
+            return null;
+        }
+
+        selectQueryString = selectQueryString + " WHERE ";
+
+        List<String> _parsedFilters = new ArrayList();
+
+        for (Integer counter =0; counter < filters.size(); counter++){
+            HashMap _filters = (HashMap) filters.get(counter);
+            String _parsedTest = (String) _filters.get("col") + " " + _filters.get("operator") + " " + _filters.get("value");
+            _parsedFilters.add(_parsedTest);
+        }
+
+        selectQueryString = selectQueryString + String.join("AND", _parsedFilters);
+
+        System.out.println(selectQueryString);
 
         try{
             statement = dbConnection.prepareStatement(selectQueryString, Statement.RETURN_GENERATED_KEYS);

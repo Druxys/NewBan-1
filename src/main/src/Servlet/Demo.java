@@ -24,17 +24,18 @@ public class Demo extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         Users myuser = new Users();
-        ArrayList fields = new ArrayList();
+        ArrayList<String> fields = new ArrayList();
+        ArrayList filter = new ArrayList();
 
 
-        fields.add( Filtre.add( "<", "name", "michel")) ;
+        filter.add( Filtre.add( "=", "name", "'michel'")) ;
 
         System.out.println(fields);
-//        fields.add("name");
-//        fields.add("id");
-//        fields.add("firstName");
-//        fields.add("email");
-        List var = Database.select(myuser, fields);
+        fields.add("name");
+        fields.add("id");
+        fields.add("firstName");
+        fields.add("email");
+        List var = Database.select(myuser, fields, filter);
         System.out.println(var);
 
 //        Messages.sendMessage("test", "allo", "alexandrefy@wanadoo.fr", "theluffy@hotmail.fr");
