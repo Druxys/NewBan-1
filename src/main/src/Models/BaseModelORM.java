@@ -295,7 +295,7 @@ public class BaseModelORM {
 
         selectQueryString = selectQueryString + " WHERE ";
 
-        List<String> _parsedFilters = new ArrayList();
+        List<String> _parsedFilters = new ArrayList<String>();
 
         for (Integer counter =0; counter < filters.size(); counter++){
             HashMap _filters = (HashMap) filters.get(counter);
