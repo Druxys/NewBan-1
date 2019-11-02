@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="structures/header.jsp"%>
+<% String prenom = (String) request.getAttribute("prenom"); %>
 
 <%
     Cookie[] cookies = request.getCookies();
@@ -21,6 +22,6 @@
 
 <h1 class="mb-lg-5 text-center mt-lg-5">BIENVENUE</h1>
 
-<p>Mon cher <%String email = (String) request.getAttribute("prenom");%> <%=email%></p>
+<p>Mon cher <%=prenom%></p>
 
 <%@include file="structures/footer.jsp"%>
