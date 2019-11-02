@@ -18,12 +18,14 @@
     }
 %>
 <%String prenom = "";%>
+<div>
 <% if (request.getAttribute("prenom") != null) {
-    prenom = (String) request.getAttribute("prenom");
+    prenom = (String) request.getAttribute("prenom"); %>
+    <p>Mon Cher <%=prenom%></p>
+<%
 }%>
+</div>
 
 <h1 class="mb-lg-5 text-center mt-lg-5">BIENVENUE</h1>
-
-<p>Mon cher <%=prenom%></p>
 
 <%@include file="structures/footer.jsp"%>
