@@ -9,18 +9,22 @@ public class Messages {
 
     public static void sendMessage(String subject, String text, String destinataire, String copyDest){
         Properties properties = new Properties();
-        properties.setProperty("mail.transport.protocol", "smtp");
-        properties.setProperty("mail.smtp.host", "localhost");
-        properties.setProperty("mail.smtp.user", "theluffy008@gmail.com");
-        properties.setProperty("mail.from", "imap.gmail.com");
+        properties.put("mail.smtp.auth", true);
+        properties.put("mail.smtp.starttls.enable", "true");
+        properties.put("mail.smtp.host", "smtp.gmail.com");
+        properties.put("mail.smtp.port", "587");
         Session session = Session.getInstance(properties);
 
+        System.out.println("PASSE 1");
         MimeMessage message = new MimeMessage(session);
+
+        System.out.println("PASSE 2");
         try{
             message.setText(text);
             message.setSubject(subject);
             message.addRecipients(Message.RecipientType.TO, destinataire);
             message.addRecipients(Message.RecipientType.CC, copyDest);
+            System.out.println("PASSE 3");
         } catch (MessagingException e){
             e.printStackTrace();
         }
@@ -33,6 +37,7 @@ public class Messages {
                     new InternetAddress(destinataire),
                     new InternetAddress(copyDest)
             });
+            System.out.println("PASSE 4");
         }catch (MessagingException e){
             e.printStackTrace();
         } finally {
@@ -40,6 +45,7 @@ public class Messages {
                 if (transport != null){
                     transport.close();
                 }
+                System.out.println("PASSE 5");
             } catch (MessagingException e){
                 e.printStackTrace();
             }
