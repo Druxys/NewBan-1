@@ -10,7 +10,9 @@
 <%@include file="structures/header.jsp"%>
 
 <%String prenom = (String) request.getAttribute("prenom");%>
-<%=prenom%>
+<% if (prenom != null){
+    out.println(prenom);
+}%>
 <form method="post" action="session">
     <p>
         <label for="nom">Nom : </label>

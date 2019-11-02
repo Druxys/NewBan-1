@@ -7,6 +7,7 @@ import org.mindrot.jbcrypt.BCrypt;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -46,13 +47,16 @@ public class LoginServlet extends HttpServlet {
             }
             //Comparaison et validation si tout est bon
             if (BCrypt.checkpw(request.getParameter("password"), password)){
-                System.out.println("Nice");
+                Cookie cookie = new Cookie("prenom", request.getParameter("emil"));
+                cookie.setMaxAge(60);
+                response.addCookie(cookie);
+
+                response.sendRedirect("session");
             }
         } else {
             System.out.println("dommage");
         }
 
-        request.getRequestDispatcher("connexion.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
