@@ -28,7 +28,7 @@ public class Messages {
         Transport transport = null;
         try {
             transport = session.getTransport("smtp");
-            transport.connect("theluffy008@gmail.com", "OnePiece3!");
+            transport.connect("12newban12@gmail.com", "newban12!");
             transport.sendMessage(message, new Address[] {
                     new InternetAddress(destinataire),
                     new InternetAddress(copyDest)
