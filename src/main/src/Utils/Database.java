@@ -252,52 +252,5 @@ public class Database {
         }
         close();
     }
-
-    public static List<Users> selectId(BaseModelORM _object, String emaill){
-        System.out.println("[DB] Entering SELECT");
-
-        connect();
-
-        List<Users> resultat = new ArrayList<>();
-
-        if (db != null) {
-            System.out.println("[DB] Got connection , Preparing statement");
-
-            PreparedStatement _selectQuery = _object.getSelectIdQuery(db, emaill);
-
-            try
-            {
-
-                ResultSet rs = _selectQuery.executeQuery();
-
-                while (rs.next()){
-                    Users item = new Users();
-                    Integer idi = rs.getInt("id");
-                    String name = rs.getString("name");
-                    String firstname = rs.getString("firstName");
-                    String email = rs.getString("email");
-                    String password = rs.getString("password");
-                    item.setId(idi);
-                    item.setName(name);
-                    item.setFirstName(firstname);
-                    item.setEmail(email);
-                    item.setPassword(password);
-
-                    resultat.add(item);
-                }
-
-                System.out.println("[DB] Statement ran.");
-
-            } catch (Exception e) {
-
-                e.printStackTrace();
-            }
-
-//            close();
-
-            System.out.println("[DB] Existing Select Id");
-        }
-        return resultat;
-    }
-
+    
 }

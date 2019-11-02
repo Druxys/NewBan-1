@@ -29,6 +29,7 @@ public class Demo extends HttpServlet {
 
 
         filter.add( Filtre.add( "=", "name", "'michel'")) ;
+        filter.add(Filtre.add("=", "email", "'michel@exemple.com'"));
 
         System.out.println(fields);
         fields.add("name");
