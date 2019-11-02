@@ -42,16 +42,17 @@ public class LoginServlet extends HttpServlet {
             List<Users> var2 = Database.select(myuser, fields, filters);
             String password = "";
             //Récup du mot de passe
-            for (Users users1 : var2){
+            for (Users users1 : var2) {
                 password = users1.getPassword();
-            }
-            //Comparaison et validation si tout est bon
-            if (BCrypt.checkpw(request.getParameter("password"), password)){
-                Cookie cookie = new Cookie("prenom", request.getParameter("emil"));
-                cookie.setMaxAge(60);
-                response.addCookie(cookie);
 
-                response.sendRedirect("session");
+                //Comparaison et validation si tout est bon
+                if (BCrypt.checkpw(request.getParameter("password"), password)) {
+                    Cookie cookie = new Cookie("prenom", users1.getName());
+                    cookie.setMaxAge(60);
+                    response.addCookie(cookie);
+
+                    response.sendRedirect(request.getContextPath() + "/");
+                }
             }
         } else {
             System.out.println("dommage");
