@@ -28,7 +28,8 @@
 <table class="table table-bordered">
     <%
         if (app != null) {
-            for (Users users : app) { %>
+            for (Users users : app) {
+                System.out.println(users);%>
     <tbody>
     <tr>
         <th scope= "col"><%=users.getName() %></th>
