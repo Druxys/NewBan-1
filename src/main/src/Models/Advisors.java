@@ -4,10 +4,10 @@ import org.json.JSONObject;
 
 import java.sql.Timestamp;
 
-public class Advisor extends BaseModelORM {
+public class Advisors extends BaseModelORM {
     private Integer id;
 
-    String tableName = "advisor";
+    String tableName = "advisors";
     private String name;
     private String firstName;
     private String email;
@@ -26,7 +26,7 @@ public class Advisor extends BaseModelORM {
         return name;
     }
 
-    public Advisor setName(String name) {
+    public Advisors setName(String name) {
         this.name = name;
         return this;
     }
@@ -35,7 +35,7 @@ public class Advisor extends BaseModelORM {
         return firstName;
     }
 
-    public Advisor setFirstName(String firstName) {
+    public Advisors setFirstName(String firstName) {
         this.firstName = firstName;
         return this;
     }
@@ -44,7 +44,7 @@ public class Advisor extends BaseModelORM {
         return email;
     }
 
-    public Advisor setEmail(String email) {
+    public Advisors setEmail(String email) {
         this.email = email;
         return this;
     }
@@ -53,7 +53,7 @@ public class Advisor extends BaseModelORM {
         return password;
     }
 
-    public Advisor setPassword(String password) {
+    public Advisors setPassword(String password) {
         this.password = password;
         return this;
     }
@@ -62,7 +62,7 @@ public class Advisor extends BaseModelORM {
         return roles;
     }
 
-    public Advisor setRoles(JSONObject roles) {
+    public Advisors setRoles(JSONObject roles) {
         this.roles = roles;
         return this;
     }
@@ -71,7 +71,7 @@ public class Advisor extends BaseModelORM {
         return created_at;
     }
 
-    public Advisor setCreated_at(Timestamp created_at) {
+    public Advisors setCreated_at(Timestamp created_at) {
         this.created_at = created_at;
         return this;
     }
@@ -80,7 +80,7 @@ public class Advisor extends BaseModelORM {
         return updated_at;
     }
 
-    public Advisor setUpdated_at(Timestamp updated_at) {
+    public Advisors setUpdated_at(Timestamp updated_at) {
         this.updated_at = updated_at;
         return this;
     }
@@ -89,7 +89,7 @@ public class Advisor extends BaseModelORM {
         return is_enabled;
     }
 
-    public Advisor setIs_enabled(Boolean is_enabled) {
+    public Advisors setIs_enabled(Boolean is_enabled) {
         this.is_enabled = is_enabled;
         return this;
     }
