@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 
 @WebServlet(name = "InscriptionServlet")
@@ -25,6 +26,9 @@ public class InscriptionServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String generatedSecuredPasswordHash = BCrypt.hashpw(password, BCrypt.gensalt(12));
+        JSONObject roles = new JSONObject();
+        roles.put("customers", "Customer");
+        roles.put("admins", "Admin");
 
 
 
@@ -33,6 +37,10 @@ public class InscriptionServlet extends HttpServlet {
                 .setFirstName(firstname)
                 .setEmail(email)
                 .setPassword(generatedSecuredPasswordHash)
+                .setRoles(roles)
+                .setCreated_at(Timestamp.valueOf(LocalDateTime.now()))
+                .setUpdated_at(null)
+                .setIs_enabled(true)
         ;
 
         Database.insert(myuser);

@@ -2,6 +2,9 @@ package Models;
 
 //Importation des paquest de javasql
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.sql.*;
@@ -485,6 +488,17 @@ public class BaseModelORM {
                 {
                     statement.setString (i,  (String) classMethod.invoke(this) );
                 }
+
+                if( field.getType() == Timestamp.class )
+                {
+                    statement.setTimestamp (i,  (Timestamp) classMethod.invoke(this) );
+                }
+
+                if( field.getType() == Boolean.class )
+                {
+                    statement.setBoolean (i,  (Boolean) classMethod.invoke(this) );
+                }
+
 
                 i = i + 1;
             }

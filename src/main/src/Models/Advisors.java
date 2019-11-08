@@ -1,6 +1,13 @@
 package Models;
 
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.sql.Array;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+
 public class Advisors extends BaseModelORM {
     private Integer id;
 
@@ -9,6 +16,10 @@ public class Advisors extends BaseModelORM {
     private String firstName;
     private String email;
     private String password;
+    private JSONObject roles;
+    private Timestamp created_at;
+    private Timestamp updated_at;
+    private Boolean is_enabled = true;
 
 
     public String getTableName() {
@@ -51,4 +62,39 @@ public class Advisors extends BaseModelORM {
         return this;
     }
 
+    public Timestamp getCreated_at() {
+        return created_at;
+    }
+
+    public Advisors setCreated_at(Timestamp created_at) {
+        this.created_at = created_at;
+        return this;
+    }
+
+    public Timestamp getUpdated_at() {
+        return updated_at;
+    }
+
+    public Advisors setUpdated_at(Timestamp updated_at) {
+        this.updated_at = updated_at;
+        return this;
+    }
+
+    public Boolean getIs_enabled() {
+        return is_enabled;
+    }
+
+    public Advisors setIs_enabled(Boolean is_enabled) {
+        this.is_enabled = is_enabled;
+        return this;
+    }
+
+    public JSONObject getRoles() {
+        return roles;
+    }
+
+    public Advisors setRoles(JSONObject roles) {
+        this.roles = roles;
+        return this;
+    }
 }
