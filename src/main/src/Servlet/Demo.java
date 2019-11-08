@@ -1,6 +1,6 @@
 package Servlet;
 
-import Models.Users;
+import Models.Advisors;
 import Utils.Database;
 import Utils.Filtre;
 
@@ -22,7 +22,7 @@ public class Demo extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Users myuser = new Users();
+        Advisors myuser = new Advisors();
         ArrayList<String> fields = new ArrayList<>();
         ArrayList filter = new ArrayList();
 

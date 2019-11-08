@@ -1,7 +1,9 @@
 package Servlet;
 
-import Models.Users;
+import Models.Advisors;
 import Utils.Database;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.mindrot.jbcrypt.BCrypt;
 
 import javax.servlet.ServletException;
@@ -10,16 +12,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+
 
 @WebServlet(name = "InscriptionServlet")
 public class InscriptionServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Users myuser = new Users();
+        Advisors myuser = new Advisors();
         String name = request.getParameter("nom");
         String firstname = request.getParameter("prenom");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String generatedSecuredPasswordHash = BCrypt.hashpw(password, BCrypt.gensalt(12));
+
+
 
         myuser
                 .setName(name)

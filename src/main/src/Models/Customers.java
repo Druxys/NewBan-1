@@ -16,7 +16,7 @@ public class Customers extends BaseModelORM {
     private JSONObject family_situation;
     private JSONObject professional_situation;
     private Integer income;
-    private Timestamp created_at = Timestamp.valueOf("now");
+    private Timestamp created_at;
     private Timestamp updated_at;
     private Timestamp birthdate;
     private Boolean is_customer = false;
