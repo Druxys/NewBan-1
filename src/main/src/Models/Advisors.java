@@ -1,12 +1,8 @@
 package Models;
 
 
-import org.json.JSONArray;
-import org.json.JSONObject;
 
-import java.sql.Array;
 import java.sql.Timestamp;
-import java.util.ArrayList;
 
 public class Advisors extends BaseModelORM {
     private Integer id;
@@ -16,7 +12,7 @@ public class Advisors extends BaseModelORM {
     private String firstName;
     private String email;
     private String password;
-    private JSONObject roles;
+    private String roles;
     private Timestamp created_at;
     private Timestamp updated_at;
     private Boolean is_enabled = true;
@@ -89,11 +85,11 @@ public class Advisors extends BaseModelORM {
         return this;
     }
 
-    public JSONObject getRoles() {
+    public String getRoles() {
         return roles;
     }
 
-    public Advisors setRoles(JSONObject roles) {
+    public Advisors setRoles(String roles) {
         this.roles = roles;
         return this;
     }

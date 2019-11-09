@@ -2,8 +2,6 @@ package Servlet;
 
 import Models.Advisors;
 import Utils.Database;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.mindrot.jbcrypt.BCrypt;
 
 import javax.servlet.ServletException;
@@ -14,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
+import java.util.HashMap;
 
 
 @WebServlet(name = "InscriptionServlet")
@@ -25,10 +23,8 @@ public class InscriptionServlet extends HttpServlet {
         String firstname = request.getParameter("prenom");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        String roles = request.getParameter("test");
         String generatedSecuredPasswordHash = BCrypt.hashpw(password, BCrypt.gensalt(12));
-        JSONObject roles = new JSONObject();
-        roles.put("customers", "Customer");
-        roles.put("admins", "Admin");
 
 
 
@@ -45,11 +41,17 @@ public class InscriptionServlet extends HttpServlet {
 
         Database.insert(myuser);
 
-        request.getRequestDispatcher("inscription.jsp").forward(request, response);
-
+        response.sendRedirect(request.getContextPath()+"/");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HashMap map = new HashMap();
+        map.put("advisors", "ROLE_ADVISOR");
+        map.put("admins", "ROLE_ADMIN");
+        System.out.println(map);
+
+        request.setAttribute("tab", map);
+
         request.getRequestDispatcher("inscription.jsp").forward(request, response);
     }
 }

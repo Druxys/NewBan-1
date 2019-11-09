@@ -1,4 +1,4 @@
-<%--
+<%@ page import="java.util.HashMap" %><%--
   Created by IntelliJ IDEA.
   User: shadownluffy
   Date: 28/10/2019
@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="structures/header.jsp"%>
+<% HashMap map = (HashMap) request.getAttribute("tab"); %>
 
 <form action="inscription" method="post" class="text-center border border-light p-5">
     <label for="nom">Nom</label>
@@ -18,14 +19,10 @@
     <br><label for="password">Mot de passe</label>
     <br><input type="password" name="password" id="password" placeholder="Votre Mot de passe">
     <br>
-    <select name="pets" id="pet-select">
+    <select name="test" id="test">
         <option value="">--Please choose an option--</option>
-        <option value="dog">Dog</option>
-        <option value="cat">Cat</option>
-        <option value="hamster">Hamster</option>
-        <option value="parrot">Parrot</option>
-        <option value="spider">Spider</option>
-        <option value="goldfish">Goldfish</option>
+        <option><%=map.get("advisors")%></option>
+        <option><%=map.get("admins")%></option>
     </select>
     <br><input type="submit" value="Inscription">
 </form>
