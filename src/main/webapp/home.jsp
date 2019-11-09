@@ -9,6 +9,7 @@
 <%@include file="structures/header.jsp"%>
 <%
     String prenom = "";
+    System.out.println(session.getAttribute("role"));
 %>
 <div>
 <% if (session.getAttribute("name") != null){

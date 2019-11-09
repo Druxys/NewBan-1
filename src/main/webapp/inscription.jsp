@@ -1,3 +1,9 @@
+<%
+    System.out.println(session.getAttribute("role"));
+    if (session.getAttribute("role") != "ROLE_ADMIN"){
+        response.sendRedirect(request.getContextPath()+"/connexion");
+    } if (session.getAttribute("role") == "ROLE_ADMIN"){
+%>
 <%@ page import="java.util.HashMap" %><%--
   Created by IntelliJ IDEA.
   User: shadownluffy
@@ -7,7 +13,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="structures/header.jsp"%>
-<% HashMap map = (HashMap) request.getAttribute("tab"); %>
+<% HashMap map = (HashMap) request.getAttribute("tab");%>
 
 <form action="inscription" method="post" class="text-center border border-light p-5">
     <label for="nom">Nom</label>
@@ -31,3 +37,6 @@
 </html>
 
 <%@include file="structures/footer.jsp"%>
+<%
+    }
+%>

@@ -46,6 +46,7 @@ public class LoginServlet extends HttpServlet {
                 if (BCrypt.checkpw(request.getParameter("password"), password)) {
                     HttpSession session = request.getSession();
                     session.setAttribute("name", users1.getName());
+                    session.setAttribute("role", users1.getRoles());
 
                     response.sendRedirect(request.getContextPath() + "/");
                 }
