@@ -1,9 +1,3 @@
-<%
-    System.out.println(session.getAttribute("role"));
-    if (session.getAttribute("role") != "ROLE_ADMIN"){
-        response.sendRedirect(request.getContextPath()+"/connexion");
-    } if (session.getAttribute("role") == "ROLE_ADMIN"){
-%>
 <%@ page import="java.util.HashMap" %><%--
   Created by IntelliJ IDEA.
   User: shadownluffy
@@ -37,6 +31,3 @@
 </html>
 
 <%@include file="structures/footer.jsp"%>
-<%
-    }
-%>
