@@ -541,12 +541,12 @@ public class BaseModelORM {
 
                     if (f.getType() == Timestamp.class)
                     {
-                        classMethod.invoke(this, rs.getInt(f.getName()));
+                        classMethod.invoke(this, rs.getTimestamp(f.getName()));
                     }
 
                     if (f.getType() == Boolean.class)
                     {
-                        classMethod.invoke(this, rs.getInt(f.getName()));
+                        classMethod.invoke(this, rs.getBoolean(f.getName()));
                     }
                 }
             }

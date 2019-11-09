@@ -1,5 +1,6 @@
 <%@ page import="java.util.List" %>
-<%@ page import="Models.Users" %>
+<%@ page import="Models.Advisors" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%--
@@ -11,7 +12,9 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="structures/header.jsp"%>
-    <% List<Users> app= (List<Users>) request.getAttribute("res");%>
+    <% List<Advisors> app= (List<Advisors>) request.getAttribute("res");
+        SimpleDateFormat sdf = new SimpleDateFormat("d/M/Y H:m");
+    %>
 
 <h1>Tableau des Utilisateurs</h1>
 <hr class="red lighten-5"/>
@@ -28,13 +31,14 @@
 <table class="table table-bordered">
     <%
         if (app != null) {
-            for (Users users : app) {
+            for (Advisors users : app) {
                 System.out.println(users);%>
     <tbody>
     <tr>
         <th scope= "col"><%=users.getName() %></th>
         <th scope= "col"><%=users.getFirstName() %></th>
         <th scope= "col"><%=users.getEmail() %></th>
+        <th scope= "col"><%=sdf.format(users.getCreated_at()) %></th>
         <th scope= "col"><%=users.getId() %></th>
     </tr>
     </tbody>

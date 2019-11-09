@@ -31,11 +31,8 @@ public class Demo extends HttpServlet {
         filter.add(Filtre.add("=", "email", "'michel@exemple.com'"));
 
         System.out.println(fields);
-        fields.add("name");
-        fields.add("id");
-        fields.add("firstName");
-        fields.add("email");
-        List var = Database.select(myuser, fields, filter);
+        fields.add("*");
+        List var = Database.select(myuser, fields);
         System.out.println(var);
 
         request.setAttribute("res", var);
