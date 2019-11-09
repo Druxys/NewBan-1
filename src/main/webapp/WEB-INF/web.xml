@@ -26,6 +26,10 @@
     <servlet-name>MailServlet</servlet-name>
     <servlet-class>Servlet.MailServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>DeconnexionServlet</servlet-name>
+    <servlet-class>Servlet.DeconnexionServlet</servlet-class>
+  </servlet>
 
 
   <!--  Servlet Mapping-->
@@ -49,7 +53,11 @@
     <servlet-name>MailServlet</servlet-name>
     <url-pattern>/mail</url-pattern>
   </servlet-mapping>
-
+  <servlet-mapping>
+    <servlet-name>DeconnexionServlet</servlet-name>
+    <url-pattern>/deconnexion</url-pattern>
+  </servlet-mapping>
+  
 
   <welcome-file-list>
     <welcome-file>home.jsp</welcome-file>

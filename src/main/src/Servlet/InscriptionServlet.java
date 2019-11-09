@@ -41,7 +41,7 @@ public class InscriptionServlet extends HttpServlet {
 
         Database.insert(myuser);
 
-        response.sendRedirect(request.getContextPath()+"/");
+        response.sendRedirect(request.getContextPath()+"/connexion");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
