@@ -10,6 +10,7 @@
 <%
     String prenom = "";
     System.out.println(session.getAttribute("role"));
+    System.out.println(session.getAttribute("id"));
 %>
 <div>
 <% if (session.getAttribute("name") != null){

@@ -53,7 +53,7 @@ public class InscriptionServlet extends HttpServlet {
                 .setFamily_situation(family_situation)
                 .setProfessional_situation(professional_situation)
                 .setIs_customer(is_customer)
-                .setId_advisor(9)
+                .setId_advisor((Integer)session.getAttribute("id"))
                 .setIncome(income)
 //                .setPassword(generatedSecuredPasswordHash)
 //                .setRoles(roles)
