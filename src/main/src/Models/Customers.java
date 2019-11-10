@@ -2,6 +2,7 @@ package Models;
 
 import org.json.JSONObject;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
 public class Customers extends BaseModelORM {
@@ -13,15 +14,16 @@ public class Customers extends BaseModelORM {
     private String email;
     private Integer phone;
     private Float debt;
-    private JSONObject family_situation;
-    private JSONObject professional_situation;
+    private String family_situation;
+    private String professional_situation;
     private Integer income;
     private Timestamp created_at;
     private Timestamp updated_at;
-    private Timestamp birthdate;
+    private Date birthdate;
     private Boolean is_customer = false;
     private Boolean existing_contract = false;
-    private JSONObject contract_type;
+    private String contract_type;
+    private Integer id_advisor;
 
 
 
@@ -74,20 +76,20 @@ public class Customers extends BaseModelORM {
         return this;
     }
 
-    public JSONObject getFamily_situation() {
+    public String getFamily_situation() {
         return family_situation;
     }
 
-    public Customers setFamily_situation(JSONObject family_situation) {
+    public Customers setFamily_situation(String family_situation) {
         this.family_situation = family_situation;
         return this;
     }
 
-    public JSONObject getProfessional_situation() {
+    public String getProfessional_situation() {
         return professional_situation;
     }
 
-    public Customers setProfessional_situation(JSONObject professional_situation) {
+    public Customers setProfessional_situation(String professional_situation) {
         this.professional_situation = professional_situation;
         return this;
     }
@@ -119,11 +121,11 @@ public class Customers extends BaseModelORM {
         return this;
     }
 
-    public Timestamp getBirthdate() {
+    public Date getBirthdate() {
         return birthdate;
     }
 
-    public Customers setBirthdate(Timestamp birthdate) {
+    public Customers setBirthdate(Date birthdate) {
         this.birthdate = birthdate;
         return this;
     }
@@ -146,12 +148,21 @@ public class Customers extends BaseModelORM {
         return this;
     }
 
-    public JSONObject getContract_type() {
+    public String getContract_type() {
         return contract_type;
     }
 
-    public Customers setContract_type(JSONObject contract_type) {
+    public Customers setContract_type(String contract_type) {
         this.contract_type = contract_type;
+        return this;
+    }
+
+    public Integer getId_advisor() {
+        return id_advisor;
+    }
+
+    public Customers setId_advisor(Integer id_advisor) {
+        this.id_advisor = id_advisor;
         return this;
     }
 }

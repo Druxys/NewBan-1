@@ -499,6 +499,16 @@ public class BaseModelORM {
                     statement.setBoolean (i,  (Boolean) classMethod.invoke(this) );
                 }
 
+                if (field.getType() == Float.class)
+                {
+                    statement.setFloat(i, (Float) classMethod.invoke(this));
+                }
+
+                if (field.getType() == Date.class)
+                {
+                    statement.setDate(i, (Date) classMethod.invoke(this));
+                }
+
 
                 i = i + 1;
             }
@@ -547,6 +557,11 @@ public class BaseModelORM {
                     if (f.getType() == Boolean.class)
                     {
                         classMethod.invoke(this, rs.getBoolean(f.getName()));
+                    }
+
+                    if (f.getType() == Float.class)
+                    {
+                        classMethod.invoke(this, rs.getFloat(f.getName()));
                     }
                 }
             }

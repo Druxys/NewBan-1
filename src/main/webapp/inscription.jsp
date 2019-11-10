@@ -7,7 +7,11 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="structures/header.jsp"%>
-<% HashMap map = (HashMap) request.getAttribute("tab");%>
+<%
+    HashMap map = (HashMap) request.getAttribute("tab");
+    HashMap map1 = (HashMap) request.getAttribute("tab1");
+    HashMap map2 = (HashMap) request.getAttribute("tab2");
+%>
 
 <form action="inscription" method="post" class="text-center border border-light p-5">
     <label for="nom">Nom</label>
@@ -16,14 +20,42 @@
     <br><input type="text" name="prenom" id="prenom" placeholder="Votre Prénom">
     <br><label for="email">Email</label>
     <br><input type="email" name="email" id="email" placeholder="Votre Email">
-    <br><label for="password">Mot de passe</label>
-    <br><input type="password" name="password" id="password" placeholder="Votre Mot de passe">
+    <br><label for="phone">Phone</label>
+    <br><input type="number" name="phone" id="phone" placeholder="0658962345">
+    <br><label for="debt">Debt</label>
+    <br><input type="number" step="0.01" name="debt" id="debt" placeholder="2.35">
+    <br><label for="family_situation">Family Situation</label>
     <br>
-    <select name="test" id="test">
+    <select name="family_situation" id="family_situation">
         <option value="">--Please choose an option--</option>
-        <option><%=map.get("advisors")%></option>
-        <option><%=map.get("admins")%></option>
+        <option value=""><%=map.get("test")%></option>
+        <option value=""><%=map.get("alpha")%></option>
     </select>
+    <br><label for="professional_situation">Professional Situation</label>
+    <br>
+    <select name="professional_situation" id="professional_situation">
+        <option value="">--Please choose an option--</option>
+        <option value=""><%=map1.get("test1")%></option>
+        <option value=""><%=map1.get("test2")%></option>
+        <option value=""><%=map1.get("test3")%></option>
+    </select>
+    <br><label for="income">Incorne</label>
+    <br><input type="number" name="income" id="income" placeholder="5">
+    <br><label for="birthdate">Birthdate</label>
+    <br><input type="date" name="birthdate" id="birthdate">
+    <br><label for="is_customer">Client</label>
+    <br><input type="checkbox" name="is_customer" id="is_customer">
+    <br><label for="existing_contract">Exixting Contract</label>
+    <br><input type="checkbox" name="existing_contract" id="existing_contract">
+    <br><label for="contract_type">Contract Type</label>
+    <br>
+    <select name="contract_type" id="contract_type">
+        <option value="">--Please choose an option--</option>
+        <option value=""><%=map2.get("test1")%></option>
+        <option value=""><%=map2.get("test2")%></option>
+        <option value=""><%=map2.get("test3")%></option>
+    </select>
+    <br>
     <br><input type="submit" value="Inscription">
 </form>
 
