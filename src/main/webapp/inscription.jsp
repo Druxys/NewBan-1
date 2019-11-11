@@ -23,21 +23,21 @@
     <br><label for="phone">Phone</label>
     <br><input type="number" name="phone" id="phone" placeholder="0658962345">
     <br><label for="debt">Debt</label>
-    <br><input type="number" step="0.01" name="debt" id="debt" placeholder="2.35">
+    <br><input type="number" placeholder="1.0" step="0.01" min="0" max="10" id="debt" name="debt">
     <br><label for="family_situation">Family Situation</label>
     <br>
     <select name="family_situation" id="family_situation">
-        <option value="">--Please choose an option--</option>
-        <option value=""><%=map.get("test")%></option>
-        <option value=""><%=map.get("alpha")%></option>
+        <option>--Please choose an option--</option>
+        <option><%=map.get("test")%></option>
+        <option><%=map.get("alpha")%></option>
     </select>
     <br><label for="professional_situation">Professional Situation</label>
     <br>
-    <select name="professional_situation" id="professional_situation">
-        <option value="">--Please choose an option--</option>
-        <option value=""><%=map1.get("test1")%></option>
-        <option value=""><%=map1.get("test2")%></option>
-        <option value=""><%=map1.get("test3")%></option>
+    <select name="professional_situation" id="professional_situation" multiple>
+        <option>--Please choose an option--</option>
+        <option><%=map1.get("test1")%></option>
+        <option><%=map1.get("test2")%></option>
+        <option><%=map1.get("test3")%></option>
     </select>
     <br><label for="income">Incorne</label>
     <br><input type="number" name="income" id="income" placeholder="5">
@@ -50,10 +50,10 @@
     <br><label for="contract_type">Contract Type</label>
     <br>
     <select name="contract_type" id="contract_type">
-        <option value="">--Please choose an option--</option>
-        <option value=""><%=map2.get("test1")%></option>
-        <option value=""><%=map2.get("test2")%></option>
-        <option value=""><%=map2.get("test3")%></option>
+        <option>--Please choose an option--</option>
+        <option><%=map2.get("test1")%></option>
+        <option><%=map2.get("test2")%></option>
+        <option><%=map2.get("test3")%></option>
     </select>
     <br>
     <br><input type="submit" value="Inscription">
