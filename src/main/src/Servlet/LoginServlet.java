@@ -45,7 +45,7 @@ public class LoginServlet extends HttpServlet {
                 //Comparaison et validation si tout est bon
                 if (BCrypt.checkpw(request.getParameter("password"), password)) {
                     HttpSession session = request.getSession();
-                    session.setAttribute("name", users1.getName());
+                    session.setAttribute("name", users1.getFirstName());
                     session.setAttribute("role", users1.getRoles());
                     session.setAttribute("id", users1.getId());
 

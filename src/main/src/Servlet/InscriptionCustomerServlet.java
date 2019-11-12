@@ -47,16 +47,16 @@ public class InscriptionCustomerServlet extends HttpServlet {
 
 
         myuser
-                .setName(name)
+                .setLastName(name)
                 .setFirstName(firstname)
                 .setEmail(email)
                 .setPhone(phone)
                 .setBirthdate(birthdate)
-                .setContract_type(contract_type)
+                .setProfessionnal_contract_type(contract_type)
                 .setDebt((float) debt)
                 .setExisting_contract(existing_contract)
                 .setFamily_situation(family_situation)
-                .setProfessional_situation(professional_situation)
+                .setProfessionnal_situation(professional_situation)
                 .setIs_customer(is_customer)
                 .setId_advisor((Integer)session.getAttribute("id"))
                 .setIncome(income)

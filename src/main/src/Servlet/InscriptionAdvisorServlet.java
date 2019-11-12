@@ -27,7 +27,7 @@ public class InscriptionAdvisorServlet extends HttpServlet {
         String generatedSecuredPasswordHash = BCrypt.hashpw(password, BCrypt.gensalt(12));
 
         myuser
-                .setName(name)
+                .setFirstName(name)
                 .setLastName(firstname)
                 .setEmail(email)
                 .setPassword(generatedSecuredPasswordHash)

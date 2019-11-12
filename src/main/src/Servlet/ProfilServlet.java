@@ -9,37 +9,29 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
-
-@WebServlet(name = "Demo")
-public class Demo extends HttpServlet {
+@WebServlet(name = "ProfilServlet")
+public class ProfilServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         Customers myuser = new Customers();
-        HttpSession session = request.getSession();
         ArrayList<String> fields = new ArrayList<>();
         ArrayList filter = new ArrayList();
-        Integer id = (Integer) session.getAttribute("id");
-
-        filter.add( Filtre.add( "=", "id_advisor", id));
-
-        System.out.println(fields);
+        Integer id = Integer.valueOf(request.getParameter("id"));
         fields.add("*");
-        List var = Database.select(myuser, fields, filter);
-        System.out.println(var);
+        filter.add(Filtre.add("=", "id", id));
 
+        List var = Database.select(myuser, fields, filter);
         request.setAttribute("res", var);
 
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        request.getRequestDispatcher("profil.jsp").forward(request, response);
 
     }
-
 }

@@ -34,6 +34,10 @@
     <servlet-name>InscriptionAdvisorServlet</servlet-name>
     <servlet-class>Servlet.InscriptionAdvisorServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>ProfilServlet</servlet-name>
+    <servlet-class>Servlet.ProfilServlet</servlet-class>
+  </servlet>
 
 
   <!--  Servlet Mapping-->
@@ -64,6 +68,10 @@
   <servlet-mapping>
     <servlet-name>InscriptionAdvisorServlet</servlet-name>
     <url-pattern>/advisor</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ProfilServlet</servlet-name>
+    <url-pattern>/profil</url-pattern>
   </servlet-mapping>
   
 

@@ -40,6 +40,7 @@
         <th scope="col">Existing Contract</th>
         <th scope="col">Customer</th>
         <th scope="col">Created_at</th>
+        <th scope="col">Actions</th>
     </tr>
     </thead>
     <%
@@ -48,7 +49,7 @@
                 System.out.println(users);%>
     <tbody>
     <tr>
-        <th scope= "col"><%=users.getName() %></th>
+        <th scope= "col"><%=users.getLastName() %></th>
         <th scope= "col"><%=users.getFirstName() %></th>
         <th scope= "col"><%=users.getEmail() %></th>
         <th scope= "col"><%=users.getDebt() %></th>
@@ -56,6 +57,9 @@
         <th scope= "col"><%=users.getExisting_contract() %></th>
         <th scope= "col"><%=users.getIs_customer() %></th>
         <th scope= "col"><%=sdf.format(users.getCreated_at()) %></th>
+        <th scope="col">
+            <a href="profil?id=<%=users.getId()%>">Profil</a>
+        </th>
     </tr>
     </tbody>
     <%

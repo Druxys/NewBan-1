@@ -1,0 +1,50 @@
+
+.navbar{
+    background-color: #33B5E5;
+}
+.btn {
+    margin: 0;
+}
+.login{
+    width: 25% ;
+    margin: 0 auto;
+}
+.forgotPwd {
+    width: 25% ;
+    margin: 0 auto;
+}
+.lol {
+    padding-top: 200px;
+    height: 100%;
+}
+.body {
+    height: 100%;
+}
+.container {
+    height: 100%;
+}
+@media screen and (max-width: 1000px) {
+    .login {
+        width: 75%;
+    }
+    .forgotPwd {
+        width: 75%;
+    }
+}
+@media screen and (max-width: 1210px) {
+    .login {
+        width: 50%;
+    }
+    .forgotPwd {
+        width: 50%;
+    }
+}
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 25em;
+    overflow: auto;
+}
+.table-wrapper-scroll-y {
+    display: block;
+}

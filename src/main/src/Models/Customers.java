@@ -8,20 +8,20 @@ public class Customers extends BaseModelORM {
     private Integer id;
 
     String tableName = "Customers";
-    private String name;
+    private String lastName;
     private String firstName;
     private String email;
     private Integer phone;
     private Float debt;
     private String family_situation;
-    private String professional_situation;
+    private String professionnal_situation;
     private Integer income;
     private Timestamp created_at;
     private Timestamp updated_at;
     private Date birthdate;
     private Boolean is_customer = false;
     private Boolean existing_contract = false;
-    private String contract_type;
+    private String professionnal_contract_type;
     private Integer id_advisor;
 
 
@@ -30,12 +30,12 @@ public class Customers extends BaseModelORM {
         return tableName;
     }
 
-    public String getName() {
-        return name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public Customers setName(String name) {
-        this.name = name;
+    public Customers setLastName(String lastName) {
+        this.lastName = lastName;
         return this;
     }
 
@@ -84,12 +84,12 @@ public class Customers extends BaseModelORM {
         return this;
     }
 
-    public String getProfessional_situation() {
-        return professional_situation;
+    public String getProfessionnal_situation() {
+        return professionnal_situation;
     }
 
-    public Customers setProfessional_situation(String professional_situation) {
-        this.professional_situation = professional_situation;
+    public Customers setProfessionnal_situation(String professionnal_situation) {
+        this.professionnal_situation = professionnal_situation;
         return this;
     }
 
@@ -147,12 +147,12 @@ public class Customers extends BaseModelORM {
         return this;
     }
 
-    public String getContract_type() {
-        return contract_type;
+    public String getProfessionnal_contract_type() {
+        return professionnal_contract_type;
     }
 
-    public Customers setContract_type(String contract_type) {
-        this.contract_type = contract_type;
+    public Customers setProfessionnal_contract_type(String professionnal_contract_type) {
+        this.professionnal_contract_type = professionnal_contract_type;
         return this;
     }
 
