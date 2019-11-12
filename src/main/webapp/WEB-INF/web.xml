@@ -11,8 +11,8 @@
     <servlet-class>Servlet.Demo</servlet-class>
   </servlet>
   <servlet>
-    <servlet-name>InscriptionServlet</servlet-name>
-    <servlet-class>Servlet.InscriptionServlet</servlet-class>
+    <servlet-name>InscriptionCustomerServlet</servlet-name>
+    <servlet-class>Servlet.InscriptionCustomerServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>LoginServlet</servlet-name>
@@ -26,6 +26,14 @@
     <servlet-name>MailServlet</servlet-name>
     <servlet-class>Servlet.MailServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>DeconnexionServlet</servlet-name>
+    <servlet-class>Servlet.DeconnexionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>InscriptionAdvisorServlet</servlet-name>
+    <servlet-class>Servlet.InscriptionAdvisorServlet</servlet-class>
+  </servlet>
 
 
   <!--  Servlet Mapping-->
@@ -34,7 +42,7 @@
     <url-pattern>/toto</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>InscriptionServlet</servlet-name>
+    <servlet-name>InscriptionCustomerServlet</servlet-name>
     <url-pattern>/inscription</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
@@ -49,7 +57,15 @@
     <servlet-name>MailServlet</servlet-name>
     <url-pattern>/mail</url-pattern>
   </servlet-mapping>
-
+  <servlet-mapping>
+    <servlet-name>DeconnexionServlet</servlet-name>
+    <url-pattern>/deconnexion</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>InscriptionAdvisorServlet</servlet-name>
+    <url-pattern>/advisor</url-pattern>
+  </servlet-mapping>
+  
 
   <welcome-file-list>
     <welcome-file>home.jsp</welcome-file>

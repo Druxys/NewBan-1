@@ -1,6 +1,6 @@
 package Servlet;
 
-import Models.Users;
+import Models.Advisors;
 import Utils.Database;
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -9,32 +9,45 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.HashMap;
 
-@WebServlet(name = "InscriptionServlet")
-public class InscriptionServlet extends HttpServlet {
+@WebServlet(name = "InscriptionAdvisorServlet")
+public class InscriptionAdvisorServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Users myuser = new Users();
+
+        Advisors myuser = new Advisors();
+        HttpSession session = request.getSession();
         String name = request.getParameter("nom");
         String firstname = request.getParameter("prenom");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        String roles = request.getParameter("role");
         String generatedSecuredPasswordHash = BCrypt.hashpw(password, BCrypt.gensalt(12));
 
         myuser
                 .setName(name)
-                .setFirstName(firstname)
+                .setLastName(firstname)
                 .setEmail(email)
                 .setPassword(generatedSecuredPasswordHash)
-        ;
+                .setRoles(roles)
+                ;
 
         Database.insert(myuser);
 
-        request.getRequestDispatcher("inscription.jsp").forward(request, response);
+        response.sendRedirect(request.getContextPath()+"/connexion");
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("inscription.jsp").forward(request, response);
+        HashMap map = new HashMap();
+        map.put("Advisors", "ROLE_ADVISOR");
+        map.put("Admins", "ROLE_ADMIN");
+
+        request.setAttribute("role", map);
+
+        request.getRequestDispatcher("inscriptionadvisor.jsp").forward(request, response);
+
     }
 }

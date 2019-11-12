@@ -1,16 +1,13 @@
 package Servlet;
 
-import Models.Users;
+import Models.Advisors;
 import Utils.Database;
 import Utils.Filtre;
 import org.mindrot.jbcrypt.BCrypt;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +15,7 @@ import java.util.List;
 @WebServlet(name = "LoginServlet")
 public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Users myuser = new Users();
+        Advisors myuser = new Advisors();
         List<String> usermail = new ArrayList<>();
 
         //Initialisation de tout les champs
@@ -27,9 +24,9 @@ public class LoginServlet extends HttpServlet {
 
         ArrayList filters = new ArrayList<>();
         String email = request.getParameter("emil");
-        List<Users> var = Database.select(myuser, fields);
+        List<Advisors> var = Database.select(myuser, fields);
 
-        for (Users users : var){
+        for (Advisors users : var){
             usermail.add(users.getEmail());
         }
 
@@ -39,19 +36,18 @@ public class LoginServlet extends HttpServlet {
             email = "'" + email + "'";
             //Ajout de filtres à ce moment la pour prendre en considération les simples guillemets
             filters.add(Filtre.add("=", "email", email));
-            List<Users> var2 = Database.select(myuser, fields, filters);
+            List<Advisors> var2 = Database.select(myuser, fields, filters);
             String password = "";
             //Récup du mot de passe
-            for (Users users1 : var2) {
+            for (Advisors users1 : var2) {
                 password = users1.getPassword();
 
                 //Comparaison et validation si tout est bon
                 if (BCrypt.checkpw(request.getParameter("password"), password)) {
-                    Cookie cookie = new Cookie("prenom", users1.getName());
-                    Cookie cookie1 = new Cookie("id", users1.getFirstName());
-                    cookie.setMaxAge(60);
-                    response.addCookie(cookie);
-                    response.addCookie(cookie1);
+                    HttpSession session = request.getSession();
+                    session.setAttribute("name", users1.getName());
+                    session.setAttribute("role", users1.getRoles());
+                    session.setAttribute("id", users1.getId());
 
                     response.sendRedirect(request.getContextPath() + "/");
                 }

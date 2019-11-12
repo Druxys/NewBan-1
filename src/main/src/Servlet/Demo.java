@@ -1,6 +1,6 @@
 package Servlet;
 
-import Models.Users;
+import Models.Customers;
 import Utils.Database;
 import Utils.Filtre;
 
@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,19 +23,16 @@ public class Demo extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Users myuser = new Users();
+        Customers myuser = new Customers();
+        HttpSession session = request.getSession();
         ArrayList<String> fields = new ArrayList<>();
         ArrayList filter = new ArrayList();
+        Integer id = (Integer) session.getAttribute("id");
 
-
-        filter.add( Filtre.add( "=", "name", "'michel'")) ;
-        filter.add(Filtre.add("=", "email", "'michel@exemple.com'"));
+        filter.add( Filtre.add( "=", "id_advisor", id)) ;
 
         System.out.println(fields);
-        fields.add("name");
-        fields.add("id");
-        fields.add("firstName");
-        fields.add("email");
+        fields.add("*");
         List var = Database.select(myuser, fields, filter);
         System.out.println(var);
 

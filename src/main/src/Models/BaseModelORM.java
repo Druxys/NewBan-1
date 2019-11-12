@@ -2,6 +2,9 @@ package Models;
 
 //Importation des paquest de javasql
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.sql.*;
@@ -486,6 +489,27 @@ public class BaseModelORM {
                     statement.setString (i,  (String) classMethod.invoke(this) );
                 }
 
+                if( field.getType() == Timestamp.class )
+                {
+                    statement.setTimestamp (i,  (Timestamp) classMethod.invoke(this) );
+                }
+
+                if( field.getType() == Boolean.class )
+                {
+                    statement.setBoolean (i,  (Boolean) classMethod.invoke(this) );
+                }
+
+                if (field.getType() == Float.class)
+                {
+                    statement.setFloat(i, (Float) classMethod.invoke(this));
+                }
+
+                if (field.getType() == Date.class)
+                {
+                    statement.setDate(i, (Date) classMethod.invoke(this));
+                }
+
+
                 i = i + 1;
             }
         }
@@ -523,6 +547,21 @@ public class BaseModelORM {
                     if ( f.getType() == String.class )
                     {
                         classMethod.invoke(this, rs.getString(f.getName()));
+                    }
+
+                    if (f.getType() == Timestamp.class)
+                    {
+                        classMethod.invoke(this, rs.getTimestamp(f.getName()));
+                    }
+
+                    if (f.getType() == Boolean.class)
+                    {
+                        classMethod.invoke(this, rs.getBoolean(f.getName()));
+                    }
+
+                    if (f.getType() == Float.class)
+                    {
+                        classMethod.invoke(this, rs.getFloat(f.getName()));
                     }
                 }
             }

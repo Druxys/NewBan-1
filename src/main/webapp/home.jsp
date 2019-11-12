@@ -8,28 +8,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="structures/header.jsp"%>
 <%
-    Cookie[] cookies = request.getCookies();
-    if (cookies != null) {
-        for (Cookie cookie : cookies) {
-            if (cookie.getName().equals("prenom")) {
-                request.setAttribute("prenom", cookie.getValue());
-            }
-            if (cookie.getName().equals("id")){
-                request.setAttribute("id", cookie.getValue());
-            }
-        }
-    }
-%>
-<%
     String prenom = "";
-    String id = "";
+    System.out.println(session.getAttribute("role"));
+    System.out.println(session.getAttribute("id"));
 %>
 <div>
-<% if (request.getAttribute("prenom") != null && request.getAttribute("id") != null) {
-    prenom = (String) request.getAttribute("prenom");
-    id = (String) request.getAttribute("id");
+<% if (session.getAttribute("name") != null){
+    prenom = (String) session.getAttribute("name");
 %>
-    <p>Mon Cher <%=id%> <%=prenom%></p>
+    <p>Mon Cher <%=prenom%></p>
 <%
 }%>
 </div>

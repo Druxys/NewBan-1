@@ -1,5 +1,6 @@
 <%@ page import="java.util.List" %>
-<%@ page import="Models.Users" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="Models.Customers" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%--
@@ -11,7 +12,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="structures/header.jsp"%>
-    <% List<Users> app= (List<Users>) request.getAttribute("res");%>
+<% List<Customers> app= (List<Customers>) request.getAttribute("res");
+    SimpleDateFormat sdf = new SimpleDateFormat("d/M/Y H:m");
+    SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/YYYY");
+%>
 
 <h1>Tableau des Utilisateurs</h1>
 <hr class="red lighten-5"/>
@@ -25,23 +29,39 @@
 <%--</c:forEach>--%>
 
 
-<table class="table table-bordered">
+<table class="table table-bordered text-center">
+    <thead>
+    <tr class="text-uppercase">
+        <th scope="col">Name</th>
+        <th scope="col">LastName</th>
+        <th scope="col">Email</th>
+        <th scope="col">Debt</th>
+<%--        <th scope="col">BirthDate</th>--%>
+        <th scope="col">Existing Contract</th>
+        <th scope="col">Customer</th>
+        <th scope="col">Created_at</th>
+    </tr>
+    </thead>
     <%
         if (app != null) {
-            for (Users users : app) {
+            for (Customers users : app) {
                 System.out.println(users);%>
     <tbody>
     <tr>
         <th scope= "col"><%=users.getName() %></th>
         <th scope= "col"><%=users.getFirstName() %></th>
         <th scope= "col"><%=users.getEmail() %></th>
-        <th scope= "col"><%=users.getId() %></th>
+        <th scope= "col"><%=users.getDebt() %></th>
+<%--        <th scope= "col"><%=sdf1.format(users.getBirthdate()) %></th>--%>
+        <th scope= "col"><%=users.getExisting_contract() %></th>
+        <th scope= "col"><%=users.getIs_customer() %></th>
+        <th scope= "col"><%=sdf.format(users.getCreated_at()) %></th>
     </tr>
     </tbody>
     <%
             } } else {
-    out.println("Bonjour");
-    }
+            out.println("Bonjour");
+        }
     %>
 </table>
 
