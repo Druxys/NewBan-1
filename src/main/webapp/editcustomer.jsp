@@ -1,4 +1,5 @@
-<%--
+<%@ page import="Models.Customers" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: shadownluffy
   Date: 12/11/2019
@@ -7,27 +8,19 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="structures/header.jsp"%>
+<%
+    List<Customers> app= (List<Customers>) request.getAttribute("res");
+    if (app != null) {
+        for (Customers users : app) {
+            System.out.println(users);
+%>
 
 <div class="container">
-    <h1>Editer votre Profil</h1>
+    <h1>Editer Profil de <%=users.getFirstName()%></h1>
     <hr>
     <div class="row">
-        <!-- left column -->
-        <div class="col-md-3">
-            <div class="text-center">
-                <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
-                <h6>Choisir un autre avatar</h6>
-                <input type="file" class="form-control">
-            </div>
-        </div>
-
         <!-- edit form column -->
         <div class="col-md-9 personal-info">
-            <div class="alert alert-info alert-dismissable">
-                <a class="panel-close close" data-dismiss="alert">×</a>
-                <i class="fa fa-coffee"></i>
-                Petite <strong>.alert</strong> pour les utilisateurs.
-            </div>
             <h3>Infos Personnelles</h3>
 
             <form class="form-horizontal" role="form">
@@ -80,5 +73,8 @@
     </div>
 </div>
 <hr>
+<%
+        }}
+%>
 
 <%@include file="structures/footer.jsp"%>
