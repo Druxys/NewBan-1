@@ -17,65 +17,63 @@
 
 
 <div class="container">
-    <h1>Profil de </h1>
+    <h1>Profil de <%=users.getFirstName()%></h1>
     <hr>
     <div class="row">
         <!-- edit form column -->
         <div class="col-md-9 personal-info">
             <h3>Infos Personnelles</h3>
-
-            <form class="form-horizontal" role="form">
-                <div class="form-group">
-                    <label class="col-lg-3 control-label">FirstName :</label>
-                    <div class="col-lg-8">
-                        <%=users.getFirstName()%>
-                    </div>
+            <div class="form-group">
+                <label class="col-lg-3 control-label">FirstName :</label>
+                <div class="col-lg-8">
+                    <%=users.getFirstName()%>
                 </div>
-                <div class="form-group">
-                    <label class="col-lg-3 control-label">Nom :</label>
-                    <div class="col-lg-8">
-                        <input class="form-control" type="text" value="">
-                    </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3 control-label">LastName :</label>
+                <div class="col-lg-8">
+                    <%=users.getLastName()%>
                 </div>
-                <div class="form-group">
-                    <label class="col-lg-3 control-label">Mail :</label>
-                    <div class="col-lg-8">
-                        <input class="form-control" type="text" value="">
-                    </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3 control-label">Mail :</label>
+                <div class="col-lg-8">
+                    <%=users.getEmail()%>
                 </div>
-                <div class="form-group">
-                    <label class="col-lg-3 control-label">Identifiant :</label>
-                    <div class="col-lg-8">
-                        <input class="form-control" type="text" value="">
-                    </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3 control-label">Phone :</label>
+                <div class="col-lg-8">
+                    0<%=users.getPhone()%>
                 </div>
-                <div class="form-group">
-                    <label class="col-lg-4 control-label">Mot de passe :</label>
-                    <div class="col-lg-8">
-                        <input class="form-control" type="password" value="11111122333">
-                    </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-4 control-label">Professionnal Situation :</label>
+                <div class="col-lg-8">
+                    <%=users.getProfessionnal_situation()%>
                 </div>
-                <div class="form-group">
-                    <label class="col-lg-4 control-label">Confirmer votre mot de passe :</label>
-                    <div class="col-lg-8">
-                        <input class="form-control" type="password" value="11111122333">
-                    </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-4 control-label">Family Situation :</label>
+                <div class="col-lg-8">
+                    <%=users.getFamily_situation()%>
                 </div>
-                <div class="form-group">
-                    <label class="col-lg-3 control-label"></label>
-                    <div class="col-lg-8">
-                        <input type="button" class="btn btn-primary" value="Sauvegarder">
-                        <span></span>
-                        <input type="reset" class="btn btn-default" value="Annuler">
-                    </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-4 control-label">Is Customer :</label>
+                <div class="col-lg-8">
+                    <%=users.getIs_customer()%>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
+    <button>
+        <a href="toto">BACK</a>
+    </button>
 </div>
 <hr>
 <%
-    }}
+        }}
 %>
 
 <%@include file="structures/footer.jsp"%>
