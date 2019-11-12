@@ -38,6 +38,10 @@
     <servlet-name>ProfilServlet</servlet-name>
     <servlet-class>Servlet.ProfilServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>EditCustomerServlet</servlet-name>
+    <servlet-class>Servlet.EditCustomerServlet</servlet-class>
+  </servlet>
 
 
   <!--  Servlet Mapping-->
@@ -72,6 +76,10 @@
   <servlet-mapping>
     <servlet-name>ProfilServlet</servlet-name>
     <url-pattern>/profil</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>EditCustomerServlet</servlet-name>
+    <url-pattern>/edit</url-pattern>
   </servlet-mapping>
   
 

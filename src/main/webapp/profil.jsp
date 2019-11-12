@@ -70,6 +70,9 @@
     <button>
         <a href="toto">BACK</a>
     </button>
+    <button>
+        <a href="">Edit</a>
+    </button>
 </div>
 <hr>
 <%
