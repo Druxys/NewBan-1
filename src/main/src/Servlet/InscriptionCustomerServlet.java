@@ -27,7 +27,7 @@ public class InscriptionCustomerServlet extends HttpServlet {
         Integer phone = Integer.valueOf(request.getParameter("phone"));
         Float debt = Float.valueOf(request.getParameter("debt"));
         Integer income = Integer.valueOf(request.getParameter("income"));
-        Date birthdate = Date.valueOf(request.getParameter("birthdate"));
+        Timestamp birthdate = Timestamp.valueOf(request.getParameter("birthdate"));
         Boolean is_customer;
         if (request.getParameter("is_customer") != null){
             is_customer = true;

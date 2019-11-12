@@ -19,7 +19,7 @@ public class Customers extends BaseModelORM {
     private Integer income;
     private Timestamp created_at;
     private Timestamp updated_at;
-    private Date birthdate;
+    private Timestamp birthdate;
     private Boolean is_customer = false;
     private Boolean existing_contract = false;
     private String contract_type;
@@ -121,11 +121,11 @@ public class Customers extends BaseModelORM {
         return this;
     }
 
-    public Date getBirthdate() {
+    public Timestamp getBirthdate() {
         return birthdate;
     }
 
-    public Customers setBirthdate(Date birthdate) {
+    public Customers setBirthdate(Timestamp birthdate) {
         this.birthdate = birthdate;
         return this;
     }
