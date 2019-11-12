@@ -1,6 +1,6 @@
 package Servlet;
 
-import Models.Advisors;
+import Models.Products;
 import Utils.Database;
 import org.mindrot.jbcrypt.BCrypt;
 
