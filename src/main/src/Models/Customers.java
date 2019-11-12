@@ -1,6 +1,7 @@
 package Models;
 
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
 public class Customers extends BaseModelORM {
@@ -17,7 +18,7 @@ public class Customers extends BaseModelORM {
     private Integer income;
     private Timestamp created_at;
     private Timestamp updated_at;
-    private Timestamp birthdate;
+    private Date birthdate;
     private Boolean is_customer = false;
     private Boolean existing_contract = false;
     private String contract_type;
@@ -119,11 +120,11 @@ public class Customers extends BaseModelORM {
         return this;
     }
 
-    public Timestamp getBirthdate() {
+    public Date getBirthdate() {
         return birthdate;
     }
 
-    public Customers setBirthdate(Timestamp birthdate) {
+    public Customers setBirthdate(Date birthdate) {
         this.birthdate = birthdate;
         return this;
     }
