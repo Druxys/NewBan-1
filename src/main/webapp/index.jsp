@@ -38,6 +38,7 @@
         <th scope="col">Debt</th>
         <th scope="col">BirthDate</th>
         <th scope="col">Existing Contract</th>
+        <th scope="col">Customer</th>
         <th scope="col">Created_at</th>
     </tr>
     </thead>
@@ -53,6 +54,7 @@
         <th scope= "col"><%=users.getDebt() %></th>
         <th scope= "col"><%=sdf1.format(users.getBirthdate()) %></th>
         <th scope= "col"><%=users.getExisting_contract() %></th>
+        <th scope= "col"><%=users.getIs_customer() %></th>
         <th scope= "col"><%=sdf.format(users.getCreated_at()) %></th>
     </tr>
     </tbody>

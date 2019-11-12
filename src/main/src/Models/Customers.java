@@ -1,8 +1,6 @@
 package Models;
 
-import org.json.JSONObject;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 
 public class Customers extends BaseModelORM {
