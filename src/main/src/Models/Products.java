@@ -1,8 +1,5 @@
 package Models;
 
-import org.json.JSONObject;
-
-import java.sql.Date;
 import java.sql.Timestamp;
 
 public class Products extends BaseModelORM {
@@ -29,8 +26,7 @@ public class Products extends BaseModelORM {
 
     public String getTableName() { return tableName; }
 
-    public String getName() { return name;
-    }
+    public String getName() { return name; }
 
     public  Products setName(String name) {
         this.name = name;
