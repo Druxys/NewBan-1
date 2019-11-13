@@ -7,7 +7,7 @@ import java.sql.Timestamp;
 public class Advisors extends BaseModelORM {
     private Integer id;
 
-    String tableName = "Advisors";
+    String tableName = "advisors";
     private String lastname;
     private String firstName;
     private String mail;
