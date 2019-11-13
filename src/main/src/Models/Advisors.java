@@ -9,7 +9,7 @@ public class Advisors extends BaseModelORM {
 
     String tableName = "advisors";
     private String lastname;
-    private String firstName;
+    private String firstname;
     private String mail;
     private String password;
     private String roles;
@@ -33,11 +33,11 @@ public class Advisors extends BaseModelORM {
     }
 
     public String getFirstName() {
-        return firstName;
+        return firstname;
     }
 
-    public Advisors setFirstName(String firstName) {
-        this.firstName = firstName;
+    public Advisors setFirstName(String firstname) {
+        this.firstname = firstname;
         return this;
     }
     public String getMail() {
