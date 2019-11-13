@@ -27,7 +27,7 @@ public class LoginServlet extends HttpServlet {
         List<Advisors> var = Database.select(myuser, fields);
 
         for (Advisors users : var){
-            usermail.add(users.getEmail());
+            usermail.add(users.getMail());
         }
 
         if (usermail.contains(email)){

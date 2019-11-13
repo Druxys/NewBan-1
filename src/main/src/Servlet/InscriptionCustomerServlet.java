@@ -49,19 +49,19 @@ public class InscriptionCustomerServlet extends HttpServlet {
         myuser
                 .setLastName(name)
                 .setFirstName(firstname)
-                .setEmail(email)
+                .setMail(email)
                 .setPhone(phone)
                 .setBirthdate(birthdate)
                 .setProfessionnal_contract_type(contract_type)
                 .setDebt((float) debt)
                 .setExisting_contract(existing_contract)
-                .setFamily_situation(family_situation)
+                .setFamilly_situation(family_situation)
                 .setProfessionnal_situation(professional_situation)
                 .setIs_customer(is_customer)
-                .setId_advisor((Integer)session.getAttribute("id"))
                 .setIncome(income)
                 .setCreated_at(Timestamp.valueOf(LocalDateTime.now()))
                 .setUpdated_at(null)
+                .setId((Integer)session.getAttribute("id"))
         ;
 
         Database.insert(myuser);
