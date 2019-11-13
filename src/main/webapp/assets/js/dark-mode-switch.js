@@ -1,4 +1,3 @@
-
 (function() {
     var darkSwitch = document.getElementById("darkSwitch");
     if (darkSwitch) {

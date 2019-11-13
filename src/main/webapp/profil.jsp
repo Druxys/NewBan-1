@@ -71,7 +71,7 @@
         <a href="toto">BACK</a>
     </button>
     <button>
-        <a href="">Edit</a>
+        <a href="edit?id=<%=users.getId()%>">Edit</a>
     </button>
 </div>
 <hr>

@@ -59,6 +59,7 @@
         <th scope= "col"><%=sdf.format(users.getCreated_at()) %></th>
         <th scope="col">
             <a href="profil?id=<%=users.getId()%>">Profil</a>
+            <a href="edit?id=<%=users.getId()%>">Edit</a>
         </th>
     </tr>
     </tbody>

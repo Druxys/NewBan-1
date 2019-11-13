@@ -25,47 +25,45 @@
 
             <form class="form-horizontal" role="form">
                 <div class="form-group">
-                    <label class="col-lg-3 control-label">Prénom :</label>
+                    <label class="col-lg-3 control-label" for="fistname">FirstName :</label>
                     <div class="col-lg-8">
-                        <input class="form-control" type="text" value="">
+                        <input class="form-control" type="text" value="<%=users.getFirstName()%>" id="fistname" name="fistname">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-lg-3 control-label">Nom :</label>
+                    <label class="col-lg-3 control-label" for="lastname">LastName :</label>
                     <div class="col-lg-8">
-                        <input class="form-control" type="text" value="">
+                        <input class="form-control" type="text" value="<%=users.getLastName()%>" name="lastname" id="lastname">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-lg-3 control-label">Mail :</label>
+                    <label class="col-lg-3 control-label" for="email">Mail :</label>
                     <div class="col-lg-8">
-                        <input class="form-control" type="text" value="">
+                        <input class="form-control" type="text" value="<%=users.getEmail()%>" id="email" name="email">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-lg-3 control-label">Identifiant :</label>
-                    <div class="col-lg-8">
-                        <input class="form-control" type="text" value="">
+                    <label class="col-lg-3 control-label" for="is_customer">Is Customer :</label>
+                    <div class="col-lg-8 custom-control custom-switch">
+                            <input type="checkbox" name="is_customer" id="is_customer"/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-lg-4 control-label">Mot de passe :</label>
+                    <label class="col-lg-4 control-label" for="phone">Phone :</label>
                     <div class="col-lg-8">
-                        <input class="form-control" type="password" value="11111122333">
+                        <input class="form-control" type="number" value="0<%=users.getPhone()%>" id="phone" name="phone">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-lg-4 control-label">Confirmer votre mot de passe :</label>
+                    <label class="col-lg-4 control-label" for="birthdate">Birthdate :</label>
                     <div class="col-lg-8">
-                        <input class="form-control" type="password" value="11111122333">
+                        <input class="form-control" type="date" value="<%=users.getBirthdate()%>" name="birthdate" id="birthdate">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-lg-3 control-label"></label>
                     <div class="col-lg-8">
-                        <input type="button" class="btn btn-primary" value="Sauvegarder">
-                        <span></span>
-                        <input type="reset" class="btn btn-default" value="Annuler">
+                        <input type="submit" class="btn btn-primary" value="Save">
                     </div>
                 </div>
             </form>
