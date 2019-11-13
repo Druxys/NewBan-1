@@ -8,12 +8,12 @@ public class Customers extends BaseModelORM {
     private Integer id;
 
     String tableName = "Customers";
-    private String lastName;
-    private String firstName;
-    private String email;
+    private String name;
+    private String firstname;
+    private String mail;
     private Integer phone;
     private Float debt;
-    private String family_situation;
+    private String familly_situation;
     private String professionnal_situation;
     private Integer income;
     private Timestamp created_at;
@@ -22,8 +22,6 @@ public class Customers extends BaseModelORM {
     private Boolean is_customer = false;
     private Boolean existing_contract = false;
     private String professionnal_contract_type;
-    private Integer id_advisor;
-
 
 
     public String getTableName() {
@@ -31,29 +29,29 @@ public class Customers extends BaseModelORM {
     }
 
     public String getLastName() {
-        return lastName;
+        return name;
     }
 
-    public Customers setLastName(String lastName) {
-        this.lastName = lastName;
+    public Customers setLastName(String name) {
+        this.name = name;
         return this;
     }
 
     public String getFirstName() {
-        return firstName;
+        return firstname;
     }
 
-    public Customers setFirstName(String firstName) {
-        this.firstName = firstName;
+    public Customers setFirstName(String firstname) {
+        this.firstname = firstname;
         return this;
     }
 
-    public String getEmail() {
-        return email;
+    public String getMail() {
+        return mail;
     }
 
-    public Customers setEmail(String email) {
-        this.email = email;
+    public Customers setMail(String mail) {
+        this.mail = mail;
         return this;
     }
 
@@ -75,12 +73,12 @@ public class Customers extends BaseModelORM {
         return this;
     }
 
-    public String getFamily_situation() {
-        return family_situation;
+    public String getFamilly_situation() {
+        return familly_situation;
     }
 
-    public Customers setFamily_situation(String family_situation) {
-        this.family_situation = family_situation;
+    public Customers setFamilly_situation(String familly_situation) {
+        this.familly_situation = familly_situation;
         return this;
     }
 
@@ -156,12 +154,4 @@ public class Customers extends BaseModelORM {
         return this;
     }
 
-    public Integer getId_advisor() {
-        return id_advisor;
-    }
-
-    public Customers setId_advisor(Integer id_advisor) {
-        this.id_advisor = id_advisor;
-        return this;
-    }
 }

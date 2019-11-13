@@ -19,20 +19,22 @@ public class InscriptionAdvisorServlet extends HttpServlet {
 
         Advisors myuser = new Advisors();
         HttpSession session = request.getSession();
-        String name = request.getParameter("nom");
+        String lastname = request.getParameter("nom");
         String firstname = request.getParameter("prenom");
-        String email = request.getParameter("email");
+        String mail = request.getParameter("mail");
         String password = request.getParameter("password");
         String roles = request.getParameter("role");
         String generatedSecuredPasswordHash = BCrypt.hashpw(password, BCrypt.gensalt(12));
+        String type_advisor = request.getParameter("type_advisor");
 
         myuser
-                .setFirstName(name)
-                .setLastName(firstname)
-                .setEmail(email)
+                .setFirstName(firstname)
+                .setLastName(lastname)
+                .setMail(mail)
                 .setPassword(generatedSecuredPasswordHash)
                 .setRoles(roles)
-                ;
+                .setType_advisor(type_advisor)
+        ;
 
         Database.insert(myuser);
 
