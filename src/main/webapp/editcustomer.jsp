@@ -1,5 +1,6 @@
 <%@ page import="Models.Customers" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%--
   Created by IntelliJ IDEA.
   User: shadownluffy
   Date: 12/11/2019
@@ -57,7 +58,7 @@
                 <div class="form-group">
                     <label class="col-lg-4 control-label" for="birthdate">Birthdate :</label>
                     <div class="col-lg-8">
-                        <input class="form-control" type="date" value="<%=users.getBirthdate()%>" name="birthdate" id="birthdate">
+                        <input class="form-control" type="date" value="<%=users.getBirthdate().%>" name="birthdate" id="birthdate">
                     </div>
                 </div>
                 <div class="form-group">
