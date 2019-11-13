@@ -21,9 +21,9 @@ public class InscriptionCustomerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Customers myuser = new Customers();
         HttpSession session = request.getSession();
-        String name = request.getParameter("nom");
-        String firstname = request.getParameter("prenom");
-        String email = request.getParameter("email");
+        String name = request.getParameter("name");
+        String firstname = request.getParameter("firstname");
+        String mail = request.getParameter("mail");
         Integer phone = Integer.valueOf(request.getParameter("phone"));
         Float debt = Float.valueOf(request.getParameter("debt"));
         Integer income = Integer.valueOf(request.getParameter("income"));
@@ -49,19 +49,19 @@ public class InscriptionCustomerServlet extends HttpServlet {
         myuser
                 .setLastName(name)
                 .setFirstName(firstname)
-                .setEmail(email)
+                .setMail(mail)
                 .setPhone(phone)
                 .setBirthdate(birthdate)
                 .setProfessionnal_contract_type(contract_type)
                 .setDebt((float) debt)
                 .setExisting_contract(existing_contract)
-                .setFamily_situation(family_situation)
+                .setFamilly_situation(family_situation)
                 .setProfessionnal_situation(professional_situation)
                 .setIs_customer(is_customer)
-                .setId_advisor((Integer)session.getAttribute("id"))
                 .setIncome(income)
                 .setCreated_at(Timestamp.valueOf(LocalDateTime.now()))
                 .setUpdated_at(null)
+                .setId((Integer)session.getAttribute("id"))
         ;
 
         Database.insert(myuser);

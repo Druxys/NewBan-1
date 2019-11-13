@@ -21,9 +21,9 @@ public class EditCustomerServlet extends HttpServlet {
         Customers customers = new Customers();
 
         HttpSession session = request.getSession();
-        String name = request.getParameter("lastname");
+        String name = request.getParameter("name");
         String firstname = request.getParameter("fistname");
-        String email = request.getParameter("email");
+        String mail = request.getParameter("mail");
         Boolean is_customer;
         if (request.getParameter("is_customer") != null){
             is_customer = true;
@@ -45,7 +45,7 @@ public class EditCustomerServlet extends HttpServlet {
         customers
                 .setLastName(name)
                 .setFirstName(firstname)
-                .setEmail(email)
+                .setMail(mail)
                 .setExisting_contract(existing_contract)
                 .setIs_customer(is_customer)
                 .setPhone(phone)

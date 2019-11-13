@@ -21,7 +21,7 @@ public class Database {
             try
             {
                 Class.forName("org.postgresql.Driver");
-                db = DriverManager.getConnection("jdbc:postgresql://localhost:5432/newban", "postgres", "postgres");
+                db = DriverManager.getConnection("jdbc:postgresql://localhost:5432/NewBan", "postgres", "postgres");
             }
             catch(Exception e)
             {

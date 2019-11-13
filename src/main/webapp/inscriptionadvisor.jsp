@@ -12,12 +12,12 @@
 %>
 
 <form action="advisor" method="post" class="text-center border border-light p-5">
-    <label for="nom">Nom</label>
-    <br><input type="text" name="nom" id="nom" placeholder="Votre Nom">
-    <br><label for="prenom">Prénom</label>
-    <br><input type="text" name="prenom" id="prenom" placeholder="Votre Prénom">
-    <br><label for="email">Email</label>
-    <br><input type="email" name="email" id="email" placeholder="Votre Email">
+    <label for="name">Nom</label>
+    <br><input type="text" name="name" id="name" placeholder="Votre Nom">
+    <br><label for="firstname">Prénom</label>
+    <br><input type="text" name="firstname" id="firstname" placeholder="Votre Prénom">
+    <br><label for="mail">Email</label>
+    <br><input type="mail" name="mail" id="mail" placeholder="Votre Email">
     <br><label for="password">Password</label>
     <br><input type="password" name="password" id="password">
     <br><label for="role">Role</label>

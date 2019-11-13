@@ -31,15 +31,15 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-lg-3 control-label" for="lastname">LastName :</label>
+                    <label class="col-lg-3 control-label" for="name">Name :</label>
                     <div class="col-lg-8">
-                        <input class="form-control" type="text" value="<%=users.getLastName()%>" name="lastname" id="lastname">
+                        <input class="form-control" type="text" value="<%=users.getLastName()%>" name="name" id="name">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-lg-3 control-label" for="email">Mail :</label>
+                    <label class="col-lg-3 control-label" for="mail">Mail :</label>
                     <div class="col-lg-8">
-                        <input class="form-control" type="text" value="<%=users.getEmail()%>" id="email" name="email">
+                        <input class="form-control" type="text" value="<%=users.getMail()%>" id="mail" name="mail">
                     </div>
                 </div>
                 <div class="form-group">
