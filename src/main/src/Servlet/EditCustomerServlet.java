@@ -62,10 +62,6 @@ public class EditCustomerServlet extends HttpServlet {
         fields.add("*");
         filter.add(Filtre.add("=", "id", id));
 
-        if (customers.getIs_customer()){
-            request.getParameter("is_customer");
-        }
-
         List var = Database.select(customers, fields, filter);
         request.setAttribute("res", var);
 

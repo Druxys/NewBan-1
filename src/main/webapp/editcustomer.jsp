@@ -12,7 +12,7 @@
     List<Customers> app= (List<Customers>) request.getAttribute("res");
     if (app != null) {
         for (Customers users : app) {
-            System.out.println(users);
+            System.out.println(users.getBirthdate());
 %>
 
 <div class="container">
@@ -45,7 +45,7 @@
                 <div class="form-group">
                     <label class="col-lg-3 control-label" for="is_customer">Is Customer :</label>
                     <div class="col-lg-8 custom-control custom-switch">
-                            <input type="checkbox" name="is_customer" id="is_customer"/>
+                            <input type="checkbox" name="is_customer" id="is_customer" <% if (users.getIs_customer()){%> checked <%}%>/>
                     </div>
                 </div>
                 <div class="form-group">
