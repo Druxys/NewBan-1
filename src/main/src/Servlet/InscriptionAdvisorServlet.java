@@ -27,17 +27,17 @@ public class InscriptionAdvisorServlet extends HttpServlet {
         String roles = request.getParameter("role");
         String generatedSecuredPasswordHash = BCrypt.hashpw(password, BCrypt.gensalt(12));
         Timestamp date = new Timestamp(System.currentTimeMillis());
-        String type_advisor = request.getParameter("type_advisor");
+        String typAdvisor = request.getParameter("typAdvisor");
 
         myuser
-                .setFirstName(firstname)
-                .setLastName(lastname)
-                .setMail(mail)
-                .setPassword(generatedSecuredPasswordHash)
-                .setRoles(roles)
-                .setType_advisor(lastname)
+                .setFirstName(null)
+                .setLastName(null)
+                .setMail(null)
+                .setPassword(null)
+                .setRoles(null)
+                .setTypeAdvisor(null)
                 .setIs_enabled(true)
-                .setCreated_at(date)
+                .setCreated_at(null)
                 .setUpdated_at(null)
         ;
         System.out.println("DATA :"+ myuser.getCreated_at());

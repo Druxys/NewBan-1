@@ -1,7 +1,5 @@
 package Models;
 
-
-
 import java.sql.Timestamp;
 
 public class Advisors extends BaseModelORM {
@@ -16,7 +14,7 @@ public class Advisors extends BaseModelORM {
     private Timestamp created_at;
     private Timestamp updated_at;
     private Boolean is_enabled = true;
-    private String type_advisor;
+    private String typeAdvisor;
 
 
     public String getTableName() {
@@ -93,12 +91,12 @@ public class Advisors extends BaseModelORM {
         this.roles = roles;
         return this;
     }
-    public String getType_advisor() {
-        return type_advisor;
+    public String geTypeAdvisor() {
+        return typeAdvisor;
     }
 
-    public Advisors setType_advisor(String type_advisor) {
-        this.type_advisor = type_advisor;
+    public Advisors setTypeAdvisor(String typeAdvisor) {
+        this.typeAdvisor = typeAdvisor;
         return this;
     }
 }
