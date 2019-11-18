@@ -21,9 +21,9 @@ public class InscriptionCustomerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Customers myuser = new Customers();
         HttpSession session = request.getSession();
-        String name = request.getParameter("name");
-        String firstname = request.getParameter("firstname");
-        String mail = request.getParameter("mail");
+        String lastname = request.getParameter("nom");
+        String firstname = request.getParameter("prenom");
+        String mail = request.getParameter("email");
         Integer phone = Integer.valueOf(request.getParameter("phone"));
         Float debt = Float.valueOf(request.getParameter("debt"));
         Integer income = Integer.valueOf(request.getParameter("income"));
@@ -40,19 +40,19 @@ public class InscriptionCustomerServlet extends HttpServlet {
         } else {
             existing_contract = false;
         }
-        String family_situation = request.getParameter("family_situation");
+        String family_situation = request.getParameter("familly_situation");
         String professional_situation = request.getParameter("professional_situation");
         String contract_type = request.getParameter("contract_type");
 
 
 
         myuser
-                .setLastName(name)
+                .setLastName(lastname)
                 .setFirstName(firstname)
                 .setMail(mail)
                 .setPhone(phone)
                 .setBirthdate(birthdate)
-                .setProfessionnal_contract_type(contract_type)
+                .setContract_type(contract_type)
                 .setDebt((float) debt)
                 .setExisting_contract(existing_contract)
                 .setFamilly_situation(family_situation)
@@ -90,11 +90,11 @@ public class InscriptionCustomerServlet extends HttpServlet {
 
         HttpSession session = request.getSession(true);
         String role = (String) session.getAttribute("role");
-        if (role != null){
-            System.out.println(role);
-            request.getRequestDispatcher("inscription.jsp").forward(request, response);
-        }else {
-            response.sendRedirect(request.getContextPath()+"/connexion");
-        }
+//        if (role != null){
+//            System.out.println(role);
+        request.getRequestDispatcher("inscription.jsp").forward(request, response);
+//        }else {
+//            response.sendRedirect(request.getContextPath()+"/connexion");
+//        }
     }
 }

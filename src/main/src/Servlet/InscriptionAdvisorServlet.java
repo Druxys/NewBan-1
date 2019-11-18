@@ -20,27 +20,23 @@ public class InscriptionAdvisorServlet extends HttpServlet {
 
         Advisors myuser = new Advisors();
         HttpSession session = request.getSession();
-        String lastname = request.getParameter("name");
-        String firstname = request.getParameter("firstname");
-        String mail = request.getParameter("mail");
+        String lastname = request.getParameter("nom");
+        String firstname = request.getParameter("prenom");
+        String mail = request.getParameter("email");
         String password = request.getParameter("password");
         String roles = request.getParameter("role");
         String generatedSecuredPasswordHash = BCrypt.hashpw(password, BCrypt.gensalt(12));
         String type_advisor = request.getParameter("type_advisor");
         Timestamp date = new Timestamp(System.currentTimeMillis());
 
-
         myuser
                 .setFirstName(firstname)
                 .setLastName(lastname)
                 .setMail(mail)
                 .setPassword(generatedSecuredPasswordHash)
-                .setRoles(roles)
-                .setType_advisor(type_advisor)
                 .setCreated_at(date)
-                .setUpdated_at(null)
-                .setIs_enabled(true)
-        ;
+                .setRoles(roles)
+                .setType_advisor("customer")
         ;
 
         Database.insert(myuser);

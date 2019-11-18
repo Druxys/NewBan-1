@@ -1,48 +1,44 @@
 package Models;
 
-
-
 import java.sql.Timestamp;
 
 public class Advisors extends BaseModelORM {
-    private Integer id;
+    Integer id;
 
     String tableName = "advisors";
-    private String firstname;
-    private String lastname;
+    private String firstName;
+    private String lastName;
     private String mail;
     private String password;
     private Timestamp created_at;
     private Timestamp updated_at;
-    private Boolean is_enabled;
+    private Boolean is_enabled = true;
     private String type_advisor;
     private String roles;
-
-
 
 
     public String getTableName() {
         return tableName;
     }
 
+    public String getLastName() {
+        return lastName;
+    }
 
+    public Advisors setLastName(String lastName) {
+        this.lastName = lastName;
+        return this;
+    }
 
     public String getFirstName() {
-        return firstname;
+        return firstName;
     }
 
-    public Advisors setFirstName(String firstname) {
-        this.firstname = firstname;
+    public Advisors setFirstName(String firstName) {
+        this.firstName = firstName;
         return this;
-    }
-    public String getLastName() {
-        return lastname;
     }
 
-    public Advisors setLastName(String lastname) {
-        this.lastname = lastname;
-        return this;
-    }
     public String getMail() {
         return mail;
     }
@@ -88,22 +84,20 @@ public class Advisors extends BaseModelORM {
         return this;
     }
 
-
-    public String getType_advisor() {
-        return type_advisor;
-    }
-
-
-    public Advisors setType_advisor(String type_advisor) {
-        this.type_advisor = type_advisor;
-        return this;
-    }
     public String getRoles() {
         return roles;
     }
 
     public Advisors setRoles(String roles) {
         this.roles = roles;
+        return this;
+    }
+    public String getType_advisor() {
+        return type_advisor;
+    }
+
+    public Advisors setType_advisor(String type_advisor) {
+        this.type_advisor = type_advisor;
         return this;
     }
 }
