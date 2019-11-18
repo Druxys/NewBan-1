@@ -1,17 +1,22 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="structures/header.jsp"%>
+<%@ page import="java.util.ArrayList" %>
 
 <div class="box">
     <!-- Default form login -->
     <form class="text-center border border-light p-5 login" action="connexion" method="post">
 
         <p class="h4 mb-4">Connexion</p>
-        <h2><%
-            if(null!=request.getAttribute("errorMessage"))
-            {
-                out.print(error.get(0));
+        <%
+            if (request.getAttribute("error") != null){
+                ArrayList error = (ArrayList) request.getAttribute("error");
+        %>
+        <h2 class="error-champs">
+            <%out.print(error.get(0));%>
+        </h2>
+        <%
             }
-        %></h2>
+        %>
         <!-- Email -->
         <input type="email" id="mail" class="form-control mb-4" placeholder="E-mail" name="mail">
 

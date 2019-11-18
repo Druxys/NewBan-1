@@ -21,6 +21,7 @@ public class LoginServlet extends HttpServlet {
         List<String> usermail = new ArrayList<>();
 
         //Initialisation de tout les champs
+        ArrayList<String> errors = new ArrayList<String>();
         ArrayList<String> fields = new ArrayList<>();
         fields.add("*");
 
@@ -53,11 +54,13 @@ public class LoginServlet extends HttpServlet {
 
                     response.sendRedirect(request.getContextPath() + "/");
                 } else {
-
+                    errors.add("Email ou Mot de passe incorrect");
+                    System.out.println("Mot de passe incorrect");
                 }
             }
         } else {
-            System.out.println("dommage");
+            errors.add("Email ou Mot de passe incorrect");
+            System.out.println("Email incorrect");
         }
 
     }
