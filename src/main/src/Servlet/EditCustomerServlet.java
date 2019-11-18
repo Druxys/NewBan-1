@@ -62,6 +62,7 @@ public class EditCustomerServlet extends HttpServlet {
         fields.add("*");
         filter.add(Filtre.add("=", "id", id));
 
+
         List var = Database.select(customers, fields, filter);
         request.setAttribute("res", var);
 

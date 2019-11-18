@@ -1,5 +1,6 @@
 package Servlet;
 
+import Models.Advisor_Customer;
 import Models.Customers;
 import Utils.Database;
 import Utils.Filtre;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.awt.image.AreaAveragingScaleFilter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,21 +26,33 @@ public class Demo extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         Customers myuser = new Customers();
+        Advisor_Customer advisorCustomer = new Advisor_Customer();
+
         HttpSession session = request.getSession();
-        ArrayList<String> fields = new ArrayList<>();
-        ArrayList filter = new ArrayList();
         Integer id = (Integer) session.getAttribute("id");
 
-//        filter.add( Filtre.add( "=", "id_advisor", id));
-
-        System.out.println(fields);
+        ArrayList<String> fields = new ArrayList<>();
         fields.add("*");
-        List var = Database.select(myuser, fields);
-        System.out.println(var);
+        ArrayList filter = new ArrayList();
+        filter.add(Filtre.add("=", "id_advisor", id));
 
-        request.setAttribute("res", var);
+        List<Advisor_Customer> test = Database.select(advisorCustomer, fields, filter);
+        System.out.println("test : " + test);
+        for (Advisor_Customer advisorCustomer1 : test){
+            Integer id_customer = advisorCustomer1.getId_customer();
+            ArrayList filter1 = new ArrayList();
+            List var;
+            filter1.add(Filtre.add("=", "id", id_customer));
 
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+
+            var = (Database.select(myuser, fields, filter1));
+            System.out.println("var : " + var);
+
+            request.setAttribute("res", var);
+
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+
+        }
 
     }
 
