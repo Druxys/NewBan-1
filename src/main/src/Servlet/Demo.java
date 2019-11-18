@@ -29,11 +29,11 @@ public class Demo extends HttpServlet {
         ArrayList filter = new ArrayList();
         Integer id = (Integer) session.getAttribute("id");
 
-        filter.add( Filtre.add( "=", "id_advisor", id));
+//        filter.add( Filtre.add( "=", "id_advisor", id));
 
         System.out.println(fields);
         fields.add("*");
-        List var = Database.select(myuser, fields, filter);
+        List var = Database.select(myuser, fields);
         System.out.println(var);
 
         request.setAttribute("res", var);

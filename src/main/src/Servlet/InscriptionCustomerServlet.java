@@ -1,7 +1,9 @@
 package Servlet;
 
+import Models.Advisor_Customer;
 import Models.Customers;
 import Utils.Database;
+import Utils.Filtre;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,7 +15,9 @@ import java.io.IOException;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 
 @WebServlet(name = "InscriptionServlet")
@@ -49,16 +53,15 @@ public class InscriptionCustomerServlet extends HttpServlet {
         myuser
                 .setLastName(name)
                 .setFirstName(firstname)
-                .setEmail(email)
+                .setMail(email)
                 .setPhone(phone)
                 .setBirthdate(birthdate)
-                .setProfessionnal_contract_type(contract_type)
+                .setContract_type(contract_type)
                 .setDebt((float) debt)
                 .setExisting_contract(existing_contract)
-                .setFamily_situation(family_situation)
+                .setFamilly_situation(family_situation)
                 .setProfessionnal_situation(professional_situation)
                 .setIs_customer(is_customer)
-                .setId_advisor((Integer)session.getAttribute("id"))
                 .setIncome(income)
                 .setCreated_at(Timestamp.valueOf(LocalDateTime.now()))
                 .setUpdated_at(null)
@@ -66,7 +69,27 @@ public class InscriptionCustomerServlet extends HttpServlet {
 
         Database.insert(myuser);
 
-        response.sendRedirect(request.getContextPath()+"/connexion");
+        ArrayList fields = new ArrayList();
+        fields.add("*");
+        ArrayList filter = new ArrayList();
+        filter.add(Filtre.add("=", "mail", "'"+myuser.getMail()+"'"));
+
+        List<Customers> var = Database.select(myuser, fields, filter);
+        Integer id_cust;
+
+        for (Customers customers : var){
+            id_cust = customers.getId();
+            Advisor_Customer advisor_customer = new Advisor_Customer();
+
+            advisor_customer
+                    .setId_advisor((Integer)session.getAttribute("id"))
+                    .setId_customer(id_cust)
+            ;
+
+            Database.insert(advisor_customer);
+        }
+
+        response.sendRedirect(request.getContextPath()+"/toto");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

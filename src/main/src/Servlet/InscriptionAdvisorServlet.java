@@ -29,9 +29,10 @@ public class InscriptionAdvisorServlet extends HttpServlet {
         myuser
                 .setFirstName(name)
                 .setLastName(firstname)
-                .setEmail(email)
+                .setMail(email)
                 .setPassword(generatedSecuredPasswordHash)
                 .setRoles(roles)
+                .setType_advisor("customer")
                 ;
 
         Database.insert(myuser);

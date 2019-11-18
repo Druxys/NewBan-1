@@ -45,7 +45,7 @@ public class EditCustomerServlet extends HttpServlet {
         customers
                 .setLastName(name)
                 .setFirstName(firstname)
-                .setEmail(email)
+                .setMail(email)
                 .setExisting_contract(existing_contract)
                 .setIs_customer(is_customer)
                 .setPhone(phone)

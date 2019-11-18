@@ -51,7 +51,7 @@
     <tr>
         <th scope= "col"><%=users.getLastName() %></th>
         <th scope= "col"><%=users.getFirstName() %></th>
-        <th scope= "col"><%=users.getEmail() %></th>
+        <th scope= "col"><%=users.getMail() %></th>
         <th scope= "col"><%=users.getDebt() %></th>
 <%--        <th scope= "col"><%=sdf1.format(users.getBirthdate()) %></th>--%>
         <th scope= "col"><%=users.getExisting_contract() %></th>

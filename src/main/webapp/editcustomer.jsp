@@ -40,7 +40,7 @@
                 <div class="form-group">
                     <label class="col-lg-3 control-label" for="email">Mail :</label>
                     <div class="col-lg-8">
-                        <input class="form-control" type="text" value="<%=users.getEmail()%>" id="email" name="email">
+                        <input class="form-control" type="text" value="<%=users.getMail()%>" id="email" name="email">
                     </div>
                 </div>
                 <div class="form-group">

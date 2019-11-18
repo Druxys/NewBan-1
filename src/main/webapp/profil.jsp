@@ -38,7 +38,7 @@
             <div class="form-group">
                 <label class="col-lg-3 control-label">Mail :</label>
                 <div class="col-lg-8">
-                    <%=users.getEmail()%>
+                    <%=users.getMail()%>
                 </div>
             </div>
             <div class="form-group">
