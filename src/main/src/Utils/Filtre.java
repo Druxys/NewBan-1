@@ -25,7 +25,7 @@ public class Filtre {
         return _filter1;
     }
 
-    public static HashMap add(String operator, String col, List value) {
+    public static HashMap add(String operator, String col, Object value) {
         HashMap _filter1 = new HashMap();
 
         _filter1.put("operator", operator);

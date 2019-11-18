@@ -199,43 +199,6 @@ public class Database {
         return resultat;
     }
 
-    public static List select(BaseModelORM _object, ArrayList<String> fields, ArrayList<String> filter, String explo, String tableName, String adj){
-
-        System.out.println("[DB] Entering SELECT");
-
-        connect();
-
-        List resultat = new ArrayList<>();
-
-        if (db != null) {
-            System.out.println("[DB] Got connection , Preparing statement");
-
-            PreparedStatement _selectQuery = _object.getSelectQuery(db, fields, filter, explo, tableName, adj);
-
-            try {
-
-                ResultSet rs = _selectQuery.executeQuery();
-
-                while (rs.next())
-                {
-                    BaseModelORM _newObject = (BaseModelORM) Class.forName(_object.getClass().getName()).newInstance();
-                    resultat.add(_newObject.populate(rs, fields));
-                }
-
-                System.out.println("[DB] Statement ran.");
-
-            } catch (Exception e) {
-
-                e.printStackTrace();
-            }
-
-            close();
-
-            System.out.println("[DB] Existing Select");
-        }
-        return resultat;
-    }
-
     public static void remove(BaseModelORM _object, Integer id){
 
         System.out.println("Entering DELETE");

@@ -43,10 +43,22 @@ public class Demo extends HttpServlet {
         }
         System.out.println("id_customer : " + id_customer);
 
+        Object[] id_customers = id_customer.toArray();
         ArrayList filter2 = new ArrayList();
-        filter2.add(Filtre.add("=", "id", id_customer));
+        for (Object object : id_customers) {
+            filter2.add(Filtre.add("=", "id", object));
+        }
 
-        
+            List<Customers> var2 = Database.select(myuser, fields, filter2);
+
+            System.out.println("var : " + var2);
+
+            request.setAttribute("res", var2);
+
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+
+
+
     }
 
 }
