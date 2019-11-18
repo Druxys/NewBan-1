@@ -23,19 +23,19 @@ public class LoginServlet extends HttpServlet {
         fields.add("*");
 
         ArrayList filters = new ArrayList<>();
-        String mail = request.getParameter("mail");
+        String email = request.getParameter("emil");
         List<Advisors> var = Database.select(myuser, fields);
 
         for (Advisors users : var){
             usermail.add(users.getMail());
         }
 
-        if (usermail.contains(mail)){
+        if (usermail.contains(email)){
             System.out.println("Coucou");
             //Ajout des simples guillemets pour permettre la lecture d'une chaîne de caractère lors de la requête
-            mail = "'" + mail + "'";
+            email = "'" + email + "'";
             //Ajout de filtres à ce moment la pour prendre en considération les simples guillemets
-            filters.add(Filtre.add("=", "email", mail));
+            filters.add(Filtre.add("=", "mail", email));
             List<Advisors> var2 = Database.select(myuser, fields, filters);
             String password = "";
             //Récup du mot de passe

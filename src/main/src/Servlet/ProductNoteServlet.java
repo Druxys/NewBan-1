@@ -13,8 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 @WebServlet(name = "ProductNoteServlet")
@@ -36,7 +38,6 @@ public class ProductNoteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
         Integer age;
-        Integer ageCustomer;
         Products myProduct = new Products();
         Customers myCustomer = new Customers();
         ArrayList filters = new ArrayList<>();
@@ -61,9 +62,30 @@ public class ProductNoteServlet extends HttpServlet {
                 System.out.println("DATA:" + age);
 
 
-                System.out.println(customers.getBirthdate().toString());
+                java.util.Date date_util = new java.util.Date();
+//Tu fais tes traitement sur date_util...
+
+//Tu castes à la fin pour insérer en base.
+                java.sql.Date date_sql = new java.sql.Date(date_util.getTime());
 
 
+                System.out.println(date_sql);
+/*
+
+String pattern = "MM/dd/yyyy HH:mm:ss";
+
+// Create an instance of SimpleDateFormat used for formatting
+// the string representation of date according to the chosen pattern
+                DateFormat df = new SimpleDateFormat(pattern);
+
+// Get the today date using Calendar object.
+                Date today = (Date) Calendar.getInstance().getTime();
+// Using DateFormat format method we can create a string
+// representation of a date with the defined format.
+                String todayAsString = df.format(today);*/
+
+// Print the result!
+              /*  System.out.println("Today is: " + todayAsString);*/
                 if(age != null  && age < 17  ){
                     note = note - 10;
                 }
