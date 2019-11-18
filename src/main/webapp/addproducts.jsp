@@ -7,19 +7,16 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="structures/header.jsp"%>
-<%
-    HashMap map = (HashMap) request.getAttribute("role");
-%>
 
-<form action="advisor" method="post" class="text-center border border-light p-5">
+<form action="addproducts" method="post" class="text-center border border-light p-5">
     <label for="nom">Nom</label>
-    <br><input type="text" name="nom" id="nom" placeholder="Votre Produit">
+    <br><input type="text" name="name" id="name" placeholder="Votre Produit">
     <br><label for="rate">Taux</label>
     <br><input type="text" name="rate" id="rate" placeholder="Taux du produit">
     <br><label for="cap">Plafond</label>
     <br><input type="integer" name="cap" id="cap" placeholder="Plafond">
     <br><label for="duration">Durée</label>
-    <br><input type="time" name="duration" id="duration">
+    <br><input type="integer" name="duration" id="duration">
     <br><label for="age_min_preferred">Age minimum conseillé</label>
     <br><input type="integer" name="age_min_preferred" id="age_min_preferred" placeholder="Age minimum conseillé">
     <br><label for="age_max_preferred">Age maximum conseillé</label>
@@ -37,16 +34,16 @@
     <br><label for="income_max_required">Revenu maximum requis</label>
     <br><input type="integer" name="income_max_required" id="income_max_required">
     <br>
-    <select name="professionnal_situation_prefered" id="professionnal_situation_prefered">
+    <select name="professionnal_situation_preferred" id="professionnal_situation_preferred">
         <option value="">--Please choose an option--</option>
-        <option value="chomeur">Demandeur d'emploi</option>
-        <option value="activité">Sans activités professionnel</option>
-        <option value="employé">Employé et ouvrier</option>
-        <option value="intermediaire">Profession intermédiaire, artisan, commerçant, agriculteur</option>
-        <option value="supérieure">Profession supérieure (cadre, professeur, profession libérale), chef d'entreprise</option>
+        <option value="chomeur">Demandeur emploi</option>
+        <option value="activité">Sans Activités</option>
+        <option value="employé">Employé</option>
+        <option value="intermediaire">Intermediaire</option>
+        <option value="supérieure">Supérieur</option>
     </select>
     <br>
-    <select name="familial_situation_prefered" id="familial_situation_prefered">
+    <select name="familial_situation_preferred" id="familial_situation_preferred">
         <option value="">--Please choose an option--</option>
         <option value="marié">Marié</option>
         <option value="pacsé">Pacsé</option>

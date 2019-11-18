@@ -34,6 +34,10 @@
     <servlet-name>InscriptionAdvisorServlet</servlet-name>
     <servlet-class>Servlet.InscriptionAdvisorServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>ProductsServlet</servlet-name>
+    <servlet-class>Servlet.ProductsServlet</servlet-class>
+  </servlet>
 
 
   <!--  Servlet Mapping-->
@@ -64,6 +68,10 @@
   <servlet-mapping>
     <servlet-name>InscriptionAdvisorServlet</servlet-name>
     <url-pattern>/advisor</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ProductsServlet</servlet-name>
+    <url-pattern>/addproducts</url-pattern>
   </servlet-mapping>
   
 
