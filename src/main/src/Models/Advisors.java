@@ -16,17 +16,9 @@ public class Advisors extends BaseModelORM {
     private String type_advisor;
     private String roles;
 
+
     public String getTableName() {
         return tableName;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public Advisors setFirstName(String firstName) {
-        this.firstName = firstName;
-        return this;
     }
 
     public String getLastName() {
@@ -35,6 +27,15 @@ public class Advisors extends BaseModelORM {
 
     public Advisors setLastName(String lastName) {
         this.lastName = lastName;
+        return this;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public Advisors setFirstName(String firstName) {
+        this.firstName = firstName;
         return this;
     }
 
@@ -83,21 +84,20 @@ public class Advisors extends BaseModelORM {
         return this;
     }
 
-    public String getType_advisor() {
-        return type_advisor;
-    }
-
-    public Advisors setType_advisor(String type_advisor) {
-        this.type_advisor = type_advisor;
-        return this;
-    }
-
     public String getRoles() {
         return roles;
     }
 
     public Advisors setRoles(String roles) {
         this.roles = roles;
+        return this;
+    }
+    public String getType_advisor() {
+        return type_advisor;
+    }
+
+    public Advisors setType_advisor(String type_advisor) {
+        this.type_advisor = type_advisor;
         return this;
     }
 }

@@ -1,5 +1,6 @@
 package Models;
 
+
 public class Advisor_Customer extends BaseModelORM {
     Integer id;
 
