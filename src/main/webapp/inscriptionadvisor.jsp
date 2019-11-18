@@ -27,6 +27,8 @@
         <option><%=map.get("Advisors")%></option>
         <option><%=map.get("Admins")%></option>
     </select>
+    <br><label for="typeAdvisor">Type de conseiller</label>
+    <br><input type="typeAdvisor" name="typeAdvisor" id="typeAdvisor">
     <br><input type="submit" value="Inscription">
 </form>
 

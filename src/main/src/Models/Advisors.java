@@ -3,9 +3,9 @@ package Models;
 import java.sql.Timestamp;
 
 public class Advisors extends BaseModelORM {
+
     private Integer id;
 
-    String tableName = "advisors";
     private String lastname;
     private String firstname;
     private String mail;
@@ -15,6 +15,7 @@ public class Advisors extends BaseModelORM {
     private Timestamp updated_at;
     private Boolean is_enabled = true;
     private String typeAdvisor;
+    private String tableName = "advisors";
 
 
     public String getTableName() {
@@ -25,7 +26,7 @@ public class Advisors extends BaseModelORM {
         return lastname;
     }
 
-    public Advisors setLastName(String lastname) {
+    public Advisors setlastname(String lastname) {
         this.lastname = lastname;
         return this;
     }
@@ -34,7 +35,7 @@ public class Advisors extends BaseModelORM {
         return firstname;
     }
 
-    public Advisors setFirstName(String firstname) {
+    public Advisors setfirstname(String firstname) {
         this.firstname = firstname;
         return this;
     }

@@ -21,9 +21,9 @@ public class InscriptionCustomerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Customers myuser = new Customers();
         HttpSession session = request.getSession();
-        String name = request.getParameter("nom");
+        String lastname = request.getParameter("nom");
         String firstname = request.getParameter("prenom");
-        String email = request.getParameter("email");
+        String mail = request.getParameter("email");
         Integer phone = Integer.valueOf(request.getParameter("phone"));
         Float debt = Float.valueOf(request.getParameter("debt"));
         Integer income = Integer.valueOf(request.getParameter("income"));
@@ -47,9 +47,9 @@ public class InscriptionCustomerServlet extends HttpServlet {
 
 
         myuser
-                .setLastName(name)
+                .setLastName(lastname)
                 .setFirstName(firstname)
-                .setMail(email)
+                .setMail(mail)
                 .setPhone(phone)
                 .setBirthdate(birthdate)
                 .setProfessionnal_contract_type(contract_type)
@@ -90,11 +90,11 @@ public class InscriptionCustomerServlet extends HttpServlet {
 
         HttpSession session = request.getSession(true);
         String role = (String) session.getAttribute("role");
-        if (role != null){
-            System.out.println(role);
+//        if (role != null){
+//            System.out.println(role);
             request.getRequestDispatcher("inscription.jsp").forward(request, response);
-        }else {
-            response.sendRedirect(request.getContextPath()+"/connexion");
-        }
+//        }else {
+//            response.sendRedirect(request.getContextPath()+"/connexion");
+//        }
     }
 }

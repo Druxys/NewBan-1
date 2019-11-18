@@ -8,7 +8,7 @@ public class Customers extends BaseModelORM {
     private Integer id;
 
     String tableName = "customers";
-    private String name;
+    private String lastname;
     private String firstname;
     private String mail;
     private Integer phone;
@@ -29,11 +29,11 @@ public class Customers extends BaseModelORM {
     }
 
     public String getLastName() {
-        return name;
+        return lastname;
     }
 
-    public Customers setLastName(String name) {
-        this.name = name;
+    public Customers setLastName(String lastname) {
+        this.lastname = lastname;
         return this;
     }
 

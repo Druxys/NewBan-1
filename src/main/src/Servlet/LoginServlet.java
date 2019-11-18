@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import Utils.Login;
+
 @WebServlet(name = "LoginServlet")
 public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -23,7 +25,7 @@ public class LoginServlet extends HttpServlet {
         fields.add("*");
 
         ArrayList filters = new ArrayList<>();
-        String email = request.getParameter("emil");
+        String email = request.getParameter("mail");
         List<Advisors> var = Database.select(myuser, fields);
 
         for (Advisors users : var){
@@ -35,7 +37,7 @@ public class LoginServlet extends HttpServlet {
             //Ajout des simples guillemets pour permettre la lecture d'une chaîne de caractère lors de la requête
             email = "'" + email + "'";
             //Ajout de filtres à ce moment la pour prendre en considération les simples guillemets
-            filters.add(Filtre.add("=", "email", email));
+            filters.add(Filtre.add("=", "mail", email));
             List<Advisors> var2 = Database.select(myuser, fields, filters);
             String password = "";
             //Récup du mot de passe
@@ -50,6 +52,8 @@ public class LoginServlet extends HttpServlet {
                     session.setAttribute("id", users1.getId());
 
                     response.sendRedirect(request.getContextPath() + "/");
+                } else {
+
                 }
             }
         } else {

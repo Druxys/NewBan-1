@@ -19,7 +19,7 @@ public class InscriptionAdvisorServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         Advisors myuser = new Advisors();
-        HttpSession session = request.getSession();
+
         String lastname = request.getParameter("nom");
         String firstname = request.getParameter("prenom");
         String mail = request.getParameter("mail");
@@ -29,18 +29,20 @@ public class InscriptionAdvisorServlet extends HttpServlet {
         Timestamp date = new Timestamp(System.currentTimeMillis());
         String typAdvisor = request.getParameter("typAdvisor");
 
+        System.out.println(lastname + firstname);
+
         myuser
-                .setFirstName(null)
-                .setLastName(null)
-                .setMail(null)
-                .setPassword(null)
-                .setRoles(null)
-                .setTypeAdvisor(null)
-                .setIs_enabled(true)
-                .setCreated_at(null)
+                .setfirstname(firstname)
+                .setlastname(lastname)
+                .setMail(mail)
+                .setPassword(generatedSecuredPasswordHash)
+                .setCreated_at(date)
                 .setUpdated_at(null)
+                .setIs_enabled(true)
+                .setTypeAdvisor(typAdvisor)
+                .setRoles(roles)
         ;
-        System.out.println("DATA :"+ myuser.getCreated_at());
+//        System.out.println("DATA :"+ myuser.getCreated_at());
         Database.insert(myuser);
 
         response.sendRedirect(request.getContextPath()+"/connexion");
