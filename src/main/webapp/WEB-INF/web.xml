@@ -38,6 +38,10 @@
     <servlet-name>ProductsServlet</servlet-name>
     <servlet-class>Servlet.ProductsServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>HistoricServlet</servlet-name>
+    <servlet-class>Servlet.HistoricServlet</servlet-class>
+  </servlet>
 
 
   <!--  Servlet Mapping-->
@@ -72,6 +76,10 @@
   <servlet-mapping>
     <servlet-name>ProductsServlet</servlet-name>
     <url-pattern>/addproducts</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>HistoricServlet</servlet-name>
+    <url-pattern>/historic</url-pattern>
   </servlet-mapping>
   
 

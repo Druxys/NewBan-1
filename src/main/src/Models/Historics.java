@@ -1,6 +1,7 @@
 package Models;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 public class Historics extends BaseModelORM{
 
@@ -10,7 +11,7 @@ public class Historics extends BaseModelORM{
     private Integer id_customer_product;
     private String resume;
     private String type_contact;
-    private Timestamp created_at = Timestamp.valueOf("now");
+    private Timestamp created_at = Timestamp.valueOf(LocalDateTime.now());
     private Timestamp updated_at;
     private Boolean is_enabled = true;
     private String contact_taken;

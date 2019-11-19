@@ -47,7 +47,7 @@
                     <a class="nav-link" href="stats">Statistiques</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="logs">Historique</a>
+                    <a class="nav-link" href="historic">Historique</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto nav-flex-icons">
