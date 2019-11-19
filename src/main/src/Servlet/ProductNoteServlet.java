@@ -52,7 +52,8 @@ public class ProductNoteServlet extends HttpServlet {
         List<Products> test = Database.select(myProduct, fields);
         List<Customers> customersList = Database.select(myCustomer, fields);
         ArrayList notes = new ArrayList();
-
+        ArrayList tableau = new ArrayList();
+        Integer fe = 0;
         for (Products product : test) {
 
             Integer note = 100;
@@ -66,8 +67,14 @@ public class ProductNoteServlet extends HttpServlet {
             Integer income_max_required = product.getAge_max_required();
             String proffessionnal_situation_preferred = product.getProfessionnal_situation_preferred();
             String familial_situation_preferred = "celib";
+            String nom = product.getName();
+
+            tableau.add(nom);
+            fe = fe +1;
 
             for (Customers customers : customersList) {
+
+
 
                 Integer age = 12;
                 Double debt = 0.15;
@@ -151,10 +158,15 @@ public class ProductNoteServlet extends HttpServlet {
                         }
                     }
                 }
-                notes.add(note);
+
+
+
+                    notes.add(note);
+
             }
 
         }
+        System.out.println(tableau);
         System.out.println(notes);
         request.getRequestDispatcher("home.jsp").forward(request, response);
     }
