@@ -7,6 +7,11 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="structures/header.jsp"%>
+<%
+    HashMap map = (HashMap) request.getAttribute("psp");
+
+    HashMap map2 = (HashMap) request.getAttribute("fsp");
+%>
 <div class="products">
 <form action="addproducts" method="post" class="text-center border border-light p-5 addproducts">
     <p class="h4 mb-4">Ajout d'un produit</p>
@@ -35,25 +40,25 @@
     <br><label for="income_max_required" class="font-weight-light h4">Revenu maximum requis</label>
     <br><input type="integer" class="form-control" name="income_max_required" id="income_max_required" placeholder="Revenu maximum requis">
     <br>
-    <select name="professionnal_situation_preferred" id="professionnal_situation_preferred">
-        <option value="">--Please choose an option--</option>
-        <option value="chomeur">Demandeur emploi</option>
-        <option value="activité">Sans Activités</option>
-        <option value="employé">Employé</option>
-        <option value="intermediaire">Intermediaire</option>
-        <option value="supérieure">Supérieur</option>
+    <select name="fsp" id="fsp" class="browser-default custom-select form-control">
+        <option>Situation familiale</option>
+        <option><%=map2.get("marie")%></option>
+        <option><%=map2.get("pacse")%></option>
+        <option><%=map2.get("divorce")%></option>
+        <option><%=map2.get("sépare")%></option>
+        <option><%=map2.get("célibataire")%></option>
+        <option><%=map2.get("veuf")%></option>
     </select>
-    <br>
-    <select name="familial_situation_preferred" id="familial_situation_preferred">
-        <option value="">--Please choose an option--</option>
-        <option value="marié">Marié</option>
-        <option value="pacsé">Pacsé</option>
-        <option value="divorcé">Divorcé</option>
-        <option value="séparé">Séparé</option>
-        <option value="célibataire">Célibataire</option>
-        <option value="veuf">Veuf</option>
+    <br><br>
+    <select name="psp" id="psp" class="browser-default custom-select form-control">
+        <option>Situation professionelle</option>
+        <option><%=map.get("chomeur")%></option>
+        <option><%=map.get("activité")%></option>
+        <option><%=map.get("employé")%></option>
+        <option><%=map.get("intermediaire")%></option>
+        <option><%=map.get("supérieure")%></option>
     </select>
-    <br><input type="submit" value="Ajouter">
+    <br><br><input type="submit" value="Ajouter">
 </form>
 </div>
 

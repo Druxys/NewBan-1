@@ -32,22 +32,22 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="connexion.jsp">Connexion</a>
+                    <a class="nav-link" href="connexion">Connexion</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="customers.jsp">Clients</a>
+                    <a class="nav-link" href="customers">Clients</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="profil.jsp">Profil</a>
+                    <a class="nav-link" href="profil">Profil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="addproducts.jsp">Ajout de produit</a>
+                    <a class="nav-link" href="addproducts">Ajout de produit</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="stats.php">Statistiques</a>
+                    <a class="nav-link" href="stats">Statistiques</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="logs.php">Historique</a>
+                    <a class="nav-link" href="logs">Historique</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto nav-flex-icons">

@@ -16,7 +16,7 @@
         <tr>
             <td data-title="ID">1</td>
             <td data-title="Name">
-                <a href="profil_customers.php">Client</a>
+                <a href="profil_customers">Client</a>
             </td>
             <td data-title="Link">
                 <a href="https://fr.wikipedia.org/wiki/Livret_A" target="_blank">Livret A</a>
@@ -28,7 +28,7 @@
         <tr>
             <td data-title="ID">2</td>
             <td data-title="Name">
-                <a href="profil_customers.php">Client</a>
+                <a href="profil_customers.jsp">Client</a>
             </td>
             <td data-title="Link">
                 <a href="https://fr.wikipedia.org/wiki/Livret_A" target="_blank">Livret A</a>
@@ -41,7 +41,7 @@
         <tr>
             <td data-title="ID">3</td>
             <td data-title="Name">
-                <a href="profil_customers.php">Client</a>
+                <a href="profil_customers.jsp">Client</a>
             </td>
             <td data-title="Link">
                 <a href="https://fr.wikipedia.org/wiki/Livret_A" target="_blank">Livret A</a>
@@ -54,7 +54,7 @@
         <tr>
             <td data-title="ID">4</td>
             <td data-title="Name">
-                <a href="profil_customers.php">Client</a>
+                <a href="profil_customers.jsp">Client</a>
             </td>
             <td data-title="Link"><a href="https://fr.wikipedia.org/wiki/Livret_A" target="_blank">Livret A</a></td>
             <td data-title="Status">Completed</td>
@@ -64,7 +64,7 @@
         <tr>
             <td data-title="ID">5</td>
             <td data-title="Name">
-                <a href="profil_customers.php">Client</a>
+                <a href="profil_customers.jsp">Client</a>
             </td>
             <td data-title="Link">
                 <a href="https://fr.wikipedia.org/wiki/Livret_A" target="_blank">Livret A</a>
@@ -76,7 +76,7 @@
         <tr>
             <td data-title="ID">6</td>
             <td data-title="Name">
-                <a href="profil_customers.php">Client</a>
+                <a href="profil_customers.jsp">Client</a>
             </td>
             <td data-title="Link">
                 <a href="https://fr.wikipedia.org/wiki/Livret_A" target="_blank">Livret A</a>
@@ -89,7 +89,7 @@
         <tr>
             <td data-title="ID">7</td>
             <td data-title="Name">
-                <a href="profil_customers.php">Client</a>
+                <a href="profil_customers.jsp">Client</a>
             </td>
             <td data-title="Link">
                 <a href="https://fr.wikipedia.org/wiki/Livret_A" target="_blank">Livret A</a>
@@ -101,7 +101,7 @@
         <tr>
             <td data-title="ID">8</td>
             <td data-title="Name">
-                <a href="profil_customers.php">Client</a>
+                <a href="profil_customers.jsp">Client</a>
             </td>
             <td data-title="Link">
                 <a href="https://fr.wikipedia.org/wiki/Livret_A" target="_blank">Livret A</a>
@@ -113,7 +113,7 @@
         <tr>
             <td data-title="ID">9</td>
             <td data-title="Name">
-                <a href="profil_customers.php">Client</a>
+                <a href="profil_customers.jsp">Client</a>
             </td>
             <td data-title="Link">
                 <a href="https://fr.wikipedia.org/wiki/Livret_A" target="_blank">Livret A</a>
@@ -125,7 +125,7 @@
         <tr>
             <td data-title="ID">10</td>
             <td data-title="Name">
-                <a href="profil_customers.php">Client</a>
+                <a href="profil_customers.jsp">Client</a>
             </td>
             <td data-title="Link">
                 <a href="https://fr.wikipedia.org/wiki/Livret_A" target="_blank">Livret A</a>

@@ -29,8 +29,8 @@ public class ProductsServlet extends HttpServlet {
         Integer income_max_preferred = Integer.valueOf(request.getParameter("income_max_preferred"));
         Integer income_min_required = Integer.valueOf(request.getParameter("income_min_required"));
         Integer income_max_required = Integer.valueOf(request.getParameter("income_max_required"));
-        String professionnal_situation_preferred = request.getParameter("professionnal_situation_preferred");
-        String familial_situation_preferred = request.getParameter("familial_situation_preferred");
+        String professionnal_situation_preferred = request.getParameter("psp");
+        String familial_situation_preferred = request.getParameter("fsp");
 
 
         myproduct
@@ -68,17 +68,18 @@ public class ProductsServlet extends HttpServlet {
         map.put("intermediaire", "Intermediaire");
         map.put("supérieure", "Supérieur");
 
-        request.setAttribute("professionnal_situation_preferred", map);
+        request.setAttribute("psp", map);
 
         HashMap map2 = new HashMap();
-        map.put("marié", "Marié");
-        map.put("pacsé", "Pacsé");
-        map.put("divorcé", "Divorcé");
-        map.put("séparé", "Séparé");
-        map.put("célibataire", "Célibataire");
-        map.put("veuf", "Veuf");
+        map2.put("marie", "Marié");
+        map2.put("pacse", "Pacsé");
+        map2.put("divorce", "Divorcé");
+        map2.put("sépare", "Séparé");
+        map2.put("célibataire", "Célibataire");
+        map2.put("veuf", "Veuf");
 
-        request.setAttribute("familial_situation_preferred", map2);
+        request.setAttribute("fsp", map2);
+        System.out.println("bonjour");
 
         request.getRequestDispatcher("addproducts.jsp").forward(request, response);
     }
