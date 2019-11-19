@@ -93,18 +93,26 @@ public class InscriptionCustomerServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         HashMap map = new HashMap();
-        map.put("test", "test");
-        map.put("alpha", "alpha");
+        map.put("chomeur", "Demandeur emploi");
+        map.put("activité", "Sans Activités");
+        map.put("employé", "Employé");
+        map.put("intermediaire", "Intermediaire");
+        map.put("supérieure", "Supérieur");
+
         HashMap map1 = new HashMap();
-        map1.put("test1", "test1");
-        map1.put("test2", "test2");
-        map1.put("test3", "test3");
+        map1.put("CDI", "CDI");
+        map1.put("CDD", "CDD");
+        map1.put("Intérim", "Intérim");
+
         HashMap map2 = new HashMap();
-        map2.put("test1", "test1");
-        map2.put("test2", "test2");
-        map2.put("test3", "test3");
-        System.out.println(map);
+        map2.put("marié", "Marié");
+        map2.put("pacsé", "Pacsé");
+        map2.put("divorcé", "Divorcé");
+        map2.put("séparé", "Séparé");
+        map2.put("célibataire", "Célibataire");
+        map2.put("veuf", "Veuf");
 
         request.setAttribute("tab", map);
         request.setAttribute("tab1", map1);

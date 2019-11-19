@@ -28,16 +28,22 @@
     <br>
     <select name="family_situation" id="family_situation">
         <option>--Please choose an option--</option>
-        <option><%=map.get("test")%></option>
-        <option><%=map.get("alpha")%></option>
+        <option><%=map2.get("marié")%></option>
+        <option><%=map2.get("pacsé")%></option>
+        <option><%=map2.get("divorcé")%></option>
+        <option><%=map2.get("séparé")%></option>
+        <option><%=map2.get("célibataire")%></option>
+        <option><%=map2.get("veuf")%></option>
     </select>
     <br><label for="professional_situation">Professional Situation</label>
     <br>
-    <select name="professional_situation" id="professional_situation" multiple>
+    <select name="professional_situation" id="professional_situation">
         <option>--Please choose an option--</option>
-        <option><%=map1.get("test1")%></option>
-        <option><%=map1.get("test2")%></option>
-        <option><%=map1.get("test3")%></option>
+        <option><%=map.get("chomeur")%></option>
+        <option><%=map.get("activité")%></option>
+        <option><%=map.get("employé")%></option>
+        <option><%=map.get("intermediaire")%></option>
+        <option><%=map.get("supérieure")%></option>
     </select>
     <br><label for="income">Incorne</label>
     <br><input type="number" name="income" id="income" placeholder="5">
@@ -51,9 +57,9 @@
     <br>
     <select name="contract_type" id="contract_type">
         <option>--Please choose an option--</option>
-        <option><%=map2.get("test1")%></option>
-        <option><%=map2.get("test2")%></option>
-        <option><%=map2.get("test3")%></option>
+        <option><%=map1.get("CDI")%></option>
+        <option><%=map1.get("CDD")%></option>
+        <option><%=map1.get("Intérim")%></option>
     </select>
     <br>
     <br><input type="submit" value="Inscription">
