@@ -13,7 +13,7 @@
     HashMap map2 = (HashMap) request.getAttribute("tab2");
 %>
 
-<form action="inscription" method="post" class="text-center border border-light p-5">
+<form action="inscription" method="post" class="text-center border border-light p-5" accept-charset="x-iso-8859-1">
     <label for="nom">Nom</label>
     <br><input type="text" name="nom" id="nom" placeholder="Votre Nom">
     <br><label for="prenom">Prénom</label>
