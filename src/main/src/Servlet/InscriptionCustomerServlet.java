@@ -64,6 +64,10 @@ public class InscriptionCustomerServlet extends HttpServlet {
                 .setId((Integer)session.getAttribute("id"))
         ;
 
+        if() {
+
+        }
+
         Database.insert(myuser);
 
         response.sendRedirect(request.getContextPath()+"/connexion");

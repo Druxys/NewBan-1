@@ -32,14 +32,14 @@ public class InscriptionAdvisorServlet extends HttpServlet {
         System.out.println(lastname + firstname);
 
         myuser
-                .setfirstname(firstname)
-                .setlastname(lastname)
+                .setFirstName(firstname)
+                .setLastName(lastname)
                 .setMail(mail)
                 .setPassword(generatedSecuredPasswordHash)
                 .setCreated_at(date)
                 .setUpdated_at(null)
                 .setIs_enabled(true)
-                .setTypeAdvisor(typAdvisor)
+                .setType_advisor(typAdvisor)
                 .setRoles(roles)
         ;
 //        System.out.println("DATA :"+ myuser.getCreated_at());
