@@ -17,6 +17,7 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Advisors myuser = new Advisors();
         List<String> usermail = new ArrayList<>();
+        ArrayList error = new ArrayList();
 
         //Initialisation de tout les champs
         ArrayList<String> fields = new ArrayList<>();
@@ -50,10 +51,12 @@ public class LoginServlet extends HttpServlet {
                     session.setAttribute("id", users1.getId());
 
                     response.sendRedirect(request.getContextPath() + "/");
+                } else {
+                    System.out.println("allo");
                 }
             }
         } else {
-            System.out.println("dommage");
+            System.out.println("Try Again");
         }
 
     }

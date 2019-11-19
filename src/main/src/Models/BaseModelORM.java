@@ -2,9 +2,6 @@ package Models;
 
 //Importation des paquest de javasql
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.sql.*;

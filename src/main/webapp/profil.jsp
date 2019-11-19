@@ -1,5 +1,8 @@
 <%@ page import="Models.Customers" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+
+<%--
   Created by IntelliJ IDEA.
   User: 17347
   Date: 15/10/2019
@@ -12,7 +15,6 @@
     List<Customers> app= (List<Customers>) request.getAttribute("res");
     if (app != null) {
         for (Customers users : app) {
-            System.out.println(users);
 %>
 
 
@@ -56,7 +58,7 @@
             <div class="form-group">
                 <label class="col-lg-4 control-label">Family Situation :</label>
                 <div class="col-lg-8">
-                    <%=users.getFamily_situation()%>
+                    <%=users.getFamilly_situation()%>
                 </div>
             </div>
             <div class="form-group">

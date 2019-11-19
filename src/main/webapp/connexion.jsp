@@ -7,6 +7,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="structures/header.jsp"%>
+<%
+    String error = (String) request.getAttribute("error");
+%>
+
 
 <div class="lol">
     <!-- Default form login -->

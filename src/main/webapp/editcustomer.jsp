@@ -1,5 +1,7 @@
 <%@ page import="Models.Customers" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Date" %>
 <%--
   Created by IntelliJ IDEA.
   User: shadownluffy
@@ -13,7 +15,6 @@
     List<Customers> app= (List<Customers>) request.getAttribute("res");
     if (app != null) {
         for (Customers users : app) {
-            System.out.println(users.getBirthdate());
 %>
 
 <div class="container">
@@ -53,12 +54,6 @@
                     <label class="col-lg-4 control-label" for="phone">Phone :</label>
                     <div class="col-lg-8">
                         <input class="form-control" type="number" value="0<%=users.getPhone()%>" id="phone" name="phone">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-lg-4 control-label" for="birthdate">Birthdate :</label>
-                    <div class="col-lg-8">
-                        <input class="form-control" type="date" value="<%=users.getBirthdate().%>" name="birthdate" id="birthdate">
                     </div>
                 </div>
                 <div class="form-group">
