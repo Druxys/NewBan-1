@@ -42,7 +42,7 @@
     <br><label for="income">Incorne</label>
     <br><input type="number" name="income" id="income" placeholder="5">
     <br><label for="birthdate">Birthdate</label>
-    <br><input type="date" name="birthdate" id="birthdate">
+    <br><input type="date" name="birthdate" id="birthdate" >
     <br><label for="is_customer">Client</label>
     <br><input type="checkbox" name="is_customer" id="is_customer">
     <br><label for="existing_contract">Exixting Contract</label>

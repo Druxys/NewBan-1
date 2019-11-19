@@ -11,33 +11,36 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintStream;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 @WebServlet(name = "ProductNoteServlet")
 public class ProductNoteServlet extends HttpServlet {
 
 
-
-
-    public String findAge (String birthday) { String[] values = birthday.split("-", 0);
-        return values[2] + "-" + values[1] + "-" + values[0];   }
-
-
+    public String findAge(String birthday) {
+        String[] values = birthday.split("-", 0);
+        return values[2] + "-" + values[1] + "-" + values[0];
+    }
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Integer age;
         Products myProduct = new Products();
         Customers myCustomer = new Customers();
         ArrayList filters = new ArrayList<>();
@@ -47,63 +50,82 @@ public class ProductNoteServlet extends HttpServlet {
         System.out.println(fields);
 
         List<Products> test = Database.select(myProduct, fields);
-        List<Customers> customersList =Database.select(myCustomer, fields);
+        List<Customers> customersList = Database.select(myCustomer, fields);
         ArrayList notes = new ArrayList();
 
-        for (Products product : test){
+        for (Products product : test) {
+
             Integer note = 100;
-            System.out.println("DATA:" + product.getName());
+            Integer age_min_prefered = product.getAge_min_preferred();
+            Integer age_max_prefered = product.getAge_max_preferred();
+            Integer income_min_prefered = product.getIncome_min_preferred();
+            Integer income_max_prefered = product.getAge_max_preferred();
+            Integer age_min_required = 19;
+            Integer age_max_required = product.getAge_max_required();
+            Integer income_min_required = product.getIncome_min_required();
+            Integer income_max_required = product.getAge_max_required();
+            String proffessionnal_situation_preferred = product.getProfessionnal_situation_preferred();
+            String familial_situation_preferred = product.getFamilial_situation_preferred();
 
-            for(Customers customers : customersList){
+            for (Customers customers : customersList) {
 
-                System.out.println("DATA:" + customers.getLastName());
+                Integer age = 20;
+                Float debt = customers.getDebt();
+                Integer income = customers.getIncome();
+                String familly_situation = customers.getFamilly_situation();
+                String contract_type = customers.getContract_type();
 
-                age = product.getAge_min_preferred();
-                System.out.println("DATA:" + age);
+                if (age_min_required != null && age_min_required > age) {
+                    note = 0;
 
+                } else {
+                    System.out.println("0");
+                    if (age_max_required != null && age_max_required < age) {
+                        note = 0;
+                        System.out.println("a");
 
-                java.util.Date date_util = new java.util.Date();
-//Tu fais tes traitement sur date_util...
+                    } else {
+                        System.out.println("b");
+                        if (income_min_required != null && income_min_required > income) {
+                            note = 0;
 
-//Tu castes à la fin pour insérer en base.
-                java.sql.Date date_sql = new java.sql.Date(date_util.getTime());
+                        } else {
+                            System.out.println("c");
+                            if (income_max_required != null && income_max_required < income) {
+                                note = 0;
 
+                            } else {
+                                System.out.println("d");
+                                if (age_min_prefered !=  null && age_max_prefered != null &&  age_min_prefered >= age && age_max_prefered <= age) {
+                                    note = note - 10;
+                                    System.out.println("z");
+                                }
+                                if (income_min_prefered !=  null && income_max_prefered != null && income_min_prefered >= income && income_max_prefered <= income) {
+                                    note = note - 10;
+                                    System.out.println("k");
+                                }
 
-                System.out.println(date_sql);
-/*
-
-String pattern = "MM/dd/yyyy HH:mm:ss";
-
-// Create an instance of SimpleDateFormat used for formatting
-// the string representation of date according to the chosen pattern
-                DateFormat df = new SimpleDateFormat(pattern);
-
-// Get the today date using Calendar object.
-                Date today = (Date) Calendar.getInstance().getTime();
-// Using DateFormat format method we can create a string
-// representation of a date with the defined format.
-                String todayAsString = df.format(today);*/
-
-// Print the result!
-              /*  System.out.println("Today is: " + todayAsString);*/
-                if(age != null  && age < 17  ){
-                    note = note - 10;
+                                if (debt != null && debt >= 33) {
+                                    note = 0;
+                                    System.out.println("e");
+                                } else {
+                                    System.out.println("f");
+                                    Integer i;
+                                    for (i = 0; i >= debt; i = i + 5) {
+                                        note = note - 5;
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
                 notes.add(note);
             }
 
-
-
-
         }
-
         System.out.println(notes);
-
-
-
-
-
-
         request.getRequestDispatcher("home.jsp").forward(request, response);
     }
-}
+
+    }
+

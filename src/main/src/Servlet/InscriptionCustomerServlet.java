@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Date;
+import java.sql.Time;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 
@@ -27,7 +29,7 @@ public class InscriptionCustomerServlet extends HttpServlet {
         Integer phone = Integer.valueOf(request.getParameter("phone"));
         Float debt = Float.valueOf(request.getParameter("debt"));
         Integer income = Integer.valueOf(request.getParameter("income"));
-        Date birthdate = Date.valueOf(request.getParameter("birthdate"));
+        String birthdate = request.getParameter("birthdate");
         Boolean is_customer;
         if (request.getParameter("is_customer") != null){
             is_customer = true;
