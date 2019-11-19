@@ -56,24 +56,25 @@ public class ProductNoteServlet extends HttpServlet {
         for (Products product : test) {
 
             Integer note = 100;
-            Integer age_min_prefered = product.getAge_min_preferred();
-            Integer age_max_prefered = product.getAge_max_preferred();
-            Integer income_min_prefered = product.getIncome_min_preferred();
-            Integer income_max_prefered = product.getAge_max_preferred();
-            Integer age_min_required = 19;
+            Integer age_min_prefered = 21;
+            Integer age_max_prefered = 50;
+            Integer income_min_prefered = 6000;
+            Integer income_max_prefered = 8000;
+            Integer age_min_required = product.getAge_min_required();
             Integer age_max_required = product.getAge_max_required();
             Integer income_min_required = product.getIncome_min_required();
             Integer income_max_required = product.getAge_max_required();
             String proffessionnal_situation_preferred = product.getProfessionnal_situation_preferred();
-            String familial_situation_preferred = product.getFamilial_situation_preferred();
+            String familial_situation_preferred = "celib";
 
             for (Customers customers : customersList) {
 
-                Integer age = 20;
-                Float debt = customers.getDebt();
-                Integer income = customers.getIncome();
-                String familly_situation = customers.getFamilly_situation();
-                String contract_type = customers.getContract_type();
+                Integer age = 12;
+                Double debt = 0.15;
+                Integer income = 5000;
+                String professional_situation = "salarié";
+                String familly_situation = "er";
+                String contract_type = "cdd";
 
                 if (age_min_required != null && age_min_required > age) {
                     note = 0;
@@ -96,25 +97,56 @@ public class ProductNoteServlet extends HttpServlet {
 
                             } else {
                                 System.out.println("d");
-                                if (age_min_prefered !=  null && age_max_prefered != null &&  age_min_prefered >= age && age_max_prefered <= age) {
+                                if (age_min_prefered !=  null  &&  age_min_prefered >= age ) {
                                     note = note - 10;
                                     System.out.println("z");
+
                                 }
-                                if (income_min_prefered !=  null && income_max_prefered != null && income_min_prefered >= income && income_max_prefered <= income) {
+                                if (age_max_prefered !=  null  &&  age_max_prefered <= age ) {
                                     note = note - 10;
-                                    System.out.println("k");
+                                    System.out.println("z");
+
+                                }
+                                if (income_min_prefered !=  null && income_min_prefered >= income ) {
+                                    note = note - 10;
+                                    System.out.println("v");
+                                }
+                                if (income_max_prefered !=  null && income_max_prefered <= income ) {
+                                    note = note - 10;
+                                    System.out.println("az");
                                 }
 
-                                if (debt != null && debt >= 33) {
+                                if (debt != null && debt >= 0.33) {
                                     note = 0;
                                     System.out.println("e");
                                 } else {
                                     System.out.println("f");
-                                    Integer i;
-                                    for (i = 0; i >= debt; i = i + 5) {
+                                    Double i;
+                                    for (i = 0.0; i <= debt; i = i + 0.05) {
                                         note = note - 5;
+                                        System.out.println("debt");
                                     }
+                                    if ( professional_situation != null && professional_situation.equals("salarié")){
+
+                                        System.out.println("salarié");
+                                        if (contract_type != null && contract_type.equals("cdd")){
+
+                                            note = note - 10;
+
+                                        }
+
+                                    }
+
+                                    if (familly_situation != null && !familly_situation.equals(familial_situation_preferred)){
+                                            note = note - 10;
+                                        }
+
+
+
+
+
                                 }
+
                             }
                         }
                     }
