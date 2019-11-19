@@ -4,6 +4,7 @@ import Models.Advisor_Customer;
 import Models.Customers;
 import Utils.Database;
 import Utils.Filtre;
+import Utils.Messages;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -87,6 +88,12 @@ public class InscriptionCustomerServlet extends HttpServlet {
             ;
 
             Database.insert(advisor_customer);
+
+            String to = (String) session.getAttribute("mail");
+            String subject = "Enregistrement confirmé";
+            String message = "Bravo , vous avez enregistré Mr " + name + " au sein de notre banque!";
+
+            Messages.sendMessage(subject, message, to, "12newban12@gmail.com");
         }
 
         response.sendRedirect(request.getContextPath()+"/toto");
