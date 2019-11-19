@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 
@@ -43,7 +44,7 @@ public class InscriptionCustomerServlet extends HttpServlet {
         String family_situation = request.getParameter("family_situation");
         String professional_situation = request.getParameter("professional_situation");
         String contract_type = request.getParameter("contract_type");
-
+        ArrayList<String> errors = new ArrayList<String>();
 
 
         myuser
@@ -64,11 +65,37 @@ public class InscriptionCustomerServlet extends HttpServlet {
                 .setId((Integer)session.getAttribute("id"))
         ;
 
-        if() {
-
+        if(firstname.isEmpty()) {
+            errors.add("Champ prénom vide.");
+        }
+        if(lastname.isEmpty()) {
+            errors.add("Champ nom vide.");
+        }
+        if(mail.isEmpty()) {
+            errors.add("Champ mail vide.");
+        }
+        if(phone != null) {
+            errors.add("Champ téléphone vide.");
+        }
+        if(debt != null) {
+            errors.add("Champ dette vide.");
+        }
+        if(contract_type.isEmpty()) {
+            errors.add("Champ contract_type vide.");
+        }
+        if(professional_situation.isEmpty()) {
+            errors.add("Champ professional_situation vide.");
+        }
+        if(family_situation.isEmpty()) {
+            errors.add("Champ family_situation vide.");
         }
 
-        Database.insert(myuser);
+        if (errors != null) {
+            Database.insert(myuser);
+        }else{
+            request.setAttribute("errors", errors);
+            request.getRequestDispatcher("inscription.jsp").forward(request, response);
+        }
 
         response.sendRedirect(request.getContextPath()+"/connexion");
     }

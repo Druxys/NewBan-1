@@ -1,4 +1,5 @@
 <%@ page import="java.util.HashMap" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="structures/header.jsp"%>
 <%
@@ -8,6 +9,14 @@
 %>
 
 <form action="inscription" method="post" class="text-center border border-light p-5">
+    <%
+        if (request.getAttribute("errors") != null){
+            ArrayList error = (ArrayList) request.getAttribute("errors");
+    %>
+    <h4 >
+        <%out.print(error.get(0));}%>
+
+    </h4>
     <label for="nom">Nom</label>
     <br><input type="text" name="nom" id="nom" placeholder="Votre Nom">
     <br><label for="prenom">Prénom</label>
