@@ -38,6 +38,7 @@
     <servlet-name>EditCustomerServlet</servlet-name>
     <servlet-class>Servlet.EditCustomerServlet</servlet-class>
   </servlet>
+  <servlet>
     <servlet-name>ProductsServlet</servlet-name>
     <servlet-class>Servlet.ProductsServlet</servlet-class>
   </servlet>
@@ -46,7 +47,7 @@
   <!--  Servlet Mapping-->
   <servlet-mapping>
     <servlet-name>ListCustomersServlet</servlet-name>
-    <url-pattern>/listcustomers</url-pattern>
+    <url-pattern>/customers</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>InscriptionCustomerServlet</servlet-name>
@@ -85,4 +86,5 @@
   <welcome-file-list>
     <welcome-file>home.jsp</welcome-file>
   </welcome-file-list>
+
 </web-app>
