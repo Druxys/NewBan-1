@@ -120,6 +120,22 @@ public class InscriptionCustomerServlet extends HttpServlet {
             System.out.println("Serge");
             request.setAttribute("errors", errors);
             System.out.println("Benoit");
+            HashMap map = new HashMap();
+            map.put("test", "test");
+            map.put("alpha", "alpha");
+            HashMap map1 = new HashMap();
+            map1.put("test1", "test1");
+            map1.put("test2", "test2");
+            map1.put("test3", "test3");
+            HashMap map2 = new HashMap();
+            map2.put("test1", "test1");
+            map2.put("test2", "test2");
+            map2.put("test3", "test3");
+            System.out.println(map);
+
+            request.setAttribute("tab", map);
+            request.setAttribute("tab1", map1);
+            request.setAttribute("tab2", map2);
             request.getRequestDispatcher("inscription.jsp").forward(request, response);
         }
 
