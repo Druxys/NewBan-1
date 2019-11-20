@@ -7,8 +7,8 @@
 
   <!--  Servlet-->
   <servlet>
-    <servlet-name>Demo</servlet-name>
-    <servlet-class>Servlet.Demo</servlet-class>
+    <servlet-name>ListCustomersServlet</servlet-name>
+    <servlet-class>Servlet.ListCustomersServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>InscriptionCustomerServlet</servlet-name>
@@ -17,10 +17,6 @@
   <servlet>
     <servlet-name>LoginServlet</servlet-name>
     <servlet-class>Servlet.LoginServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>SessionServlet</servlet-name>
-    <servlet-class>Servlet.SessionServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>MailServlet</servlet-name>
@@ -34,12 +30,20 @@
     <servlet-name>InscriptionAdvisorServlet</servlet-name>
     <servlet-class>Servlet.InscriptionAdvisorServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>ProfilServlet</servlet-name>
+    <servlet-class>Servlet.ProfilServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>EditCustomerServlet</servlet-name>
+    <servlet-class>Servlet.EditCustomerServlet</servlet-class>
+  </servlet>
 
 
   <!--  Servlet Mapping-->
   <servlet-mapping>
-    <servlet-name>Demo</servlet-name>
-    <url-pattern>/toto</url-pattern>
+    <servlet-name>ListCustomersServlet</servlet-name>
+    <url-pattern>/listcustomers</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>InscriptionCustomerServlet</servlet-name>
@@ -48,10 +52,6 @@
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/connexion</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>SessionServlet</servlet-name>
-    <url-pattern>/session</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>MailServlet</servlet-name>
@@ -64,6 +64,14 @@
   <servlet-mapping>
     <servlet-name>InscriptionAdvisorServlet</servlet-name>
     <url-pattern>/advisor</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ProfilServlet</servlet-name>
+    <url-pattern>/profil</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>EditCustomerServlet</servlet-name>
+    <url-pattern>/edit</url-pattern>
   </servlet-mapping>
   
 

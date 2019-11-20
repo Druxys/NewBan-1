@@ -1,41 +1,38 @@
 package Models;
 
-
 import java.sql.Date;
 import java.sql.Timestamp;
 
 public class Customers extends BaseModelORM {
-    private Integer id;
+    Integer id;
 
-    String tableName = "Customers";
-    private String name;
+    String tableName = "customers";
+    private String lastName;
     private String firstName;
-    private String email;
+    private String mail;
     private Integer phone;
     private Float debt;
-    private String family_situation;
-    private String professional_situation;
     private Integer income;
     private Timestamp created_at;
     private Timestamp updated_at;
     private Date birthdate;
-    private Boolean is_customer = false;
-    private Boolean existing_contract = false;
+    private Boolean is_customer;
+    private Boolean existing_contract;
+    private String familly_situation;
+    private String professionnal_situation;
     private String contract_type;
-    private Integer id_advisor;
-
 
 
     public String getTableName() {
         return tableName;
     }
 
-    public String getName() {
-        return name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public Customers setName(String name) {
-        this.name = name;
+    public Customers setLastName(String lastName) {
+        this.lastName = lastName;
         return this;
     }
 
@@ -48,12 +45,12 @@ public class Customers extends BaseModelORM {
         return this;
     }
 
-    public String getEmail() {
-        return email;
+    public String getMail() {
+        return mail;
     }
 
-    public Customers setEmail(String email) {
-        this.email = email;
+    public Customers setMail(String mail) {
+        this.mail = mail;
         return this;
     }
 
@@ -72,24 +69,6 @@ public class Customers extends BaseModelORM {
 
     public Customers setDebt(Float debt) {
         this.debt = debt;
-        return this;
-    }
-
-    public String getFamily_situation() {
-        return family_situation;
-    }
-
-    public Customers setFamily_situation(String family_situation) {
-        this.family_situation = family_situation;
-        return this;
-    }
-
-    public String getProfessional_situation() {
-        return professional_situation;
-    }
-
-    public Customers setProfessional_situation(String professional_situation) {
-        this.professional_situation = professional_situation;
         return this;
     }
 
@@ -147,21 +126,30 @@ public class Customers extends BaseModelORM {
         return this;
     }
 
+    public String getFamilly_situation() {
+        return familly_situation;
+    }
+
+    public Customers setFamilly_situation(String familly_situation) {
+        this.familly_situation = familly_situation;
+        return this;
+    }
+
+    public String getProfessionnal_situation() {
+        return professionnal_situation;
+    }
+
+    public Customers setProfessionnal_situation(String professionnal_situation) {
+        this.professionnal_situation = professionnal_situation;
+        return this;
+    }
+
     public String getContract_type() {
         return contract_type;
     }
 
     public Customers setContract_type(String contract_type) {
         this.contract_type = contract_type;
-        return this;
-    }
-
-    public Integer getId_advisor() {
-        return id_advisor;
-    }
-
-    public Customers setId_advisor(Integer id_advisor) {
-        this.id_advisor = id_advisor;
         return this;
     }
 }
