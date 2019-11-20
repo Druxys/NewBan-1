@@ -1,7 +1,6 @@
 <%@ page import="Models.Customers" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="java.util.Date" %>
+<%@ page import="java.util.HashMap" %>
 <%--
   Created by IntelliJ IDEA.
   User: shadownluffy
@@ -15,60 +14,65 @@
     List<Customers> app= (List<Customers>) request.getAttribute("res");
     if (app != null) {
         for (Customers users : app) {
+    HashMap map = (HashMap) request.getAttribute("tab");
+    HashMap map1 = (HashMap) request.getAttribute("tab1");
+    HashMap map2 = (HashMap) request.getAttribute("tab2");
 %>
-
-<div class="container">
-    <h1>Editer Profil de <%=users.getFirstName()%></h1>
-    <hr>
-    <div class="row">
-        <!-- edit form column -->
-        <div class="col-md-9 personal-info">
-            <h3>Infos Personnelles</h3>
-
-            <form class="form-horizontal" role="form">
-                <div class="form-group">
-                    <label class="col-lg-3 control-label" for="fistname">FirstName :</label>
-                    <div class="col-lg-8">
-                        <input class="form-control" type="text" value="<%=users.getFirstName()%>" id="fistname" name="fistname">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-lg-3 control-label" for="lastname">LastName :</label>
-                    <div class="col-lg-8">
-                        <input class="form-control" type="text" value="<%=users.getLastName()%>" name="lastname" id="lastname">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-lg-3 control-label" for="email">Mail :</label>
-                    <div class="col-lg-8">
-                        <input class="form-control" type="text" value="<%=users.getMail()%>" id="email" name="email">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-lg-3 control-label" for="is_customer">Is Customer :</label>
-                    <div class="col-lg-8 custom-control custom-switch">
-                            <input type="checkbox" name="is_customer" id="is_customer" <% if (users.getIs_customer()){%> checked <%}%>/>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-lg-4 control-label" for="phone">Phone :</label>
-                    <div class="col-lg-8">
-                        <input class="form-control" type="number" value="0<%=users.getPhone()%>" id="phone" name="phone">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-lg-3 control-label"></label>
-                    <div class="col-lg-8">
-                        <input type="submit" class="btn btn-primary" value="Save">
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
+<div class="products">
+    <form action="edit" method="post" class="text-center border border-light p-5 addproducts" accept-charset="x-iso-8859-1">
+        <label for="nom" class="font-weight-light h4">LastName</label>
+        <br><input type="text" name="nom" id="nom" value="<%=users.getLastName()%>" class="form-control"/>
+        <br><label for="prenom" class="font-weight-light h4">FirstName</label>
+        <br><input type="text" name="prenom" id="prenom" value="<%=users.getFirstName()%>" class="form-control"/>
+        <br><label for="email" class="font-weight-light h4">Mail</label>
+        <br><input type="email" name="email" id="email" value="<%=users.getMail()%>" class="form-control"/>
+        <br><label for="phone" class="font-weight-light h4">Phone</label>
+        <br><input type="number" name="phone" id="phone" value="0<%=users.getPhone()%>" class="form-control"/>
+        <br><label for="debt" class="font-weight-light h4">Debt</label>
+        <br><input type="number" value="<%=users.getDebt()%>" step="0.01" min="0" max="10" id="debt" name="debt" class="form-control"/>
+        <br><label for="family_situation" class="font-weight-light h4">Family Situation</label>
+        <br>
+        <select name="family_situation" id="family_situation" class="browser-default custom-select form-control">
+            <option><%=users.getFamilly_situation()%></option>
+            <option><%=map2.get("marié")%></option>
+            <option><%=map2.get("pacsé")%></option>
+            <option><%=map2.get("divorcé")%></option>
+            <option><%=map2.get("séparé")%></option>
+            <option><%=map2.get("célibataire")%></option>
+            <option><%=map2.get("veuf")%></option>
+        </select>
+        <br><label for="professional_situation" class="font-weight-light h4">Professional Situation</label>
+        <br>
+        <select name="professional_situation" id="professional_situation" class="browser-default custom-select form-control">
+            <option><%=users.getProfessionnal_situation()%></option>
+            <option><%=map.get("chomeur")%></option>
+            <option><%=map.get("activité")%></option>
+            <option><%=map.get("employé")%></option>
+            <option><%=map.get("intermediaire")%></option>
+            <option><%=map.get("supérieure")%></option>
+        </select>
+        <br><label for="income" class="font-weight-light h4">Incorne</label>
+        <br><input type="number" name="income" id="income" value="<%=users.getIncome()%>" class="form-control"/>
+        <br><label for="is_customer" class="font-weight-light h4">Client</label>
+        <br><input type="checkbox" name="is_customer" id="is_customer" class="form-control" <%if (users.getIs_customer()){%>checked<%}%>>
+        <br><label for="existing_contract" class="font-weight-light h4">Exixting Contract</label>
+        <br><input type="checkbox" name="existing_contract" id="existing_contract" class="form-control" <%if (users.getExisting_contract()){%>checked<%}%>>
+        <br><label for="contract_type" class="font-weight-light h4">Contract Type</label>
+        <br>
+        <select name="contract_type" id="contract_type" class="browser-default custom-select form-control">
+            <option><%=users.getContract_type()%></option>
+            <option><%=map1.get("CDI")%></option>
+            <option><%=map1.get("CDD")%></option>
+            <option><%=map1.get("Intérim")%></option>
+        </select>
+        <br>
+        <br><input type="submit" value="Edit" class="form-control">
+    </form>
 </div>
-<hr>
-<%
-        }}
-%>
 
+</body>
+</html>
+<%
+    }}
+%>
 <%@include file="structures/footer.jsp"%>

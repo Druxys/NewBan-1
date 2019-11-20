@@ -44,6 +44,7 @@
         <th scope= "col"><%=users.getFamilly_situation()%></th>
         <th scope="col"><%=users.getProfessionnal_situation()%></th>
         <th scope= "col"><%=users.getDebt() %></th>
+        <th scope="col"><%=users.getIncome()%></th>
         <th scope= "col"><%=users.getExisting_contract() %></th>
         <th scope= "col"><%=users.getIs_customer() %></th>
         <th scope="col">

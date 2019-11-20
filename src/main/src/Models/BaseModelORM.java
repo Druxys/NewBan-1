@@ -101,7 +101,7 @@ public class BaseModelORM {
         //Définition de la variable pour récupérer nos champs
         ArrayList<String> fields = new ArrayList<String>();
         //Ici on définit notre variable pour rajouter des parametres a la requete
-        String where             = "WHERE id = ?";
+        String where             = " WHERE id = ?";
         //Variable pour effectué la requete
         StringBuilder total      = new StringBuilder();
 
