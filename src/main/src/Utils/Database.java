@@ -2,8 +2,6 @@ package Utils;
 
 import Models.BaseModelORM;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +19,7 @@ public class Database {
             try
             {
                 Class.forName("org.postgresql.Driver");
-                db = DriverManager.getConnection("jdbc:postgresql://localhost:5432/newban", "postgres", "postgres");
+                db = DriverManager.getConnection("jdbc:postgresql://localhost:5432/newban", "postgres", "Kickackoa1991");
             }
             catch(Exception e)
             {

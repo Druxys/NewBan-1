@@ -14,6 +14,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <!-- Bootstrap core CSS -->
@@ -22,6 +23,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/dark-mode.css">
+
 </head>
 
 <body>
@@ -36,24 +38,27 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.php">Accueil
-                        <span class="sr-only">(current)</span>
+                    <a class="nav-link" href="home.jsp">Accueil
+                      <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login.php">Connexion</a>
+                    <a class="nav-link" href="connexion">Connexion</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="customers.php">Clients</a>
+                    <a class="nav-link" href="customers">Clients</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="profil.php">Profil</a>
+                    <a class="nav-link" href="profil">Profil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="stats.php">Statistiques</a>
+                    <a class="nav-link" href="addproducts">Ajout de produit</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="logs.php">Historique</a>
+                    <a class="nav-link" href="stats">Statistiques</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="logs">Historique</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto nav-flex-icons">
@@ -86,3 +91,4 @@
     </nav>
     <!--/.Navbar -->
 </header>
+<body>

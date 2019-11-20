@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=ISO-8859-1" language="java" %>
-<!-- Footer -->
+
 </footer>
 <!-- Footer -->
 <!-- JQuery -->

@@ -38,6 +38,9 @@
     <servlet-name>EditCustomerServlet</servlet-name>
     <servlet-class>Servlet.EditCustomerServlet</servlet-class>
   </servlet>
+    <servlet-name>ProductsServlet</servlet-name>
+    <servlet-class>Servlet.ProductsServlet</servlet-class>
+  </servlet>
 
 
   <!--  Servlet Mapping-->
@@ -72,6 +75,10 @@
   <servlet-mapping>
     <servlet-name>EditCustomerServlet</servlet-name>
     <url-pattern>/edit</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ProductsServlet</servlet-name>
+    <url-pattern>/addproducts</url-pattern>
   </servlet-mapping>
   
 

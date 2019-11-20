@@ -11,7 +11,6 @@
     String error = (String) request.getAttribute("error");
 %>
 
-
 <div class="lol">
     <!-- Default form login -->
     <form class="text-center border border-light p-5 login" action="connexion" method="post">
@@ -23,7 +22,6 @@
 
         <!-- Password -->
         <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Mot de passe" name="password">
-
         <div class="d-flex justify-content-around">
             <div>
                 <!-- Remember me -->
@@ -34,7 +32,7 @@
             </div>
             <div>
                 <!-- Forgot password -->
-                <a href="forgotPwd.php">Mot de passe oublié ?</a>
+                <a href="forgotPwd.jsp">Mot de passe oubliÃ© ?</a>
             </div>
         </div>
 
@@ -43,5 +41,7 @@
 
     </form>
 </div>
+
+<!-- Default form login -->
 
 <%@include file="structures/footer.jsp"%>
