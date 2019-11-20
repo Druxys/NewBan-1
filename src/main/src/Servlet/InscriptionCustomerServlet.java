@@ -26,7 +26,6 @@ public class InscriptionCustomerServlet extends HttpServlet {
         String firstname = request.getParameter("prenom");
         String mail = request.getParameter("email");
 //        Integer phone = Integer.valueOf(request.getParameter("phone"));
-
         Integer phone;
         if (request.getParameter("phone") == ""){
             phone = 0;
@@ -93,8 +92,12 @@ public class InscriptionCustomerServlet extends HttpServlet {
         if(myuser.getFirstName() == "") {
             errors.add("Champ nom vide.");
         }
-        if(myuser.getMail() == "") {
-            errors.add("Champ mail vide.");
+        if ( myuser.getMail() != null && myuser.getMail().trim().length() != 0 ) {
+            if ( !myuser.getMail().matches( "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)" ) ) {
+                errors.add( "Merci de saisir une adresse mail valide." );
+            }
+        } else {
+            errors.add( "Merci de saisir une adresse mail." );
         }
         if(myuser.getPhone() == 0) {
             errors.add("Champ téléphone vide.");
@@ -113,11 +116,8 @@ public class InscriptionCustomerServlet extends HttpServlet {
         }
         System.out.println(errors);
         if (errors.isEmpty()) {
-            System.out.println("François");
             Database.insert(myuser);
         }else {
-
-            System.out.println("Serge");
             request.setAttribute("errors", errors);
             System.out.println("Benoit");
             HashMap map = new HashMap();
@@ -169,5 +169,21 @@ public class InscriptionCustomerServlet extends HttpServlet {
 //        }else {
 //            response.sendRedirect(request.getContextPath()+"/connexion");
 //        }
+    }
+
+    private void validationEmail( String email ) throws Exception {
+        if ( email != null && email.trim().length() != 0 ) {
+            if ( !email.matches( "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)" ) ) {
+                throw new Exception( "Merci de saisir une adresse mail valide." );
+            }
+        } else {
+            throw new Exception( "Merci de saisir une adresse mail." );
+        }
+    }
+
+    private void validationNom( String nom ) throws Exception {
+        if ( nom != null && nom.trim().length() < 3 ) {
+            throw new Exception( "Le nom d'utilisateur doit contenir au moins 3 caractères." );
+        }
     }
 }

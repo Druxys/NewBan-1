@@ -1,6 +1,7 @@
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@include file="structures/header.jsp"%>
 <%
     HashMap map = (HashMap) request.getAttribute("tab");
@@ -13,10 +14,12 @@
         if (request.getAttribute("errors") != null){
             ArrayList error = (ArrayList) request.getAttribute("errors");
     %>
-    <h4 >
-        <%out.print(error.get(0));}%>
-
-    </h4>
+    <span class="erreur" >
+        <p>
+            <%out.print(error.get(0));}%>
+            <br/>
+        </p>
+    </span>
     <label for="nom">Nom</label>
     <br><input type="text" name="nom" id="nom" placeholder="Votre Nom">
     <br><label for="prenom">Prénom</label>

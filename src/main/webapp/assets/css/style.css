@@ -48,3 +48,7 @@
 .table-wrapper-scroll-y {
     display: block;
 }
+
+form .erreur {
+    color: #900;
+}
