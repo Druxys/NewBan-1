@@ -70,7 +70,7 @@
         </div>
     </div>
     <button>
-        <a href="toto">BACK</a>
+        <a href="listcustomers">BACK</a>
     </button>
     <button>
         <a href="edit?id=<%=users.getId()%>">Edit</a>

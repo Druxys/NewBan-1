@@ -17,7 +17,7 @@ import java.util.List;
 
 
 @WebServlet(name = "Demo")
-public class Demo extends HttpServlet {
+public class ListCustomersServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
@@ -55,7 +55,14 @@ public class Demo extends HttpServlet {
 
             request.setAttribute("res", var2);
 
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            HttpSession session1 = request.getSession(true);
+            String role = (String) session1.getAttribute("role");
+            if (role != null){
+                System.out.println(role);
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+            }else {
+                response.sendRedirect(request.getContextPath()+"/connexion");
+            }
 
 
 
