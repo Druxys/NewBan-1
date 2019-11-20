@@ -5,7 +5,7 @@
   Time: 13:11
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=ISO-8859-1" language="java" %>
 <%@include file="structures/header.jsp"%>
 <%
     HashMap map = (HashMap) request.getAttribute("role");
@@ -14,8 +14,8 @@
 <form action="advisor" method="post" class="text-center border border-light p-5">
     <label for="nom">Nom</label>
     <br><input type="text" name="nom" id="nom" placeholder="Votre Nom">
-    <br><label for="prenom">PrÃ©nom</label>
-    <br><input type="text" name="prenom" id="prenom" placeholder="Votre PrÃ©nom">
+    <br><label for="prenom">Prénom</label>
+    <br><input type="text" name="prenom" id="prenom" placeholder="Votre Prénom">
     <br><label for="email">Email</label>
     <br><input type="email" name="email" id="email" placeholder="Votre Email">
     <br><label for="password">Password</label>

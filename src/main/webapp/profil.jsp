@@ -1,75 +1,89 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="Models.Customers" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+
+<%--
+  Created by IntelliJ IDEA.
+  User: 17347
+  Date: 15/10/2019
+  Time: 15:25
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=ISO-8859-1" language="java" %>
 <%@include file="structures/header.jsp"%>
-<div class="container">
-    <h1>Editer votre Profil</h1>
-    <hr>
+<%
+    List<Customers> app= (List<Customers>) request.getAttribute("res");
+    if (app != null) {
+        for (Customers users : app) {
+            SimpleDateFormat sdf = new SimpleDateFormat("YYYY/MM/dd");
+%>
+
+
+<div class="container text-center">
+
+    <h1>Profil de <%=users.getFirstName()%> <%=users.getLastName()%></h1>
+    <h3>Infos Personnelles</h3>
+
+
     <div class="row">
-        <!-- left column -->
-        <div class="col-md-3">
-            <div class="text-center">
-                <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
-                <h6>Choisir un autre avatar</h6>
-                <input type="file" class="form-control">
+        <!-- edit form column -->
+        <div class="col">
+            <div class="personal-info">
+                <h5>FirstName</h5>
+                <h6><%=users.getFirstName()%></h6>
+            </div>
+            <div class="personal-info">
+                <h5>LastName</h5>
+                <h6><%=users.getLastName()%></h6>
+            </div>
+            <div class="personal-info">
+                <h5>Mail</h5>
+                <h6><%=users.getMail()%></h6>
+            </div>
+            <div class="personal-info">
+                <h5>Phone</h5>
+                <h6>0<%=users.getPhone()%></h6>
+            </div>
+            <div class="personal-info">
+                <h5>Is Customer</h5>
+                <h6><%=users.getIs_customer()%></h6>
+            </div>
+            <div class="personal-info">
+                <h5>Existing Contract</h5>
+                <h6><%=users.getExisting_contract()%></h6>
             </div>
         </div>
-
-        <!-- edit form column -->
-        <div class="col-md-9 personal-info">
-            <div class="alert alert-info alert-dismissable">
-                <a class="panel-close close" data-dismiss="alert">×</a>
-                <i class="fa fa-coffee"></i>
-                Petite <strong>.alert</strong> pour les utilisateurs.
+        <div class="col">
+            <div class="personal-info">
+                <h5>Familly Situation</h5>
+                <h6><%=users.getFamilly_situation()%></h6>
             </div>
-            <h3>Infos Personnelles</h3>
-
-            <form class="form-horizontal" role="form">
-                <div class="form-group">
-                    <label class="col-lg-3 control-label">Prénom :</label>
-                    <div class="col-lg-8">
-                        <input class="form-control" type="text" value="">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-lg-3 control-label">Nom :</label>
-                    <div class="col-lg-8">
-                        <input class="form-control" type="text" value="">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-lg-3 control-label">Mail :</label>
-                    <div class="col-lg-8">
-                        <input class="form-control" type="text" value="">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-lg-3 control-label">Identifiant :</label>
-                    <div class="col-lg-8">
-                        <input class="form-control" type="text" value="">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-lg-4 control-label">Mot de passe :</label>
-                    <div class="col-lg-8">
-                        <input class="form-control" type="password" value="11111122333">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-lg-4 control-label">Confirmer votre mot de passe :</label>
-                    <div class="col-lg-8">
-                        <input class="form-control" type="password" value="11111122333">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-lg-3 control-label"></label>
-                    <div class="col-lg-8">
-                        <input type="button" class="btn btn-primary" value="Sauvegarder">
-                        <span></span>
-                        <input type="reset" class="btn btn-default" value="Annuler">
-                    </div>
-                </div>
-            </form>
+            <div class="personal-info">
+                <h5>Professionnal Situation</h5>
+                <h6><%=users.getProfessionnal_situation()%></h6>
+            </div>
+            <div class="personal-info">
+                <h5>Contract Type</h5>
+                <h6><%=users.getContract_type()%></h6>
+            </div>
+            <div class="personal-info">
+                <h5>Debt</h5>
+                <h6><%=users.getDebt()%></h6>
+            </div>
+            <div class="personal-info">
+                <h5>Income</h5>
+                <h6><%=users.getIncome()%></h6>
+            </div>
+            <div class="personal-info">
+                <h5>Created At</h5>
+                <h6><%=sdf.format(users.getCreated_at())%></h6>
+            </div>
         </div>
     </div>
 </div>
-<hr>
+
+<%
+        }}
+%>
+
 <%@include file="structures/footer.jsp"%>

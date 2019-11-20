@@ -2,9 +2,6 @@ package Models;
 
 //Importation des paquest de javasql
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.sql.*;
@@ -104,7 +101,7 @@ public class BaseModelORM {
         //Définition de la variable pour récupérer nos champs
         ArrayList<String> fields = new ArrayList<String>();
         //Ici on définit notre variable pour rajouter des parametres a la requete
-        String where             = "WHERE id = ?";
+        String where             = " WHERE id = ?";
         //Variable pour effectué la requete
         StringBuilder total      = new StringBuilder();
 
@@ -306,7 +303,7 @@ public class BaseModelORM {
             _parsedFilters.add(_parsedTest);
         }
 
-        selectQueryString = selectQueryString + String.join(" AND ", _parsedFilters);
+        selectQueryString = selectQueryString + String.join(" OR ", _parsedFilters);
 
         System.out.println(selectQueryString);
 

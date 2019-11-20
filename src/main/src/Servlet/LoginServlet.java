@@ -17,6 +17,7 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Advisors myuser = new Advisors();
         List<String> usermail = new ArrayList<>();
+        ArrayList error = new ArrayList();
 
         //Initialisation de tout les champs
         ArrayList<String> fields = new ArrayList<>();
@@ -27,7 +28,7 @@ public class LoginServlet extends HttpServlet {
         List<Advisors> var = Database.select(myuser, fields);
 
         for (Advisors users : var){
-            usermail.add(users.getEmail());
+            usermail.add(users.getMail());
         }
 
         if (usermail.contains(email)){
@@ -35,7 +36,7 @@ public class LoginServlet extends HttpServlet {
             //Ajout des simples guillemets pour permettre la lecture d'une chaîne de caractère lors de la requête
             email = "'" + email + "'";
             //Ajout de filtres à ce moment la pour prendre en considération les simples guillemets
-            filters.add(Filtre.add("=", "email", email));
+            filters.add(Filtre.add("=", "mail", email));
             List<Advisors> var2 = Database.select(myuser, fields, filters);
             String password = "";
             //Récup du mot de passe
@@ -45,15 +46,18 @@ public class LoginServlet extends HttpServlet {
                 //Comparaison et validation si tout est bon
                 if (BCrypt.checkpw(request.getParameter("password"), password)) {
                     HttpSession session = request.getSession();
-                    session.setAttribute("name", users1.getName());
+                    session.setAttribute("mail", users1.getMail());
+                    session.setAttribute("name", users1.getFirstName());
                     session.setAttribute("role", users1.getRoles());
                     session.setAttribute("id", users1.getId());
 
                     response.sendRedirect(request.getContextPath() + "/");
+                } else {
+                    System.out.println("allo");
                 }
             }
         } else {
-            System.out.println("dommage");
+            System.out.println("Try Again");
         }
 
     }

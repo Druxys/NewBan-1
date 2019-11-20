@@ -1,34 +1,24 @@
 package Models;
 
-
-
 import java.sql.Timestamp;
 
 public class Advisors extends BaseModelORM {
-    private Integer id;
+    Integer id;
 
-    String tableName = "Advisors";
-    private String name;
+    String tableName = "advisors";
+    private String firstName;
     private String lastName;
-    private String email;
+    private String mail;
     private String password;
-    private String roles;
     private Timestamp created_at;
     private Timestamp updated_at;
     private Boolean is_enabled = true;
+    private String type_advisor;
+    private String roles;
 
 
     public String getTableName() {
         return tableName;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Advisors setName(String name) {
-        this.name = name;
-        return this;
     }
 
     public String getLastName() {
@@ -40,12 +30,21 @@ public class Advisors extends BaseModelORM {
         return this;
     }
 
-    public String getEmail() {
-        return email;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public Advisors setEmail(String email) {
-        this.email = email;
+    public Advisors setFirstName(String firstName) {
+        this.firstName = firstName;
+        return this;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public Advisors setMail(String mail) {
+        this.mail = mail;
         return this;
     }
 
@@ -91,6 +90,14 @@ public class Advisors extends BaseModelORM {
 
     public Advisors setRoles(String roles) {
         this.roles = roles;
+        return this;
+    }
+    public String getType_advisor() {
+        return type_advisor;
+    }
+
+    public Advisors setType_advisor(String type_advisor) {
+        this.type_advisor = type_advisor;
         return this;
     }
 }
