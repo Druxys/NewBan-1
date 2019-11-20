@@ -20,6 +20,7 @@
 %>
 <div class="products">
     <form action="edit" method="post" class="text-center border border-light p-5 addproducts" accept-charset="x-iso-8859-1">
+        <input type="hidden" value="<%=users.getId()%>" name="id" id="id">
         <label for="nom" class="font-weight-light h4">LastName</label>
         <br><input type="text" name="nom" id="nom" value="<%=users.getLastName()%>" class="form-control"/>
         <br><label for="prenom" class="font-weight-light h4">FirstName</label>

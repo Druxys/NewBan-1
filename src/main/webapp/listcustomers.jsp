@@ -48,7 +48,7 @@
         <th scope= "col"><%=users.getExisting_contract() %></th>
         <th scope= "col"><%=users.getIs_customer() %></th>
         <th scope="col">
-            <a href="profil?id=<%=users.getId()%>">Profil</a>
+            <a href="profil?id=<%=users.getId().toString()%>">Profil</a>
             <a href="edit?id=<%=users.getId()%>">Edit</a>
         </th>
     </tr>

@@ -45,7 +45,7 @@ public class EditCustomerServlet extends HttpServlet {
         String family_situation = request.getParameter("family_situation");
         String professional_situation = request.getParameter("professional_situation");
         String contract_type = request.getParameter("contract_type");
-
+        Integer id_customer = Integer.valueOf(request.getParameter("id"));
 
 
         myuser
@@ -65,7 +65,7 @@ public class EditCustomerServlet extends HttpServlet {
                 .setUpdated_at(Timestamp.valueOf(LocalDateTime.now()))
         ;
 
-        Database.updateId(myuser, myuser.getId());
+        Database.updateId(myuser, id_customer);
 
         String to = (String) session.getAttribute("mail");
         String subject = "Modification confirmé";
