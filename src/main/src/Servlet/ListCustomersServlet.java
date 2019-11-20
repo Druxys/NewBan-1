@@ -59,7 +59,7 @@ public class ListCustomersServlet extends HttpServlet {
             String role = (String) session1.getAttribute("role");
             if (role != null){
                 System.out.println(role);
-                request.getRequestDispatcher("index.jsp").forward(request, response);
+                request.getRequestDispatcher("listcustomers.jsp").forward(request, response);
             }else {
                 response.sendRedirect(request.getContextPath()+"/connexion");
             }
