@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +31,14 @@ public class ProfilServlet extends HttpServlet {
         List var = Database.select(myuser, fields, filter);
         request.setAttribute("res", var);
 
-        request.getRequestDispatcher("profil.jsp").forward(request, response);
+        HttpSession session = request.getSession(true);
+        String role = (String) session.getAttribute("role");
+        if (role != null){
+            System.out.println(role);
+            request.getRequestDispatcher("profil.jsp").forward(request, response);
+        }else {
+            response.sendRedirect(request.getContextPath()+"/connexion");
+        }
 
     }
 }

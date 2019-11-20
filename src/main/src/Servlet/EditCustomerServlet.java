@@ -66,6 +66,13 @@ public class EditCustomerServlet extends HttpServlet {
         List var = Database.select(customers, fields, filter);
         request.setAttribute("res", var);
 
-        request.getRequestDispatcher("editcustomer.jsp").forward(request, response);
+        HttpSession session = request.getSession(true);
+        String role = (String) session.getAttribute("role");
+        if (role != null){
+            System.out.println(role);
+            request.getRequestDispatcher("editcustomer.jsp").forward(request, response);
+        }else {
+            response.sendRedirect(request.getContextPath()+"/connexion");
+        }
     }
 }
