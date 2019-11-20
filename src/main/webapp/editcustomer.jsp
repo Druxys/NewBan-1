@@ -9,7 +9,7 @@
   Time: 16:43
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=ISO-8859-1" language="java" %>
 <%@include file="structures/header.jsp"%>
 <%
     List<Customers> app= (List<Customers>) request.getAttribute("res");

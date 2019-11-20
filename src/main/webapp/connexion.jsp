@@ -5,7 +5,7 @@
   Time: 07:42
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=ISO-8859-1" language="java" %>
 <%@include file="structures/header.jsp"%>
 <%
     String error = (String) request.getAttribute("error");
@@ -34,7 +34,7 @@
             </div>
             <div>
                 <!-- Forgot password -->
-                <a href="forgotPwd.php">Mot de passe oubliÃ© ?</a>
+                <a href="forgotPwd.php">Mot de passe oublié ?</a>
             </div>
         </div>
 
