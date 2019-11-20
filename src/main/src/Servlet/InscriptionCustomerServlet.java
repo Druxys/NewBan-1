@@ -96,7 +96,7 @@ public class InscriptionCustomerServlet extends HttpServlet {
             Messages.sendMessage(subject, message, to, "12newban12@gmail.com");
         }
 
-        response.sendRedirect(request.getContextPath()+"/listcustomers");
+        response.sendRedirect(request.getContextPath()+"/customers");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -9,7 +9,7 @@
 <!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="ISO-8859-1">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -43,47 +43,29 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="connexion">Connexion</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="customers">Clients</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="profil">Profil</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="addproducts">Ajout de produit</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="stats">Statistiques</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="logs">Historique</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto nav-flex-icons">
+                <% if (session.getAttribute("role") == null){ %>
                 <li class="nav-item">
-                    <a class="nav-link waves-effect waves-light">1
-                        <i class="fas fa-envelope"></i>
-                    </a>
+                    <a class="nav-link" href="connexion">Connexion</a>
                 </li>
+                <%} else {%>
+                <li class="nav-item">
+                    <a class="nav-link" href="deconnexion">Déconnexion</a>
+                </li>
+                <%}%>
                 <li class="nav-item">
                     <div class="custom-control custom-switch">
                         <input type="checkbox" class="custom-control-input" id="darkSwitch" />
                         <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
-                    </div>
-                </li>
-                <li class="nav-item avatar dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle z-depth-0"
-                             alt="avatar image" style="height: 30px; width: 30px;">
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
-                         aria-labelledby="navbarDropdownMenuLink-55">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="profil.php">Profil</a>
-                        <a class="dropdown-item" href="#">Deconnexion</a>
                     </div>
                 </li>
             </ul>

@@ -33,9 +33,9 @@
                     <table class="table table-bordered table-striped mb-0">
                         <thead>
                         <tr>
-                            <th scope="col">PrÃ©nom</th>
+                            <th scope="col">Prénom</th>
                             <th scope="col">Nom</th>
-                            <th scope="col">Produit recommandÃ©</th>
+                            <th scope="col">Produit recommandé</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -62,7 +62,7 @@
                         <tr>
                             <td>Jacob</td>
                             <td>Thornton</td>
-                            <td>CrÃ©dit</td>
+                            <td>Crédit</td>
                         </tr>
                         <tr>
                             <td>Larry</td>
@@ -113,10 +113,10 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Nom</th>
-                                <th>Contrats proposÃ©s</th>
+                                <th>Contrats Proposés</th>
                                 <th>Souscrit ou non</th>
                                 <th>Mail</th>
-                                <th>TÃ©lÃ©phone</th>
+                                <th>Téléphone</th>
                             </tr>
                             </thead>
                             <tbody>
