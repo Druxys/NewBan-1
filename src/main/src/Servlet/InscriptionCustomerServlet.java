@@ -25,10 +25,32 @@ public class InscriptionCustomerServlet extends HttpServlet {
         String lastname = request.getParameter("nom");
         String firstname = request.getParameter("prenom");
         String mail = request.getParameter("email");
-        Integer phone = Integer.valueOf(request.getParameter("phone"));
-        Float debt = Float.valueOf(request.getParameter("debt"));
-        Integer income = Integer.valueOf(request.getParameter("income"));
-        Date birthdate = Date.valueOf(request.getParameter("birthdate"));
+//        Integer phone = Integer.valueOf(request.getParameter("phone"));
+
+        Integer phone;
+        if (request.getParameter("phone") == ""){
+            phone = 0;
+        } else{
+            phone = Integer.valueOf(request.getParameter("phone"));
+        }
+
+//        Float debt = Float.valueOf(request.getParameter("debt"));
+        Float debt;
+        if (request.getParameter("income") == ""){
+            debt = (float)0;
+        }else
+        {
+            debt = Float.valueOf(request.getParameter("debt"));
+        }
+//        Integer income = Integer.valueOf(request.getParameter("income"));
+        Integer income;
+        if (request.getParameter("income") == ""){
+            income = 0;
+        }else
+        {
+            income = Integer.valueOf(request.getParameter("income"));
+        }
+        String birthdate = String.valueOf(request.getParameter("birthdate"));
         Boolean is_customer;
         if (request.getParameter("is_customer") != null){
             is_customer = true;
@@ -41,7 +63,7 @@ public class InscriptionCustomerServlet extends HttpServlet {
         } else {
             existing_contract = false;
         }
-        String family_situation = request.getParameter("family_situation");
+        String familly_situation = request.getParameter("familly_situation");
         String professional_situation = request.getParameter("professional_situation");
         String contract_type = request.getParameter("contract_type");
         ArrayList<String> errors = new ArrayList<String>();
@@ -56,7 +78,7 @@ public class InscriptionCustomerServlet extends HttpServlet {
                 .setProfessionnal_contract_type(contract_type)
                 .setDebt((float) debt)
                 .setExisting_contract(existing_contract)
-                .setFamilly_situation(family_situation)
+                .setFamilly_situation(familly_situation)
                 .setProfessionnal_situation(professional_situation)
                 .setIs_customer(is_customer)
                 .setIncome(income)
@@ -65,35 +87,39 @@ public class InscriptionCustomerServlet extends HttpServlet {
                 .setId((Integer)session.getAttribute("id"))
         ;
 
-        if(firstname.isEmpty()) {
+        if(myuser.getLastName() == "") {
             errors.add("Champ prénom vide.");
         }
-        if(lastname.isEmpty()) {
+        if(myuser.getFirstName() == "") {
             errors.add("Champ nom vide.");
         }
-        if(mail.isEmpty()) {
+        if(myuser.getMail() == "") {
             errors.add("Champ mail vide.");
         }
-        if(phone != null) {
+        if(myuser.getPhone() == 0) {
             errors.add("Champ téléphone vide.");
         }
-        if(debt != null) {
+        if(myuser.getDebt() == 0) {
             errors.add("Champ dette vide.");
         }
-        if(contract_type.isEmpty()) {
+        if(myuser.getProfessionnal_contract_type() == "") {
             errors.add("Champ contract_type vide.");
         }
-        if(professional_situation.isEmpty()) {
+        if(myuser.getProfessionnal_situation() == "--Please choose an option--") {
             errors.add("Champ professional_situation vide.");
         }
-        if(family_situation.isEmpty()) {
+        if(myuser.getFamilly_situation() == "--Please choose an option--") {
             errors.add("Champ family_situation vide.");
         }
-
-        if (errors != null) {
+        System.out.println(errors);
+        if (errors.isEmpty()) {
+            System.out.println("François");
             Database.insert(myuser);
-        }else{
+        }else {
+
+            System.out.println("Serge");
             request.setAttribute("errors", errors);
+            System.out.println("Benoit");
             request.getRequestDispatcher("inscription.jsp").forward(request, response);
         }
 

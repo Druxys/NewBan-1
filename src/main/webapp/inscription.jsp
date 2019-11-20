@@ -27,9 +27,9 @@
     <br><input type="number" name="phone" id="phone" placeholder="0658962345">
     <br><label for="debt">Debt</label>
     <br><input type="number" placeholder="1.0" step="0.01" min="0" max="10" id="debt" name="debt">
-    <br><label for="family_situation">Family Situation</label>
+    <br><label for="familly_situation">Familly Situation</label>
     <br>
-    <select name="family_situation" id="family_situation">
+    <select name="familly_situation" id="familly_situation">
         <option>--Please choose an option--</option>
         <option><%=map.get("test")%></option>
         <option><%=map.get("alpha")%></option>
