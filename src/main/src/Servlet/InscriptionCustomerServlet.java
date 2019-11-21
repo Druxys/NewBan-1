@@ -1,10 +1,7 @@
 package Servlet;
 
-import Models.Advisor_Customer;
 import Models.Customers;
 import Utils.Database;
-import Utils.Filtre;
-import Utils.Messages;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,25 +11,27 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Date;
+import java.sql.Time;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 
 @WebServlet(name = "InscriptionServlet")
 public class InscriptionCustomerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
         Customers myuser = new Customers();
         HttpSession session = request.getSession();
-        String name = request.getParameter("nom");
+        String lastname = request.getParameter("nom");
         String firstname = request.getParameter("prenom");
-        String email = request.getParameter("email");
+        String mail = request.getParameter("email");
         Integer phone = Integer.valueOf(request.getParameter("phone"));
-        Float debt = Float.valueOf(request.getParameter("debt"));
+        Double debt = Double.valueOf(request.getParameter("debt"));
         Integer income = Integer.valueOf(request.getParameter("income"));
-        Date birthdate = Date.valueOf(request.getParameter("birthdate"));
+        String birthdate = request.getParameter("birthdate");
         Boolean is_customer;
         if (request.getParameter("is_customer") != null){
             is_customer = true;
@@ -45,20 +44,20 @@ public class InscriptionCustomerServlet extends HttpServlet {
         } else {
             existing_contract = false;
         }
-        String family_situation = request.getParameter("family_situation");
+        String family_situation = request.getParameter("familly_situation");
         String professional_situation = request.getParameter("professional_situation");
         String contract_type = request.getParameter("contract_type");
 
 
 
         myuser
-                .setLastName(name)
+                .setLastName(lastname)
                 .setFirstName(firstname)
-                .setMail(email)
+                .setMail(mail)
                 .setPhone(phone)
                 .setBirthdate(birthdate)
                 .setContract_type(contract_type)
-                .setDebt((float) debt)
+                .setDebt((Double) debt)
                 .setExisting_contract(existing_contract)
                 .setFamilly_situation(family_situation)
                 .setProfessionnal_situation(professional_situation)
@@ -66,6 +65,7 @@ public class InscriptionCustomerServlet extends HttpServlet {
                 .setIncome(income)
                 .setCreated_at(Timestamp.valueOf(LocalDateTime.now()))
                 .setUpdated_at(null)
+                .setId((Integer)session.getAttribute("id"))
         ;
 
         Database.insert(myuser);

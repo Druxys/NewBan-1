@@ -5,11 +5,11 @@ import java.sql.Timestamp;
 public class Products extends BaseModelORM {
     private Integer id;
 
-    String tableName = "Products";
+    String tableName = "products";
     private String name;
     private Integer rate;
     private Integer cap;
-    private Integer duration;
+    private Timestamp duration;
     private Integer age_min_preferred;
     private Integer age_max_preferred;
     private Integer income_min_preferred;
@@ -47,9 +47,9 @@ public class Products extends BaseModelORM {
         return this;
     }
 
-    public Integer getDuration() { return duration; }
+    public Timestamp getDuration() { return duration; }
 
-    public Products setDuration(Integer duration) {
+    public Products setDuration(Timestamp duration) {
         this.duration = duration;
         return this;
     }

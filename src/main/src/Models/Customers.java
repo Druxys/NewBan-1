@@ -1,21 +1,23 @@
 package Models;
 
+
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 
 public class Customers extends BaseModelORM {
-    Integer id;
+    private Integer id;
 
     String tableName = "customers";
     private String lastName;
     private String firstName;
     private String mail;
     private Integer phone;
-    private Float debt;
+    private Double debt;
     private Integer income;
     private Timestamp created_at;
     private Timestamp updated_at;
-    private Date birthdate;
+    private String birthdate;
     private Boolean is_customer;
     private Boolean existing_contract;
     private String familly_situation;
@@ -63,11 +65,11 @@ public class Customers extends BaseModelORM {
         return this;
     }
 
-    public Float getDebt() {
+    public Double getDebt() {
         return debt;
     }
 
-    public Customers setDebt(Float debt) {
+    public Customers setDebt(Double debt) {
         this.debt = debt;
         return this;
     }
@@ -99,11 +101,11 @@ public class Customers extends BaseModelORM {
         return this;
     }
 
-    public Date getBirthdate() {
+    public String getBirthdate() {
         return birthdate;
     }
 
-    public Customers setBirthdate(Date birthdate) {
+    public Customers setBirthdate(String birthdate) {
         this.birthdate = birthdate;
         return this;
     }
