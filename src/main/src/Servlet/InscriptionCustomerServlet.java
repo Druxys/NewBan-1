@@ -84,7 +84,7 @@ public class InscriptionCustomerServlet extends HttpServlet {
                 .setPhone(phone)
                 .setBirthdate(birthdate)
                 .setContract_type(contract_type)
-                .setDebt((Double) debt)
+                .setDebt((Float) debt)
                 .setExisting_contract(existing_contract)
                 .setFamilly_situation(familly_situation)
                 .setProfessionnal_situation(professional_situation)
@@ -113,7 +113,7 @@ public class InscriptionCustomerServlet extends HttpServlet {
             errors.add("Champ téléphone vide.");
         }
 
-        if(myuser.getProfessionnal_contract_type() == "") {
+        if(myuser.getContract_type() == "") {
             errors.add("Champ contract_type vide.");
         }
         if(myuser.getProfessionnal_situation() == "--Please choose an option--") {
@@ -205,12 +205,12 @@ public class InscriptionCustomerServlet extends HttpServlet {
 
         HttpSession session = request.getSession(true);
         String role = (String) session.getAttribute("role");
-//        if (role != null){
-//            System.out.println(role);
+        if (role != null){
+            System.out.println(role);
             request.getRequestDispatcher("inscription.jsp").forward(request, response);
-//        }else {
-//            response.sendRedirect(request.getContextPath()+"/connexion");
-//        }
+        }else {
+            response.sendRedirect(request.getContextPath()+"/connexion");
+        }
     }
 
     private void validationEmail( String email ) throws Exception {

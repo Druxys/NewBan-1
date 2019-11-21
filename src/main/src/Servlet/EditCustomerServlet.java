@@ -28,7 +28,7 @@ public class EditCustomerServlet extends HttpServlet {
         String firstname = request.getParameter("prenom");
         String email = request.getParameter("email");
         Integer phone = Integer.valueOf(request.getParameter("phone"));
-        Double debt = Double.valueOf(request.getParameter("debt"));
+        Float debt = Float.valueOf(request.getParameter("debt"));
         Integer income = Integer.valueOf(request.getParameter("income"));
         Boolean is_customer;
         if (request.getParameter("is_customer") != null){
@@ -55,7 +55,7 @@ public class EditCustomerServlet extends HttpServlet {
                 .setPhone(phone)
                 .setBirthdate(myuser.getBirthdate())
                 .setContract_type(contract_type)
-                .setDebt((Double) debt)
+                .setDebt((Float) debt)
                 .setExisting_contract(existing_contract)
                 .setFamilly_situation(family_situation)
                 .setProfessionnal_situation(professional_situation)

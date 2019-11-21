@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
@@ -81,6 +82,13 @@ public class ProductsServlet extends HttpServlet {
         request.setAttribute("fsp", map2);
         System.out.println("bonjour");
 
-        request.getRequestDispatcher("addproducts.jsp").forward(request, response);
+        HttpSession session = request.getSession(true);
+        String role = (String) session.getAttribute("role");
+        if (role != null){
+            System.out.println(role);
+            request.getRequestDispatcher("addproducts.jsp").forward(request, response);
+        }else {
+            response.sendRedirect(request.getContextPath()+"/connexion");
+        }
     }
 }
