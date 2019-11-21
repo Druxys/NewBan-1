@@ -19,7 +19,7 @@ public class Database {
             try
             {
                 Class.forName("org.postgresql.Driver");
-                db = DriverManager.getConnection("jdbc:postgresql://localhost:5432/newban", "postgres", "Kickackoa1991");
+                db = DriverManager.getConnection("jdbc:postgresql://localhost:5432/newban", "postgres", "postgres");
             }
             catch(Exception e)
             {
@@ -224,6 +224,7 @@ public class Database {
         System.out.println("Databse closing");
     }
 
+
     public static void updateId(BaseModelORM _object, Integer id){
 
         System.out.println("Entering UpdateId");
@@ -249,5 +250,6 @@ public class Database {
         }
         close();
     }
+    
 
 }

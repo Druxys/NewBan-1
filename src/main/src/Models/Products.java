@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 public class Products extends BaseModelORM {
     private Integer id;
 
-    String tableName = "Products";
+    String tableName = "products";
     private String name;
     private Integer rate;
     private Integer cap;

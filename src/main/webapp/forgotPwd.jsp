@@ -1,10 +1,10 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=ISO-8859-1" language="java" %>
 <%@include file="structures/header.jsp"%>
 <div class="lol">
 
     <form class="text-center border border-light p-5 forgotPwd" action="#!">
 
-        <p class="h4 mb-4">Mot de passe oubliÃ©? </p>
+        <p class="h4 mb-4">Mot de passe oublié? </p>
 
         <!-- Email -->
         <input type="email" id="email" class="form-control mb-4" placeholder="E-mail">

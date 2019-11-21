@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.HashMap;
 
 @WebServlet(name = "InscriptionAdvisorServlet")
@@ -19,20 +20,24 @@ public class InscriptionAdvisorServlet extends HttpServlet {
 
         Advisors myuser = new Advisors();
         HttpSession session = request.getSession();
-        String name = request.getParameter("nom");
+        String lastname = request.getParameter("nom");
         String firstname = request.getParameter("prenom");
-        String email = request.getParameter("email");
+        String mail = request.getParameter("email");
         String password = request.getParameter("password");
         String roles = request.getParameter("role");
         String generatedSecuredPasswordHash = BCrypt.hashpw(password, BCrypt.gensalt(12));
+        String type_advisor = request.getParameter("type_advisor");
+        Timestamp date = new Timestamp(System.currentTimeMillis());
 
         myuser
-                .setName(name)
-                .setLastName(firstname)
-                .setEmail(email)
+                .setFirstName(firstname)
+                .setLastName(lastname)
+                .setMail(mail)
                 .setPassword(generatedSecuredPasswordHash)
+                .setCreated_at(date)
                 .setRoles(roles)
-                ;
+                .setType_advisor("customer")
+        ;
 
         Database.insert(myuser);
 
