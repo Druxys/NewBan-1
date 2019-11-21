@@ -85,13 +85,14 @@ public class InscriptionCustomerServlet extends HttpServlet {
                 .setUpdated_at(null)
                 .setId((Integer)session.getAttribute("id"))
         ;
+        if ( myuser.getLastName() != null && myuser.getLastName().trim().length() < 3 ) {
+            errors.add( "Le nom du client doit contenir au moins 3 caractères." );
+        }
 
-        if(myuser.getLastName() == "") {
-            errors.add("Champ prénom vide.");
+        if ( myuser.getFirstName() != null && myuser.getFirstName().trim().length() < 3 ) {
+            errors.add( "Le prénom du client doit contenir au moins 3 caractères." );
         }
-        if(myuser.getFirstName() == "") {
-            errors.add("Champ nom vide.");
-        }
+
         if ( myuser.getMail() != null && myuser.getMail().trim().length() != 0 ) {
             if ( !myuser.getMail().matches( "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)" ) ) {
                 errors.add( "Merci de saisir une adresse mail valide." );
@@ -102,9 +103,7 @@ public class InscriptionCustomerServlet extends HttpServlet {
         if(myuser.getPhone() == 0) {
             errors.add("Champ téléphone vide.");
         }
-        if(myuser.getDebt() == 0) {
-            errors.add("Champ dette vide.");
-        }
+
         if(myuser.getProfessionnal_contract_type() == "") {
             errors.add("Champ contract_type vide.");
         }
