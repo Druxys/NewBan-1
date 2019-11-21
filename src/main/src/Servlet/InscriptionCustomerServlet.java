@@ -33,10 +33,31 @@ public class InscriptionCustomerServlet extends HttpServlet {
         String lastname = request.getParameter("nom");
         String firstname = request.getParameter("prenom");
         String mail = request.getParameter("email");
-        Integer phone = Integer.valueOf(request.getParameter("phone"));
-        Double debt = Double.valueOf(request.getParameter("debt"));
-        Integer income = Integer.valueOf(request.getParameter("income"));
-        String birthdate = request.getParameter("birthdate");
+//        Integer phone = Integer.valueOf(request.getParameter("phone"));
+        Integer phone;
+        if (request.getParameter("phone") == ""){
+            phone = 0;
+        } else{
+            phone = Integer.valueOf(request.getParameter("phone"));
+        }
+
+//        Float debt = Float.valueOf(request.getParameter("debt"));
+        Float debt;
+        if (request.getParameter("income") == ""){
+            debt = (float)0;
+        }else
+        {
+            debt = Float.valueOf(request.getParameter("debt"));
+        }
+//        Integer income = Integer.valueOf(request.getParameter("income"));
+        Integer income;
+        if (request.getParameter("income") == ""){
+            income = 0;
+        }else
+        {
+            income = Integer.valueOf(request.getParameter("income"));
+        }
+        String birthdate = String.valueOf(request.getParameter("birthdate"));
         Boolean is_customer;
         if (request.getParameter("is_customer") != null){
             is_customer = true;
@@ -49,10 +70,11 @@ public class InscriptionCustomerServlet extends HttpServlet {
         } else {
             existing_contract = false;
         }
-        String family_situation = request.getParameter("familly_situation");
+
+        String familly_situation = request.getParameter("familly_situation");
         String professional_situation = request.getParameter("professional_situation");
         String contract_type = request.getParameter("contract_type");
-
+        ArrayList<String> errors = new ArrayList<String>();
 
 
         myuser
@@ -64,7 +86,7 @@ public class InscriptionCustomerServlet extends HttpServlet {
                 .setContract_type(contract_type)
                 .setDebt((Double) debt)
                 .setExisting_contract(existing_contract)
-                .setFamilly_situation(family_situation)
+                .setFamilly_situation(familly_situation)
                 .setProfessionnal_situation(professional_situation)
                 .setIs_customer(is_customer)
                 .setIncome(income)
@@ -72,8 +94,58 @@ public class InscriptionCustomerServlet extends HttpServlet {
                 .setUpdated_at(null)
                 .setId((Integer)session.getAttribute("id"))
         ;
+        if ( myuser.getLastName() != null && myuser.getLastName().trim().length() < 3 ) {
+            errors.add( "Le nom du client doit contenir au moins 3 caractères." );
+        }
 
-        Database.insert(myuser);
+        if ( myuser.getFirstName() != null && myuser.getFirstName().trim().length() < 3 ) {
+            errors.add( "Le prénom du client doit contenir au moins 3 caractères." );
+        }
+
+        if ( myuser.getMail() != null && myuser.getMail().trim().length() != 0 ) {
+            if ( !myuser.getMail().matches( "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)" ) ) {
+                errors.add( "Merci de saisir une adresse mail valide." );
+            }
+        } else {
+            errors.add( "Merci de saisir une adresse mail." );
+        }
+        if(myuser.getPhone() == 0) {
+            errors.add("Champ téléphone vide.");
+        }
+
+        if(myuser.getProfessionnal_contract_type() == "") {
+            errors.add("Champ contract_type vide.");
+        }
+        if(myuser.getProfessionnal_situation() == "--Please choose an option--") {
+            errors.add("Champ professional_situation vide.");
+        }
+        if(myuser.getFamilly_situation() == "--Please choose an option--") {
+            errors.add("Champ family_situation vide.");
+        }
+        System.out.println(errors);
+        if (errors.isEmpty()) {
+            Database.insert(myuser);
+        }else {
+            request.setAttribute("errors", errors);
+            System.out.println("Benoit");
+            HashMap map = new HashMap();
+            map.put("test", "test");
+            map.put("alpha", "alpha");
+            HashMap map1 = new HashMap();
+            map1.put("test1", "test1");
+            map1.put("test2", "test2");
+            map1.put("test3", "test3");
+            HashMap map2 = new HashMap();
+            map2.put("test1", "test1");
+            map2.put("test2", "test2");
+            map2.put("test3", "test3");
+            System.out.println(map);
+
+            request.setAttribute("tab", map);
+            request.setAttribute("tab1", map1);
+            request.setAttribute("tab2", map2);
+            request.getRequestDispatcher("inscription.jsp").forward(request, response);
+        }
 
         ArrayList fields = new ArrayList();
         fields.add("*");
@@ -133,11 +205,27 @@ public class InscriptionCustomerServlet extends HttpServlet {
 
         HttpSession session = request.getSession(true);
         String role = (String) session.getAttribute("role");
-        if (role != null){
-            System.out.println(role);
+//        if (role != null){
+//            System.out.println(role);
             request.getRequestDispatcher("inscription.jsp").forward(request, response);
-        }else {
-            response.sendRedirect(request.getContextPath()+"/connexion");
+//        }else {
+//            response.sendRedirect(request.getContextPath()+"/connexion");
+//        }
+    }
+
+    private void validationEmail( String email ) throws Exception {
+        if ( email != null && email.trim().length() != 0 ) {
+            if ( !email.matches( "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)" ) ) {
+                throw new Exception( "Merci de saisir une adresse mail valide." );
+            }
+        } else {
+            throw new Exception( "Merci de saisir une adresse mail." );
+        }
+    }
+
+    private void validationNom( String nom ) throws Exception {
+        if ( nom != null && nom.trim().length() < 3 ) {
+            throw new Exception( "Le nom d'utilisateur doit contenir au moins 3 caractères." );
         }
     }
 }

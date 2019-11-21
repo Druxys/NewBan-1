@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 @WebServlet(name = "InscriptionAdvisorServlet")
@@ -19,15 +20,17 @@ public class InscriptionAdvisorServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         Advisors myuser = new Advisors();
-        HttpSession session = request.getSession();
+
         String lastname = request.getParameter("nom");
         String firstname = request.getParameter("prenom");
         String mail = request.getParameter("email");
         String password = request.getParameter("password");
         String roles = request.getParameter("role");
         String generatedSecuredPasswordHash = BCrypt.hashpw(password, BCrypt.gensalt(12));
-        String type_advisor = request.getParameter("type_advisor");
         Timestamp date = new Timestamp(System.currentTimeMillis());
+        String typAdvisor = request.getParameter("typAdvisor");
+        ArrayList<String> errors = new ArrayList<String>();
+
 
         myuser
                 .setFirstName(firstname)
@@ -35,11 +38,40 @@ public class InscriptionAdvisorServlet extends HttpServlet {
                 .setMail(mail)
                 .setPassword(generatedSecuredPasswordHash)
                 .setCreated_at(date)
+                .setUpdated_at(null)
+                .setIs_enabled(true)
+                .setType_advisor(typAdvisor)
                 .setRoles(roles)
-                .setType_advisor("customer")
         ;
+//        System.out.println("DATA :"+ myuser.getCreated_at());
+        if ( myuser.getLastName() != null && myuser.getLastName().trim().length() < 3 ) {
+            errors.add( "Le nom du client doit contenir au moins 3 caractères." );
+        }
 
-        Database.insert(myuser);
+        if ( myuser.getFirstName() != null && myuser.getFirstName().trim().length() < 3 ) {
+            errors.add( "Le prénom du client doit contenir au moins 3 caractères." );
+        }
+
+        if ( myuser.getMail() != null && myuser.getMail().trim().length() != 0 ) {
+            if ( !myuser.getMail().matches( "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)" ) ) {
+                errors.add( "Merci de saisir une adresse mail valide." );
+            }
+        } else {
+            errors.add( "Merci de saisir une adresse mail." );
+        }
+        System.out.println(errors);
+        if (errors.isEmpty()) {
+            HashMap map = new HashMap();
+            map.put("Advisors", "ROLE_ADVISOR");
+            map.put("Admins", "ROLE_ADMIN");
+            Database.insert(myuser);
+        }else {
+            request.setAttribute("errors", errors);
+            HashMap map = new HashMap();
+            map.put("Advisors", "ROLE_ADVISOR");
+            map.put("Admins", "ROLE_ADMIN");
+            request.getRequestDispatcher("inscriptionadvisor.jsp").forward(request, response);
+        }
 
         response.sendRedirect(request.getContextPath()+"/connexion");
 

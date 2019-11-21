@@ -16,7 +16,8 @@
     width: 50%;
     margin: 0 auto;
 }
-.lol {
+
+.box {
     padding-top: 200px;
     height: 100%;
 }
@@ -69,4 +70,8 @@
 }
 .table-wrapper-scroll-y {
     display: block;
+}
+
+form .erreur {
+    color: #900;
 }

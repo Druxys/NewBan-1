@@ -9,8 +9,8 @@ public class Customers extends BaseModelORM {
     private Integer id;
 
     String tableName = "customers";
-    private String lastName;
-    private String firstName;
+    private String lastname;
+    private String firstname;
     private String mail;
     private Integer phone;
     private Double debt;

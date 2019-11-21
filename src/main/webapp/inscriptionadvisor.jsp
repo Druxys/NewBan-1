@@ -1,4 +1,5 @@
-<%@ page import="java.util.HashMap" %><%--
+<%@ page import="java.util.HashMap" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: shadownluffy
   Date: 28/10/2019
@@ -12,10 +13,20 @@
 %>
 
 <form action="advisor" method="post" class="text-center border border-light p-5">
+    <%
+        if (request.getAttribute("errors") != null){
+            ArrayList error = (ArrayList) request.getAttribute("errors");
+    %>
+    <span class="erreur" >
+        <p>
+            <%out.print(error.get(0));}%>
+            <br/>
+        </p>
+    </span>
     <label for="nom">Nom</label>
     <br><input type="text" name="nom" id="nom" placeholder="Votre Nom">
-    <br><label for="prenom">Prénom</label>
-    <br><input type="text" name="prenom" id="prenom" placeholder="Votre Prénom">
+    <br><label for="prenom">PrÃ©nom</label>
+    <br><input type="text" name="prenom" id="prenom" placeholder="Votre PrÃ©nom">
     <br><label for="email">Email</label>
     <br><input type="email" name="email" id="email" placeholder="Votre Email">
     <br><label for="password">Password</label>
@@ -27,6 +38,8 @@
         <option><%=map.get("Advisors")%></option>
         <option><%=map.get("Admins")%></option>
     </select>
+    <br><label for="typeAdvisor">Type de conseiller</label>
+    <br><input type="typeAdvisor" name="typeAdvisor" id="typeAdvisor">
     <br><input type="submit" value="Inscription">
 </form>
 
