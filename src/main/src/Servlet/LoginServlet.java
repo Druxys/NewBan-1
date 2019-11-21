@@ -12,8 +12,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import Utils.Login;
-
 @WebServlet(name = "LoginServlet")
 public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -49,29 +47,39 @@ public class LoginServlet extends HttpServlet {
                         if (BCrypt.checkpw(request.getParameter("password"), password)) {
                             HttpSession session = request.getSession();
                             session.setAttribute("name", users1.getFirstName());
+                            session.setAttribute("mail", users1.getMail());
                             session.setAttribute("role", users1.getRoles());
                             session.setAttribute("id", users1.getId());
 
                             response.sendRedirect(request.getContextPath() + "/");
                         } else {
                             errors.add("Email ou Mot de passe incorrect");
+                            request.setAttribute("errors", errors);
+                            request.getRequestDispatcher("connexion.jsp").forward(request, response);
+
 //                    System.out.println("Mot de passe incorrect");
                         }
                     } else {
                         errors.add("Veuillez remplir les champs ci-dessous");
+                        request.setAttribute("errors", errors);
+                        request.getRequestDispatcher("connexion.jsp").forward(request, response);
+
                     }
                 }
             } else {
                 errors.add("Email ou Mot de passe incorrect");
+                request.setAttribute("errors", errors);
+                request.getRequestDispatcher("connexion.jsp").forward(request, response);
+
 //            System.out.println("Email incorrect");
             }
         } else
         {
             errors.add("Veuillez remplir les champs ci-dessous");
+            request.setAttribute("errors", errors);
+            request.getRequestDispatcher("connexion.jsp").forward(request, response);
+
         }
-        request.setAttribute("errors", errors);
-        request.getRequestDispatcher("connexion.jsp").forward(request, response);
-        System.out.println(errors.get(0));
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

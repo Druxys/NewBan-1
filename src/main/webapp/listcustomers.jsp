@@ -14,9 +14,12 @@
 <%@include file="structures/header.jsp"%>
 <% List<Customers> app= (List<Customers>) request.getAttribute("res");%>
 
-<h1>Tableau des Utilisateurs</h1>
+<h1 class="text-center">Tableau des Utilisateurs</h1>
 <hr class="red lighten-5"/>
-
+<h5 class="text-center">Si vous souhaitez ajouter un nouveau client veuiller cliquer sur le bouton</h5>
+<div class="text-center">
+    <br><a href="inscription"><button class="btn btn-primary mb-5">Nouveau Client</button></a>
+</div>
 <table class="table table-bordered text-center">
     <thead>
     <tr class="text-uppercase">

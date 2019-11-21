@@ -105,7 +105,7 @@ public class ProductNoteServlet extends HttpServlet {
                 Integer note = 100;
                 Integer age = findAge(customers.getBirthdate());
                 System.out.println(age);
-                Double debt = customers.getDebt();
+                Float debt = customers.getDebt();
                 Integer income = customers.getIncome();
                 String professional_situation = customers.getProfessionnal_situation();
                 String familly_situation = customers.getFamilly_situation();

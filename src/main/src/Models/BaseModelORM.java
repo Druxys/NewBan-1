@@ -303,7 +303,7 @@ public class BaseModelORM {
             _parsedFilters.add(_parsedTest);
         }
 
-        selectQueryString = selectQueryString + String.join(" AND ", _parsedFilters);
+        selectQueryString = selectQueryString + String.join(" OR ", _parsedFilters);
 
         System.out.println(selectQueryString);
 

@@ -84,7 +84,7 @@ public class InscriptionCustomerServlet extends HttpServlet {
                 .setPhone(phone)
                 .setBirthdate(birthdate)
                 .setContract_type(contract_type)
-                .setDebt((Double) debt)
+                .setDebt((Float) debt)
                 .setExisting_contract(existing_contract)
                 .setFamilly_situation(familly_situation)
                 .setProfessionnal_situation(professional_situation)
@@ -113,7 +113,7 @@ public class InscriptionCustomerServlet extends HttpServlet {
             errors.add("Champ téléphone vide.");
         }
 
-        if(myuser.getProfessionnal_contract_type() == "") {
+        if(myuser.getContract_type() == "") {
             errors.add("Champ contract_type vide.");
         }
         if(myuser.getProfessionnal_situation() == "--Please choose an option--") {
@@ -129,17 +129,24 @@ public class InscriptionCustomerServlet extends HttpServlet {
             request.setAttribute("errors", errors);
             System.out.println("Benoit");
             HashMap map = new HashMap();
-            map.put("test", "test");
-            map.put("alpha", "alpha");
+            map.put("chomeur", "Demandeur emploi");
+            map.put("activité", "Sans Activités");
+            map.put("employé", "Employé");
+            map.put("intermediaire", "Intermediaire");
+            map.put("supérieure", "Supérieur");
+
             HashMap map1 = new HashMap();
-            map1.put("test1", "test1");
-            map1.put("test2", "test2");
-            map1.put("test3", "test3");
+            map1.put("CDI", "CDI");
+            map1.put("CDD", "CDD");
+            map1.put("Intérim", "Intérim");
+
             HashMap map2 = new HashMap();
-            map2.put("test1", "test1");
-            map2.put("test2", "test2");
-            map2.put("test3", "test3");
-            System.out.println(map);
+            map2.put("marié", "Marié");
+            map2.put("pacsé", "Pacsé");
+            map2.put("divorcé", "Divorcé");
+            map2.put("séparé", "Séparé");
+            map2.put("célibataire", "Célibataire");
+            map2.put("veuf", "Veuf");
 
             request.setAttribute("tab", map);
             request.setAttribute("tab1", map1);
@@ -151,6 +158,7 @@ public class InscriptionCustomerServlet extends HttpServlet {
         fields.add("*");
         ArrayList filter = new ArrayList();
         filter.add(Filtre.add("=", "mail", "'"+myuser.getMail()+"'"));
+
 
         List<Customers> var = Database.select(myuser, fields, filter);
         Integer id_cust;
