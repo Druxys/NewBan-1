@@ -12,7 +12,7 @@ public class Customers extends BaseModelORM {
     private String firstName;
     private String mail;
     private Integer phone;
-    private Float debt;
+    private Double debt;
     private Integer income;
     private Timestamp created_at;
     private Timestamp updated_at;
@@ -64,11 +64,11 @@ public class Customers extends BaseModelORM {
         return this;
     }
 
-    public Float getDebt() {
+    public Double getDebt() {
         return debt;
     }
 
-    public Customers setDebt(Float debt) {
+    public Customers setDebt(Double debt) {
         this.debt = debt;
         return this;
     }

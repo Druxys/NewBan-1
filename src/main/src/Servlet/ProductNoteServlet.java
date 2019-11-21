@@ -1,5 +1,6 @@
 package Servlet;
 
+import Models.Customer_product;
 import Models.Customers;
 import Models.Products;
 import Utils.Database;
@@ -19,141 +20,144 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 @WebServlet(name = "ProductNoteServlet")
 public class ProductNoteServlet extends HttpServlet {
 
 
-    public String findAge(String birthday) {
+    public Integer findAge (String birthday) {
         String[] values = birthday.split("-", 0);
-        return values[2] + "-" + values[1] + "-" + values[0];
+        LocalDate birthdate = LocalDate.of(Integer.parseInt(values[0]), Integer.parseInt(values[1]), Integer.parseInt(values[2]));
+        LocalDate actualDate = LocalDate.now();
+        Period difference = Period.between(birthdate, actualDate);
+        return difference.getYears();
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+
+
     }
 
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
-    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+
         Products myProduct = new Products();
         Customers myCustomer = new Customers();
-        ArrayList filters = new ArrayList<>();
+        Customer_product myCustomerProduct = new Customer_product();
+
+
+
         ArrayList<String> fields = new ArrayList<>();
         fields.add("*");
-        ArrayList filter = new ArrayList();
         System.out.println(fields);
 
+
+
+        List<Customer_product> customerProduct = Database.select(myCustomerProduct, fields);
         List<Products> test = Database.select(myProduct, fields);
-        List<Customers> customersList = Database.select(myCustomer, fields);
+        List<Customers> customersList = Database.select(myCustomer, fields );
+
+
         ArrayList notes = new ArrayList();
-        ArrayList tableau = new ArrayList();
-        Integer fe = 0;
+        ArrayList idProduits = new ArrayList();
+        ArrayList idClients = new ArrayList();
+
+
+        for (Customer_product customer_product : customerProduct){
+           Integer id = customer_product.getId();
+           Database.remove(myCustomerProduct , id);
+
+        }
+
         for (Products product : test) {
 
-            Integer note = 100;
-            Integer age_min_prefered = 21;
-            Integer age_max_prefered = 50;
-            Integer income_min_prefered = 6000;
-            Integer income_max_prefered = 8000;
+
+            Integer age_min_prefered = product.getAge_min_preferred();
+            Integer age_max_prefered = product.getAge_max_preferred();
+            Integer income_min_prefered = product.getAge_max_preferred();
+            Integer income_max_prefered = product.getIncome_max_preferred();
             Integer age_min_required = product.getAge_min_required();
             Integer age_max_required = product.getAge_max_required();
             Integer income_min_required = product.getIncome_min_required();
             Integer income_max_required = product.getAge_max_required();
             String proffessionnal_situation_preferred = product.getProfessionnal_situation_preferred();
             String familial_situation_preferred = "celib";
-            String nom = product.getName();
 
-            tableau.add(nom);
-            fe = fe +1;
+            Integer id_product = product.getId();
+
+
+            idProduits.add(id_product);
+
+
+
 
             for (Customers customers : customersList) {
 
+                Integer id_customer = customers.getId();
+                idClients.add(id_customer);
 
+                Integer note = 100;
+                Integer age = findAge(customers.getBirthdate());
+                System.out.println(age);
+                Double debt = customers.getDebt();
+                Integer income = customers.getIncome();
+                String professional_situation = customers.getProfessionnal_situation();
+                String familly_situation = customers.getFamilly_situation();
+                String contract_type = customers.getContract_type();
 
-                Integer age = 12;
-                Double debt = 0.15;
-                Integer income = 5000;
-                String professional_situation = "salarié";
-                String familly_situation = "er";
-                String contract_type = "cdd";
 
                 if (age_min_required != null && age_min_required > age) {
                     note = 0;
-
                 } else {
-                    System.out.println("0");
                     if (age_max_required != null && age_max_required < age) {
                         note = 0;
-                        System.out.println("a");
-
                     } else {
-                        System.out.println("b");
                         if (income_min_required != null && income_min_required > income) {
                             note = 0;
-
                         } else {
-                            System.out.println("c");
                             if (income_max_required != null && income_max_required < income) {
                                 note = 0;
-
                             } else {
-                                System.out.println("d");
                                 if (age_min_prefered !=  null  &&  age_min_prefered >= age ) {
                                     note = note - 10;
-                                    System.out.println("z");
-
                                 }
                                 if (age_max_prefered !=  null  &&  age_max_prefered <= age ) {
                                     note = note - 10;
-                                    System.out.println("z");
-
                                 }
                                 if (income_min_prefered !=  null && income_min_prefered >= income ) {
                                     note = note - 10;
-                                    System.out.println("v");
                                 }
                                 if (income_max_prefered !=  null && income_max_prefered <= income ) {
                                     note = note - 10;
-                                    System.out.println("az");
                                 }
-
                                 if (debt != null && debt >= 0.33) {
                                     note = 0;
-                                    System.out.println("e");
+
                                 } else {
-                                    System.out.println("f");
-                                    Double i;
-                                    for (i = 0.0; i <= debt; i = i + 0.05) {
-                                        note = note - 5;
-                                        System.out.println("debt");
+                                    if (debt != null) {
+                                        Double i;
+                                        for (i = 0.0; i <= debt; i = i + 0.05) {
+                                            note = note - 5;
+                                        }
                                     }
                                     if ( professional_situation != null && professional_situation.equals("salarié")){
-
-                                        System.out.println("salarié");
                                         if (contract_type != null && contract_type.equals("cdd")){
-
                                             note = note - 10;
-
                                         }
-
                                     }
-
+                                    if (professional_situation != null && !professional_situation.equals(proffessionnal_situation_preferred)){
+                                        note = note - 10;
+                                    }
                                     if (familly_situation != null && !familly_situation.equals(familial_situation_preferred)){
-                                            note = note - 10;
-                                        }
-
-
-
-
-
+                                        note = note - 10;
+                                    }
                                 }
-
                             }
                         }
                     }
@@ -161,14 +165,28 @@ public class ProductNoteServlet extends HttpServlet {
 
 
 
-                    notes.add(note);
+                        myCustomerProduct
+                                .setId_product(id_product)
+                                .setId_customer(id_customer)
+                                .setMark(note)
+                                .setCreated_at(Timestamp.valueOf(LocalDateTime.now()))
+                                .setUpdated_at(null)
+                                .setIs_enabled(true)
+                                .setIs_subscribed(false)
+                                .setContract_beg(Timestamp.valueOf(LocalDateTime.now()))
+                                .setContract_end(Timestamp.valueOf(LocalDateTime.now()))
+
+                        ;
+                        Database.insert(myCustomerProduct);
+                        notes.add(note);
 
             }
-
         }
-        System.out.println(tableau);
+        System.out.println(idClients);
+        System.out.println(idProduits);
         System.out.println(notes);
         request.getRequestDispatcher("home.jsp").forward(request, response);
+
     }
 
     }

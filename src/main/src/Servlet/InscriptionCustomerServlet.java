@@ -21,13 +21,15 @@ import java.util.HashMap;
 @WebServlet(name = "InscriptionServlet")
 public class InscriptionCustomerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
         Customers myuser = new Customers();
         HttpSession session = request.getSession();
         String lastname = request.getParameter("nom");
         String firstname = request.getParameter("prenom");
         String mail = request.getParameter("email");
         Integer phone = Integer.valueOf(request.getParameter("phone"));
-        Float debt = Float.valueOf(request.getParameter("debt"));
+        Double debt = Double.valueOf(request.getParameter("debt"));
         Integer income = Integer.valueOf(request.getParameter("income"));
         String birthdate = request.getParameter("birthdate");
         Boolean is_customer;
@@ -55,7 +57,7 @@ public class InscriptionCustomerServlet extends HttpServlet {
                 .setPhone(phone)
                 .setBirthdate(birthdate)
                 .setContract_type(contract_type)
-                .setDebt((float) debt)
+                .setDebt((Double) debt)
                 .setExisting_contract(existing_contract)
                 .setFamilly_situation(family_situation)
                 .setProfessionnal_situation(professional_situation)
