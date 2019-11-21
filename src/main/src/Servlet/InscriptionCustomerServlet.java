@@ -213,12 +213,12 @@ public class InscriptionCustomerServlet extends HttpServlet {
 
         HttpSession session = request.getSession(true);
         String role = (String) session.getAttribute("role");
-//        if (role != null){
-//            System.out.println(role);
+        if (role != null){
+            System.out.println(role);
             request.getRequestDispatcher("inscription.jsp").forward(request, response);
-//        }else {
-//            response.sendRedirect(request.getContextPath()+"/connexion");
-//        }
+        }else {
+            response.sendRedirect(request.getContextPath()+"/connexion");
+        }
     }
 
     private void validationEmail( String email ) throws Exception {
