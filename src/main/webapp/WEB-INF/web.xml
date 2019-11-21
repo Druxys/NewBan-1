@@ -90,17 +90,14 @@
     <url-pattern>/addproducts</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-<<<<<<< HEAD
     <servlet-name>HistoricServlet</servlet-name>
     <url-pattern>/historic</url-pattern>
   </servlet-mapping>
-  
-=======
+  <servlet-mapping>
     <servlet-name>ProductNoteServlet</servlet-name>
     <url-pattern>/note</url-pattern>
   </servlet-mapping>
 
->>>>>>> 9db394eb14d33b70bf55be51a1f0c937eabceac6
 
   <welcome-file-list>
     <welcome-file>home.jsp</welcome-file>
