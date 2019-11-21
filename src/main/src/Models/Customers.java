@@ -1,11 +1,12 @@
 package Models;
 
+
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 
 public class Customers extends BaseModelORM {
-    Integer id;
+    private Integer id;
 
     String tableName = "customers";
     private String lastName;

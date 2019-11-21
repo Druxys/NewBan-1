@@ -17,6 +17,7 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Advisors myuser = new Advisors();
         List<String> usermail = new ArrayList<>();
+        ArrayList error = new ArrayList();
 
         //Initialisation de tout les champs
         ArrayList<String> fields = new ArrayList<>();
@@ -45,15 +46,18 @@ public class LoginServlet extends HttpServlet {
                 //Comparaison et validation si tout est bon
                 if (BCrypt.checkpw(request.getParameter("password"), password)) {
                     HttpSession session = request.getSession();
+                    session.setAttribute("mail", users1.getMail());
                     session.setAttribute("name", users1.getFirstName());
                     session.setAttribute("role", users1.getRoles());
                     session.setAttribute("id", users1.getId());
 
                     response.sendRedirect(request.getContextPath() + "/");
+                } else {
+                    System.out.println("allo");
                 }
             }
         } else {
-            System.out.println("dommage");
+            System.out.println("Try Again");
         }
 
     }
