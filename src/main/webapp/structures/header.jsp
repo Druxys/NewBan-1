@@ -30,7 +30,7 @@
 <header>
     <!--Navbar -->
     <nav class="mb-1 navbar navbar-expand-lg navbar-dark lighten-1">
-        <a class="navbar-brand" href="index.php">NewBan</a>
+        <a class="navbar-brand" href="<%=request.getContextPath() + "/"%>">NewBan</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
                 aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -38,7 +38,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="home.jsp">Accueil
+                    <a class="nav-link" href="<%=request.getContextPath() + "/"%>">Accueil
                       <span class="sr-only">(current)</span>
                     </a>
                 </li>
@@ -47,9 +47,6 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="addproducts">Ajout de produit</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="stats">Statistiques</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="historic">Historique</a>
