@@ -42,6 +42,10 @@
     <servlet-name>ProductNoteServlet</servlet-name>
     <servlet-class>Servlet.ProductNoteServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>ProductsServlet</servlet-name>
+    <servlet-class>Servlet.ProductsServlet</servlet-class>
+  </servlet>
 
 
   <!--  Servlet Mapping-->
