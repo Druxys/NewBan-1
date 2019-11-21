@@ -6,13 +6,14 @@ public class Historics extends BaseModelORM{
 
     private Integer id;
 
-    String tableName = "Historics";
+    String tableName = "historics";
     private Integer id_customer_product;
     private String resume;
     private String type_contact;
     private Timestamp created_at = Timestamp.valueOf("now");
     private Timestamp updated_at;
     private Boolean is_enabled = true;
+    private String contact_taken;
 
     public String getTableName() {
         return tableName;
@@ -68,5 +69,13 @@ public class Historics extends BaseModelORM{
     public Historics setIs_enabled(Boolean is_enabled) {
         this.is_enabled = is_enabled;
         return this;
+    }
+
+    public String getContact_taken() {
+        return contact_taken;
+    }
+
+    public void setContact_taken(String contact_taken) {
+        this.contact_taken = contact_taken;
     }
 }

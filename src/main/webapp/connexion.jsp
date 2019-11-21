@@ -1,7 +1,9 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="structures/header.jsp"%>
-<%@ page import="Servlet.LoginServlet" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page contentType="text/html;charset=ISO-8859-1" language="java" %>
+<%@include file="structures/header.jsp"%>
+<%
+    String error = (String) request.getAttribute("error");
+%>
 
 <div class="box">
     <!-- Default form login -->
@@ -21,7 +23,6 @@
 
         <!-- Password -->
         <input type="password" id="password" class="form-control mb-4" placeholder="Mot de passe" name="password">
-
         <div class="d-flex justify-content-around">
 <%--            <div>--%>
 <%--                <!-- Remember me -->--%>
@@ -32,7 +33,7 @@
 <%--            </div>--%>
             <div>
                 <!-- Forgot password -->
-                <a href="forgotPwd.php">Mot de passe oublié ?</a>
+                <a href="forgotPwd.jsp">Mot de passe oublié ?</a>
             </div>
         </div>
 
@@ -41,5 +42,7 @@
 
     </form>
 </div>
+
+<!-- Default form login -->
 
 <%@include file="structures/footer.jsp"%>

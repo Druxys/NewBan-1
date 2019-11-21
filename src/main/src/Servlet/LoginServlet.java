@@ -19,6 +19,7 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Advisors myuser = new Advisors();
         List<String> usermail = new ArrayList<>();
+        ArrayList error = new ArrayList();
 
         //Initialisation de tout les champs
         ArrayList<String> errors = new ArrayList<String>();
@@ -33,7 +34,6 @@ public class LoginServlet extends HttpServlet {
             usermail.add(users.getMail());
         }
         if(!email.isEmpty()){
-
             if (usermail.contains(email)){
                 //Ajout des simples guillemets pour permettre la lecture d'une chaîne de caractère lors de la requête
                 email = "'" + email + "'";

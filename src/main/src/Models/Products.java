@@ -9,7 +9,7 @@ public class Products extends BaseModelORM {
     private String name;
     private Integer rate;
     private Integer cap;
-    private Timestamp duration;
+    private Integer duration;
     private Integer age_min_preferred;
     private Integer age_max_preferred;
     private Integer income_min_preferred;
@@ -47,9 +47,9 @@ public class Products extends BaseModelORM {
         return this;
     }
 
-    public Timestamp getDuration() { return duration; }
+    public Integer getDuration() { return duration; }
 
-    public Products setDuration(Timestamp duration) {
+    public Products setDuration(Integer duration) {
         this.duration = duration;
         return this;
     }

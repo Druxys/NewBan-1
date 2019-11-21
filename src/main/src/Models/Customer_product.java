@@ -8,9 +8,11 @@ public class Customer_product extends BaseModelORM{
     String tableName = "customer_product";
     private Integer id_customer;
     private Integer id_product;
-    private Float mark;
+    private Integer mark;
     private Boolean is_enabled = true;
     private Boolean is_subscribed = false;
+    private Timestamp created_at;
+    private Timestamp updated_at;
     private Timestamp contract_beg;
     private Timestamp contract_end;
     private String subscription;
@@ -37,11 +39,11 @@ public class Customer_product extends BaseModelORM{
         return this;
     }
 
-    public Float getMark() {
+    public Integer getMark() {
         return mark;
     }
 
-    public Customer_product setMark(Float mark) {
+    public Customer_product setMark(Integer mark) {
         this.mark = mark;
         return this;
     }
@@ -88,6 +90,24 @@ public class Customer_product extends BaseModelORM{
 
     public Customer_product setSubscription(String subscription) {
         this.subscription = subscription;
+        return this;
+    }
+
+    public Timestamp getCreated_at() {
+        return created_at;
+    }
+
+    public Customer_product setCreated_at(Timestamp created_at) {
+        this.created_at = created_at;
+        return this;
+    }
+
+    public Timestamp getUpdated_at() {
+        return updated_at;
+    }
+
+    public Customer_product setUpdated_at(Timestamp updated_at) {
+        this.updated_at = updated_at;
         return this;
     }
 }

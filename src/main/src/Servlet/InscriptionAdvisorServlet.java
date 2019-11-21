@@ -23,7 +23,7 @@ public class InscriptionAdvisorServlet extends HttpServlet {
 
         String lastname = request.getParameter("nom");
         String firstname = request.getParameter("prenom");
-        String mail = request.getParameter("mail");
+        String mail = request.getParameter("email");
         String password = request.getParameter("password");
         String roles = request.getParameter("role");
         String generatedSecuredPasswordHash = BCrypt.hashpw(password, BCrypt.gensalt(12));
@@ -31,7 +31,6 @@ public class InscriptionAdvisorServlet extends HttpServlet {
         String typAdvisor = request.getParameter("typAdvisor");
         ArrayList<String> errors = new ArrayList<String>();
 
-        System.out.println(lastname + firstname);
 
         myuser
                 .setFirstName(firstname)
