@@ -1,7 +1,10 @@
 package Servlet;
 
+import Models.Advisor_Customer;
 import Models.Customers;
 import Utils.Database;
+import Utils.Filtre;
+import Utils.Messages;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +18,9 @@ import java.sql.Time;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 
 @WebServlet(name = "InscriptionServlet")
@@ -91,7 +96,7 @@ public class InscriptionCustomerServlet extends HttpServlet {
 
             String to = (String) session.getAttribute("mail");
             String subject = "Enregistrement confirmé";
-            String message = "Bravo , vous avez enregistré Mr " + name + " au sein de notre banque!";
+            String message = "Bravo , vous avez enregistré Mr " + lastname + " au sein de notre banque!";
 
             Messages.sendMessage(subject, message, to, "12newban12@gmail.com");
         }
