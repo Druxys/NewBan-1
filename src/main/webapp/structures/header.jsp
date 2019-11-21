@@ -49,14 +49,10 @@
                     <a class="nav-link" href="addproducts">Ajout de produit</a>
                 </li>
                 <li class="nav-item">
-<<<<<<< HEAD
                     <a class="nav-link" href="stats">Statistiques</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="historic">Historique</a>
-=======
-                    <a class="nav-link" href="logs">Historique</a>
->>>>>>> 9db394eb14d33b70bf55be51a1f0c937eabceac6
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto nav-flex-icons">

@@ -1,7 +1,7 @@
 <%@ page import="Models.Historics" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.List" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=ISO-8859-1" language="java" %>
 <%@include file="structures/header.jsp"%>
 
 <% List<Historics> app= (List<Historics>) request.getAttribute("res");

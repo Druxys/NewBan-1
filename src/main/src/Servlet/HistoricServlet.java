@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +29,13 @@ public class HistoricServlet extends HttpServlet {
 
         System.out.println(hist);
 
-        request.getRequestDispatcher("historic.jsp").forward(request, response);
+        HttpSession session1 = request.getSession(true);
+        String role = (String) session1.getAttribute("role");
+        if (role != null){
+            System.out.println(role);
+            request.getRequestDispatcher("historic.jsp").forward(request, response);
+        }else {
+            response.sendRedirect(request.getContextPath()+"/connexion");
+        }
     }
 }
