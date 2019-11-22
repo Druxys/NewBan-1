@@ -19,17 +19,83 @@ public class ProductsServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Products myproduct = new Products();
         String name = request.getParameter("name");
-        Integer rate = Integer.valueOf(request.getParameter("rate"));
-        Integer cap = Integer.valueOf(request.getParameter("cap"));
-        Integer duration = Integer.valueOf(request.getParameter("duration"));
-        Integer age_min_prefered = Integer.valueOf(request.getParameter("age_min_preferred"));
-        Integer age_max_preferred = Integer.valueOf(request.getParameter("age_max_preferred"));
-        Integer age_min_required = Integer.valueOf(request.getParameter("age_min_required"));
-        Integer age_max_required = Integer.valueOf(request.getParameter("age_max_required"));
-        Integer income_min_preferred = Integer.valueOf(request.getParameter("income_min_preferred"));
-        Integer income_max_preferred = Integer.valueOf(request.getParameter("income_max_preferred"));
-        Integer income_min_required = Integer.valueOf(request.getParameter("income_min_required"));
-        Integer income_max_required = Integer.valueOf(request.getParameter("income_max_required"));
+//        Integer rate = Integer.valueOf(request.getParameter("rate"));
+        Integer rate;
+        if (request.getParameter("rate") == ""){
+            rate = null;
+        } else{
+            rate = Integer.valueOf(request.getParameter("rate"));
+        }
+//        Integer cap = Integer.valueOf(request.getParameter("cap"));
+        Integer cap;
+        if (request.getParameter("cap") == ""){
+            cap = null;
+        } else{
+            cap = Integer.valueOf(request.getParameter("cap"));
+        }
+//        Integer duration = Integer.valueOf(request.getParameter("duration"));
+        Integer duration;
+        if (request.getParameter("duration") == ""){
+            duration = null;
+        } else{
+            duration = Integer.valueOf(request.getParameter("duration"));
+        }
+//        Integer age_min_prefered = Integer.valueOf(request.getParameter("age_min_preferred"));
+        Integer age_min_prefered;
+        if (request.getParameter("age_min_prefered") == ""){
+            age_min_prefered = null;
+        } else{
+            age_min_prefered = Integer.valueOf(request.getParameter("age_min_prefered"));
+        }
+//        Integer age_max_preferred = Integer.valueOf(request.getParameter("age_max_preferred"));
+        Integer age_max_preferred;
+        if (request.getParameter("age_max_preferred") == ""){
+            age_max_preferred = null;
+        } else{
+            age_max_preferred = Integer.valueOf(request.getParameter("age_max_preferred"));
+        }
+//        Integer age_min_required = Integer.valueOf(request.getParameter("age_min_required"));
+        Integer age_min_required;
+        if (request.getParameter("age_min_required") == ""){
+            age_min_required = null;
+        } else{
+            age_min_required = Integer.valueOf(request.getParameter("age_min_required"));
+        }
+//        Integer age_max_required = Integer.valueOf(request.getParameter("age_max_required"));
+        Integer age_max_required;
+        if (request.getParameter("age_max_required") == ""){
+            age_max_required = null;
+        } else{
+            age_max_required = Integer.valueOf(request.getParameter("age_max_required"));
+        }
+//        Integer income_min_preferred = Integer.valueOf(request.getParameter("income_min_preferred"));
+        Integer income_min_preferred;
+        if (request.getParameter("income_min_preferred") == ""){
+            income_min_preferred = null;
+        } else{
+            income_min_preferred = Integer.valueOf(request.getParameter("income_min_preferred"));
+        }
+//        Integer income_max_preferred = Integer.valueOf(request.getParameter("income_max_preferred"));
+        Integer income_max_preferred;
+        if (request.getParameter("income_max_preferred") == ""){
+            income_max_preferred = null;
+        } else{
+            income_max_preferred = Integer.valueOf(request.getParameter("income_max_preferred"));
+        }
+//        Integer income_min_required = Integer.valueOf(request.getParameter("income_min_required"));
+        Integer income_min_required;
+        if (request.getParameter("income_min_required") == ""){
+            income_min_required = null;
+        } else{
+            income_min_required = Integer.valueOf(request.getParameter("income_min_required"));
+        }
+//        Integer income_max_required = Integer.valueOf(request.getParameter("income_max_required"));
+        Integer income_max_required;
+        if (request.getParameter("income_max_required") == ""){
+            income_max_required = null;
+        } else{
+            income_max_required = Integer.valueOf(request.getParameter("income_max_required"));
+        }
         String professionnal_situation_preferred = request.getParameter("psp");
         String familial_situation_preferred = request.getParameter("fsp");
 
