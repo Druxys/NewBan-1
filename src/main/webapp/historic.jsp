@@ -8,7 +8,7 @@
     SimpleDateFormat sdf = new SimpleDateFormat("d/M/Y H:m");
 %>
 
-<h1>Historique des prospections</h1>
+<h1 class="text-center">Historique des prospections</h1>
 <hr class="red lighten-5"/>
 <%--<c:forEach items="<%=app%>" var="res">--%>
 <%--    <table class="table">--%>
@@ -34,7 +34,7 @@
     </tbody>
     <%
             } } else {
-            out.println("Bonjour");
+            out.println("Historique des actions");
         }
     %>
 </table>
